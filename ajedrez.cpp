@@ -1,0 +1,1 @@
+#include "ajedrez.h"
