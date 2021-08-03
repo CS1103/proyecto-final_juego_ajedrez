@@ -10,9 +10,30 @@ class Pieza{
         
     public:
         string color;
+
         Pieza(string color) : color(color) {
 
         }
+        
+        bool CasillaPermitida(int columna_actual, int fila_actual,
+                              int columna_destino, int fila_destino, Pieza* tablero[8][8]){
+
+            Pieza* casillaDestino = tablero[columna_destino][fila_destino];
+
+            //Verificar si casilla destino esta vacia, si la ocupa una pieza de otro color, o si actual y destino son distintas
+            if(casillaDestino == nullptr || color != casillaDestino->color || (columna_destino != columna_actual && fila_destino != fila_actual) ) {
+                
+                //Verificar si la pieza puede moverse de esa manera
+                return MovimientoPermitido(columna_actual, fila_actual, columna_destino, fila_destino, tablero);
+            }
+            else {
+                return false;
+            }
+
+        }
+
+        virtual bool MovimientoPermitido(int columna_actual, int fila_actual, 
+                                         int columna_destino, int fila_destino, Pieza* tablero[8][8]) = 0;
 
         ~Pieza();
     
@@ -20,36 +41,87 @@ class Pieza{
 
 class Peon : public Pieza{
 
+    private:
+
+        bool movido = false;;
+
     public:
 
         Peon(string color) : Pieza(color) {
 
         };
+
+        bool MovimientoPermitido(int columna_actual, int fila_actual, 
+                                 int columna_destino, int fila_destino, Pieza* tablero[8][8]) {
+
+            Pieza* casillaDestino = tablero[columna_destino][fila_destino];
+
+            //Verificar si casilla de destino esta vacia
+            if(casillaDestino == nullptr) {
+                if(color == "Blanco") {
+                    //Verificar si peon se ha movido previamente, sino podra moverse 2 casillas
+                    if(!movido) {
+                        
+                        if(columna_actual + 1 == columna_destino  || columna_actual + 2 == columna_destino ) {
+                            return true;
+                        } else {
+                            return false;
+                        }
+
+                        movido = true;
+                    //Si ya se ha movido, solo podra moverse una casilla hacia adelante    
+                    } else if(movido) {
+                        if(columna_actual + 1 == columna_destino ) {
+                            return true;
+                        } else {
+                            return false;
+                        }
+                    }
+                    //De la misma forma para las negras pero en el sentido opuesto de las columnas
+                } 
+                else if(color == "Negro") {
+                    if(!movido) {
+                        if(columna_actual - 1 == columna_destino  || columna_actual - 2 == columna_destino ) {
+                            return true;
+                        } else {
+                            return false;
+                        }
+
+                        movido = true;
+                    } else if(movido) {
+                        if(columna_actual + 1 == columna_destino ) {
+                            return true;
+                        } else {
+                            return false;
+                        }
+                    }
+                }
+
+            } else if(color == "Blanco"){ 
+                //Verificar si el movimiento diagonal es el adecuado
+                if(columna_actual + 1 == columna_destino && fila_actual + 1 == fila_destino 
+                || columna_actual + 1 == columna_destino && fila_actual - 1 == fila_destino ) {
+                    //Come pieza en esa posicion
+                    return true;
+                } else {
+                    return false;
+                }
+            } else if(color == "Negro") {
+                //Igual pero para las negras
+                if(columna_actual -1 == columna_destino && fila_actual + 1 == fila_destino 
+                || columna_actual -1 == columna_destino && fila_actual - 1 == fila_destino ) {
+                    //Come pieza en esa posicion
+                    return true;
+                } else {
+                    return false;
+                }
+            } else {
+                return false;
+            }
+
+        };
+
         ~Peon();
-
-};
-
-
-class Rey : public Pieza{
-
-    public:
-
-        Rey(string color) : Pieza(color) {
-
-        };
-        ~Rey(){};    
-};
-
-
-
-class Alfil : public Pieza{
-
-    public:
-
-        Alfil(string color) : Pieza(color) {
-
-        };
-        ~Alfil();
 
 };
 
@@ -60,9 +132,50 @@ class Caballo : public Pieza{
         Caballo(string color) : Pieza(color) {
 
         };
+        bool MovimientoPermitido(int columna_actual, int fila_actual, 
+                                 int columna_destino, int fila_destino, Pieza* tablero[8][8]) {
+
+            if(columna_actual + 1 == columna_destino || columna_actual - 1 == columna_destino) {
+                if(fila_actual + 2 == fila_destino || fila_actual - 2 == fila_destino) {
+                    //Si hay pieza, come en esa posicion
+                    return true;
+                }
+
+            } else if(columna_actual + 2 == columna_destino || columna_actual - 2 == columna_destino) {
+                if(fila_actual + 1 == fila_destino || fila_actual - 1 == fila_destino) {
+                    //Si hay pieza, come en esa posicion
+                    return true;
+                }
+                
+            } else {
+                return false;
+            }
+
+        };
+
         ~Caballo();
 
 };
+
+
+class Alfil : public Pieza{
+
+    public:
+
+        Alfil(string color) : Pieza(color) {
+
+        };
+        bool MovimientoPermitido(int columna_actual, int fila_actual, 
+                                 int columna_destino, int fila_destino, Pieza* tablero[8][8]) {
+
+                                  
+
+        };
+        ~Alfil();
+
+};
+
+
 
 class Torre : public Pieza{
 
@@ -70,6 +183,10 @@ class Torre : public Pieza{
 
         Torre(string color) : Pieza(color) {
             
+        };
+        bool MovimientoPermitido(int columna_actual, int fila_actual, 
+                                 int columna_destino, int fila_destino, Pieza* tablero[8][8]) {
+
         };
         ~Torre();
 
@@ -82,9 +199,49 @@ class Dama : public Pieza{
         Dama(string color) : Pieza(color) {
             
         };
+        bool MovimientoPermitido(int columna_actual, int fila_actual, 
+                                 int columna_destino, int fila_destino, Pieza* tablero[8][8]) {
+
+        };
         ~Dama();
 
 };
+
+class Rey : public Pieza{
+
+    public:
+
+        Rey(string color) : Pieza(color) {
+
+        };
+        bool MovimientoPermitido(int columna_actual, int fila_actual, 
+                                 int columna_destino, int fila_destino, Pieza* tablero[8][8]) {
+
+            if(columna_actual + 1 == columna_destino || columna_actual - 1 == columna_destino) {
+                if(fila_actual -1 == fila_destino
+                || fila_actual == fila_destino
+                || fila_actual + 1 == fila_destino) {
+                    //if(!EsJaque)
+                    //Si hay pieza, come en esa posicion
+                    return true;
+                }
+            }else if(columna_actual == columna_destino) {
+                if(fila_actual -1 == fila_destino
+                || fila_actual + 1 == fila_destino) {
+                    //if(!EsJaque)
+                    //Si hay pieza, come en esa posicion
+                    return true;
+                }
+            }else {
+                return false;
+            }
+
+        };
+        
+
+        ~Rey(){};    
+};
+
 
 class Ajedrez{
     private:
@@ -122,8 +279,9 @@ class Ajedrez{
         };
 
         bool JuegoTerminado() {
-            //if jaqueMate || Ahogado
+            //if EnJaque || Ahogado
             // return true
+            //else return false
         }
 
 };
@@ -147,8 +305,6 @@ Jugador::~Jugador() {
 class Tablero {
         
     public:
-
-        
 
         Tablero(){
 
@@ -194,9 +350,6 @@ class Tablero {
         ~Tablero(){
         }
 };
-
-
-
 
 
 #endif
