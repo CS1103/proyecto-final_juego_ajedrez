@@ -6,10 +6,88 @@
 
 using namespace std;
 
+class Pieza{
+        
+    public:
+        string color;
+        Pieza(string color) : color(color) {
+
+        }
+
+        ~Pieza();
+    
+};
+
+class Peon : public Pieza{
+
+    public:
+
+        Peon(string color) : Pieza(color) {
+
+        };
+        ~Peon();
+
+};
+
+
+class Rey : public Pieza{
+
+    public:
+
+        Rey(string color) : Pieza(color) {
+
+        };
+        ~Rey(){};    
+};
+
+
+
+class Alfil : public Pieza{
+
+    public:
+
+        Alfil(string color) : Pieza(color) {
+
+        };
+        ~Alfil();
+
+};
+
+class Caballo : public Pieza{
+
+    public:
+
+        Caballo(string color) : Pieza(color) {
+
+        };
+        ~Caballo();
+
+};
+
+class Torre : public Pieza{
+
+    public:
+
+        Torre(string color) : Pieza(color) {
+            
+        };
+        ~Torre();
+
+};
+
+class Dama : public Pieza{
+
+    public:
+
+        Dama(string color) : Pieza(color) {
+            
+        };
+        ~Dama();
+
+};
 
 class Ajedrez{
     private:
-        Tablero tableroPartida;
         string turno_color;
     public:
         Ajedrez() : turno_color("Blanco"){
@@ -18,7 +96,7 @@ class Ajedrez{
 
         void IniciarJuego(){
             do {
-                MovimientoRealizado(tableroPartida.tablero);
+                MovimientoRealizado();
                 CambiarTurnos();
                 //Imprimir SFML
             }while(!JuegoTerminado());
@@ -33,7 +111,7 @@ class Ajedrez{
             }
         }
 
-        void MovimientoRealizado(Pieza* tablero[8][8]) {
+        void MovimientoRealizado() {
 
             bool movimientoValido;
 
@@ -70,13 +148,16 @@ class Tablero {
         
     public:
 
-        Pieza* tablero[8][8];
+        
 
         Tablero(){
 
+            Pieza* tablero[8][8];
+
+
             for(size_t i=0; i<8; i++) {
                 for(size_t j=0; j<8; j++) {
-                    tablero[i][j] = 0;
+                    tablero[i][j] = nullptr;
                 }
             }
 
@@ -111,106 +192,11 @@ class Tablero {
         }
 
         ~Tablero(){
-            for(size_t i=0; i<8; i++) {
-                for(size_t j=0; j<8; j++) {
-                    delete tablero[i][j];
-                }
-            }
         }
 };
 
 
-class Pieza{
 
-    protected:
-        string color;
-    public:
-        Pieza(string);
-        ~Pieza();
-    
-};
-
-Pieza::Pieza(string color) : color(color){
-
-};
-
-Pieza::~Pieza() {
-};
-
-
-
-class Peon : public Pieza{
-    protected:
-        string color;
-
-    public:
-        Peon(string color) : Pieza(color) {
-
-        };
-        ~Peon();
-
-};
-
-
-class Rey : public Pieza{
-    protected:
-        string color;
-    public:
-        Rey(string color) : Pieza(color) {
-
-        };
-        ~Rey(){};    
-};
-
-
-
-class Alfil : public Pieza{
-    protected:
-        string color;
-
-    public:
-        Alfil(string color) : Pieza(color) {
-
-        };
-        ~Alfil();
-
-};
-
-class Caballo : public Pieza{
-    protected:
-        string color;
-
-    public:
-        Caballo(string color) : Pieza(color) {
-
-        };
-        ~Caballo();
-
-};
-
-class Torre : public Pieza{
-    protected:
-        string color;
-
-    public:
-        Torre(string color) : Pieza(color) {
-            
-        };
-        ~Torre();
-
-};
-
-class Dama : public Pieza{
-    protected:
-        string color;
-
-    public:
-        Dama(string color) : Pieza(color) {
-            
-        };
-        ~Dama();
-
-};
 
 
 #endif
