@@ -27,7 +27,7 @@ Nuestra objetivo principal es ofrecer horas de entretenimiento a nuestros usuari
  
 * [C++](https://devdocs.io/cpp/) - Lenguaje de programacion utilizado
 * [SFML](https://www.sfml-dev.org/index.php) - Libreria multimedia utilizada
-* 
+* [Clion](https://www.jetbrains.com/es-es/clion/) - IDE Utilizada
 
  
  
