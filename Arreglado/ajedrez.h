@@ -62,7 +62,7 @@ class Peon : public Pieza{
                     //Verificar si peon se ha movido previamente, sino podra moverse 2 casillas
                     if(!movido) {
                         
-                        if(columna_actual + 1 == columna_destino  || columna_actual + 2 == columna_destino ) {
+                        if(columna_actual + 1 == columna_destino  || (columna_actual + 2 == columna_destino && tablero[columna_actual+1][fila_actual] == nullptr)) {
                             return true;
                         } else {
                             return false;
@@ -81,7 +81,7 @@ class Peon : public Pieza{
                 } 
                 else if(color == "Negro") {
                     if(!movido) {
-                        if(columna_actual - 1 == columna_destino  || columna_actual - 2 == columna_destino ) {
+                        if(columna_actual - 1 == columna_destino  || (columna_actual - 2 == columna_destino && tablero[columna_actual+1][fila_actual] == nullptr) ) {
                             return true;
                         } else {
                             return false;
@@ -168,7 +168,15 @@ class Alfil : public Pieza{
         bool MovimientoPermitido(int columna_actual, int fila_actual, 
                                  int columna_destino, int fila_destino, Pieza* tablero[8][8]) {
 
-                                  
+            bool camino_despejado = true;                         
+
+            for(int i=columna_actual, j=fila_actual; i<columna_destino && j<fila_destino; i++, j++) {
+                if (tablero[i][j] != nullptr) {
+					    camino_despejado = false;
+                    }
+            }                
+
+            return camino_despejado;                 
 
         };
         ~Alfil();
@@ -187,6 +195,25 @@ class Torre : public Pieza{
         bool MovimientoPermitido(int columna_actual, int fila_actual, 
                                  int columna_destino, int fila_destino, Pieza* tablero[8][8]) {
 
+            bool camino_despejado = true;                         
+
+            if(columna_actual == columna_destino) {
+                for(int j = fila_actual; j < fila_destino; j++) {
+                    if (tablero[columna_actual][j] != nullptr) {
+					    camino_despejado = false;
+                    }
+				}
+                
+            }else if(fila_actual == fila_destino)   {
+                for(int i = columna_actual; i < columna_destino; i++) {
+                    if (tablero[i][fila_actual] != nullptr) {
+					    camino_despejado = false;
+                    }
+				}
+            }
+
+            return camino_despejado;                   
+
         };
         ~Torre();
 
@@ -201,6 +228,33 @@ class Dama : public Pieza{
         };
         bool MovimientoPermitido(int columna_actual, int fila_actual, 
                                  int columna_destino, int fila_destino, Pieza* tablero[8][8]) {
+
+            bool camino_despejado = true;                         
+
+            if(columna_actual == columna_destino) {
+                for(int j = fila_actual; j < fila_destino; j++) {
+                    if (tablero[columna_actual][j] != nullptr) {
+					    camino_despejado = false;
+                    }
+				}
+                
+            }else if(fila_actual == fila_destino)   {
+                for(int i = columna_actual; i < columna_destino; i++) {
+                    if (tablero[i][fila_actual] != nullptr) {
+					    camino_despejado = false;
+                    }
+				}
+            }else{
+                for(int i=columna_actual, j=fila_actual; i<columna_destino && j<fila_destino; i++, j++) {
+                    if (tablero[i][j] != nullptr) {
+                            camino_despejado = false;
+                        }
+            }      
+
+
+            }
+
+            return camino_despejado;                             
 
         };
         ~Dama();
