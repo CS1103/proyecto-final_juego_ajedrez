@@ -25,7 +25,7 @@ Nuestra objetivo principal es ofrecer horas de entretenimiento a nuestros usuari
 
 
 
-### Diagrama de clases
+### Diagrama de clases 🧩
 
 Clases:
 Pieza, Peon, Alfil, Caballo, Torre, Dama y Rey.
