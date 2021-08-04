@@ -12,16 +12,10 @@
 El proyecto es un juego de ajedrez con interfaz grafica en donde el jugador se enfrenta a una CPU.
 
  
-## Objetivos principales 📜
+## Objetivos principal 📜
  
-### Misión  📃
- 
- 
-Nuestra misión es ofrecer horas de entretenimiento a nuestros usuarios.
+Nuestra objetivo principal es ofrecer horas de entretenimiento a nuestros usuarios.
 
-### Visión 👀
- 
-Nuestra vision es dejar de lado el papel y que todo el mundo pueda tener acceso a una herramienta sencilla para organizar objetos del hogar.
 
 ### Diagrama de clases
 
