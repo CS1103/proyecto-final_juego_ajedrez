@@ -5,6 +5,7 @@
 #include <iostream>
 
 using namespace std;
+//[columna][fila]
 
 class Pieza{
         
@@ -15,7 +16,7 @@ class Pieza{
 
         }
         
-        bool CasillaPermitida(int columna_actual, int fila_actual,
+        bool MovimientoLegal(int columna_actual, int fila_actual,
                               int columna_destino, int fila_destino, Pieza* tablero[8][8]){
 
             Pieza* casillaDestino = tablero[columna_destino][fila_destino];
@@ -297,8 +298,58 @@ class Rey : public Pieza{
 };
 
 
+class Tablero {
+        
+    public:
+        Pieza* tablero[8][8];
+
+        Tablero(){
+
+
+            for(size_t i=0; i<8; i++) {
+                for(size_t j=0; j<8; j++) {
+                    tablero[i][j] = nullptr;
+                }
+            }
+
+            //Piezas blancas
+            for(size_t j=0; j<8; j++) {
+            tablero[j][1] = new Peon("Blanco");
+            }
+
+            tablero[0][0] = new Torre("Blanco");
+            tablero[1][0] = new Caballo("Blanco");
+            tablero[2][0] = new Alfil("Blanco");
+            tablero[3][0] = new Dama("Blanco");
+            tablero[4][0] = new Rey("Blanco");
+            tablero[5][0] = new Alfil("Blanco");
+            tablero[6][0] = new Caballo("Blanco");
+            tablero[7][0] = new Torre("Blanco");
+
+            //Piezas negras
+            for(size_t j=0; j<8; j++) {
+            tablero[j][6] = new Peon("Negro");
+            }
+
+            tablero[0][7] = new Torre("Negro");
+            tablero[1][7] = new Caballo("Negro");
+            tablero[2][7] = new Alfil("Negro");
+            tablero[3][7] = new Dama("Negro");
+            tablero[4][7] = new Rey("Negro");
+            tablero[5][7] = new Alfil("Negro");
+            tablero[7][7] = new Caballo("Negro");
+            tablero[7][7] = new Torre("Negro");
+
+        }
+
+        ~Tablero(){
+        }
+};
+
+
 class Ajedrez{
     private:
+        Tablero tablero_actual;
         string turno_color;
     public:
         Ajedrez() : turno_color("Blanco"){
@@ -307,7 +358,7 @@ class Ajedrez{
 
         void IniciarJuego(){
             do {
-                MovimientoRealizado();
+                MovimientoRealizado(tablero_actual.tablero);
                 CambiarTurnos();
                 //Imprimir SFML
             }while(!JuegoTerminado());
@@ -322,12 +373,30 @@ class Ajedrez{
             }
         }
 
-        void MovimientoRealizado() {
+        void MovimientoRealizado(Pieza* tablero[8][8]) {
 
             bool movimientoValido;
 
             do{
-                //moverPiezas
+
+                //Input
+                int columna_actual;
+                int fila_actual;
+
+                int columna_destino;
+                int fila_destino;
+                //
+
+                movimientoValido = false;
+
+                Pieza* pieza_actual = tablero[columna_actual][fila_actual];
+                
+
+                if(pieza_actual->MovimientoLegal(columna_actual, fila_actual, columna_destino, fila_destino, tablero)) {
+                    //Movimiento de piezas
+                    movimientoValido = true;
+                }
+
             }while(!movimientoValido);
             
         };
@@ -335,7 +404,8 @@ class Ajedrez{
         bool JuegoTerminado() {
             //if EnJaque || Ahogado
             // return true
-            //else return false
+            //else
+            return false;
         }
 
 };
@@ -356,54 +426,6 @@ Jugador::Jugador(string nombre, string color)
 Jugador::~Jugador() {
 };
 
-class Tablero {
-        
-    public:
-
-        Tablero(){
-
-            Pieza* tablero[8][8];
-
-
-            for(size_t i=0; i<8; i++) {
-                for(size_t j=0; j<8; j++) {
-                    tablero[i][j] = nullptr;
-                }
-            }
-
-            //Piezas blancas
-            for(size_t j=0; j<8; j++) {
-            tablero[1][j] = new Peon("Blanco");
-            }
-
-            tablero[0][0] = new Torre("Blanco");
-            tablero[0][1] = new Caballo("Blanco");
-            tablero[0][2] = new Alfil("Blanco");
-            tablero[0][3] = new Dama("Blanco");
-            tablero[0][4] = new Rey("Blanco");
-            tablero[0][5] = new Alfil("Blanco");
-            tablero[0][6] = new Caballo("Blanco");
-            tablero[0][7] = new Torre("Blanco");
-
-            //Piezas negras
-            for(size_t j=0; j<8; j++) {
-            tablero[6][j] = new Peon("Negro");
-            }
-
-            tablero[7][0] = new Torre("Negro");
-            tablero[7][1] = new Caballo("Negro");
-            tablero[7][2] = new Alfil("Negro");
-            tablero[7][3] = new Dama("Negro");
-            tablero[7][4] = new Rey("Negro");
-            tablero[7][5] = new Alfil("Negro");
-            tablero[7][6] = new Caballo("Negro");
-            tablero[7][7] = new Torre("Negro");
-
-        }
-
-        ~Tablero(){
-        }
-};
 
 
 #endif
