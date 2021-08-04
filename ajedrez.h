@@ -1,209 +1,420 @@
-#ifndef AJEDREZ_H
-#define AJEDREZ_H
 
+#ifndef CHESS_AJEDREZ_H
+#define CHESS_AJEDREZ_H
 #include <string>
 #include <iostream>
 #include <unordered_map>
+#include <SFML/Graphics.hpp>
+#include "Connector.hpp"
 
 using namespace std;
-
-class Jugador{
-    private:
-        string nombre;
-        bool blancas;
-        bool negras;
-        bool turno;
-    public:
-        Jugador(string, bool, bool, bool);
-        ~Jugador();
-};
-
-Jugador::Jugador(string nombre, bool blancas, bool negras, bool turno) 
-                : nombre(nombre), blancas(blancas), negras(negras), turno(turno) {
-};
-
-Jugador::~Jugador() {
-};
-
+using namespace sf;
 
 class Pieza{
+protected:
+    pair<int, int> position;
+    pair<int, int> next_position;
+    bool pieceColor;
+    bool wasMove = false;
+    bool alive = true;
+    Sprite pieza;
+public:
 
-    protected:
-        pair<int, int> position;
-        pair<int, int> next_position;
-        bool blanca;
-        bool negra;
-        bool selected;
-        bool movido;
-    public:
-        Pieza(pair<int, int>, pair<int, int>, bool, bool, bool);
-        ~Pieza();
-        virtual void move(pair<int, int>, pair<int, int>, bool);
-    
-};
+    Pieza(pair<int, int> position, pair<int, int> next_position, bool pieceColor,bool wasMove, Sprite pieza) : position(position), next_position(next_position), pieceColor(pieceColor),wasMove(wasMove), pieza(pieza){}
+    ~Pieza() {};
 
-Pieza::Pieza(pair<int, int> position, pair<int, int> next_position, bool blanca, bool negra, bool selected) 
-            : position(position), next_position(next_position), blanca(blanca), negra(negra), selected(selected) {
-
-};
-
-Pieza::~Pieza() {
-};
-
-void Pieza::move(pair<int, int> position, pair<int, int> next_position, bool movido) {
-    this->position;
-    this->movido;
-    position = next_position;
-    movido = 1;
-};
-
-struct pair_hash {
-    template <class T1, class T2>
-    size_t operator () (const pair<T1,T2> &p) const {
-        auto h1 = hash<T1>{}(p.first);
-        auto h2 = hash<T2>{}(p.second);
-
-        return h1 ^ h2;  
+    void setSprite(Sprite _peon){
+        pieza = _peon;
     }
+    void setX(int _x){
+        position.first = _x;
+    }
+    void setY(int _y){
+        position.second = _y;
+    }
+    void setXNPos(int _x){
+        next_position.first = _x;
+
+    }
+    void setYNPos(int _y){
+        next_position.second = _y;
+
+    }
+    void setWasMove(bool _wasMove){
+        wasMove = _wasMove;
+    }
+    void setAlive(bool _alive){
+        alive = _alive;
+    }
+
+    int getX(){
+        return position.first;
+    }
+    int getY(){
+        return position.second;
+    }
+    bool getWasMove(){
+        return wasMove;
+    }
+    bool getAlive(){
+        return alive;
+    }
+
+    virtual bool MovimientoPermitido(Sprite todasPiezas) = 0;
+
 };
-
-
-/*
-class Tablero{
-    private:
-
-};
-
-*/
-
-unordered_map <pair<int,int>,Pieza*> tablero;
 
 
 class Peon : public Pieza{
+    bool firstMove = true;
+public:
 
-    private:
-        bool movido;
+    Peon(pair<int, int> position, pair<int, int> next_position, bool pieceColor, bool wasMove, Sprite pieza) : Pieza(position, next_position, pieceColor,wasMove, pieza) {};
+    ~Peon() {};
+    //cout<<"OColumn: "<<(oldPos.x/56)<< "  :  "<<"OFill: "<<7-(oldPos.y/56)<<endl;
+    //cout<<"DColumn: "<<(newPos.x/56)<< "  :  "<<"DFill: "<<7-(newPos.y/56)<<endl;
+    bool MovimientoPermitido(Sprite todasPiezas){
 
-    public:
-        Peon(pair<int, int>, pair<int, int>, bool, bool, bool);
-        ~Peon();
-        bool movimiento_permitido_peon();
-        //void move(pair<int, int>, pair<int, int>, bool); 
+        int column_o =  position.first/56;
+        int fill_o = 7-(position.second/56);
+        int column_d =  next_position.first/56;
+        int fill_d = 7-(next_position.second/56);
 
-};
+        //cout<<"OColumn: "<<(position.first/56)<< "  :  "<<"OFill: "<<7-(position.second/56)<<endl;
+        //cout<<"DColumn: "<<(next_position.first/56)<< "  :  "<<"DFill: "<<7-(next_position.second/56)<<endl;
 
+        if (pieceColor == true){
 
-Peon::Peon(pair<int, int> position, pair<int, int> next_position, bool blanca, bool negra, bool selected) 
-            : Pieza(position, next_position, blanca, negra, selected) {
+            if (firstMove){
+                if ((fill_o + 1 == fill_d or fill_o + 2 == fill_d) and column_d == column_o ){
+                    firstMove = false;
+                    position.first = next_position.first;
+                    position.second = next_position.second;
+                    return true;
+                }else{
+                    return false;
+                }
+            }else{
+                if ((fill_o + 1 == fill_d) and column_d == column_o ){
+                    position.first = next_position.first;
+                    position.second = next_position.second;
+                    return true;
+                }else{
+                    return false;
+                }
+            }
 
-};
-
-Peon::~Peon() {
-};
-
-bool Peon::movimiento_permitido_peon(){
-
-    if(next_position.first == position.first + 2 && !movido) { //&& next_position empty
-        return true;
+        }else{
+            if (firstMove){
+                if ((fill_o - 1 == fill_d or fill_o - 2 == fill_d) and column_d == column_o ){
+                    firstMove = false;
+                    position.first = next_position.first;
+                    position.second = next_position.second;
+                    return true;
+                }else{
+                    return false;
+                }
+            }else{
+                if ((fill_o - 1 == fill_d) and column_d == column_o ){
+                    position.first = next_position.first;
+                    position.second = next_position.second;
+                    return true;
+                }else{
+                    return false;
+                }
+            }
+        }
     }
-    else if(next_position.first == position.first + 1) { //&& next_position empty
-        return true;
+    bool casillaValida(int anaX, int anaY){
+        int column_o =  position.first/56;
+        int fill_o = 7-(position.second/56);
+        int column_d =  anaX/56;
+        int fill_d = 7-(anaY/56);
+
+        if (pieceColor == true){
+
+            if (firstMove){
+                if ((fill_o + 1 == fill_d or fill_o + 2 == fill_d) and column_d == column_o ){
+                    firstMove = false;
+
+                    return true;
+                }else{
+                    return false;
+                }
+            }else{
+                if ((fill_o + 1 == fill_d) and column_d == column_o ){
+
+                    return true;
+                }else{
+                    return false;
+                }
+            }
+
+        }else{
+            if (firstMove){
+                if ((fill_o - 1 == fill_d or fill_o - 2 == fill_d) and column_d == column_o ){
+                    firstMove = false;
+                    position.first = next_position.first;
+                    position.second = next_position.second;
+                    return true;
+                }else{
+                    return false;
+                }
+            }else{
+                if ((fill_o - 1 == fill_d) and column_d == column_o ){
+
+                    return true;
+                }else{
+                    return false;
+                }
+            }
+        }
     }
-    else {
-        return false;
-    } 
-};
 
-/*
-void Peon::move(pair<int, int> position, pair<int, int> next_position, bool) {
-    this->position;
-    position = next_position;
-    movido = 1;
-};
-*/
-
-class Alfil : public Pieza{
-
-    public:
-        Alfil(pair<int, int>, pair<int, int>, bool, bool, bool);
-        ~Alfil();
-        void movimiento_permitido_alfil();
-
-};
-
-Alfil::Alfil(pair<int, int> position, pair<int, int> next_position, bool blanca, bool negra, bool selected) 
-            : Pieza(position, next_position, blanca, negra, selected) {
-
-};
-
-Alfil::~Alfil() {
-};
-
-
-
-
+};// Parcial (Comer en diagonal)
 class Caballo : public Pieza{
 
-    public:
-        Caballo(pair<int, int>, pair<int, int>, bool, bool, bool);
-        ~Caballo();
-    
-};
+public:
+    Caballo(pair<int, int> position, pair<int, int> next_position, bool pieceColor, bool wasMove, Sprite pieza) : Pieza(position, next_position, pieceColor,wasMove, pieza) {};
+    ~Caballo() {};
 
-Caballo::Caballo(pair<int, int> position, pair<int, int> next_position, bool blanca, bool negra, bool selected) 
-            : Pieza(position, next_position, blanca, negra, selected) {
+    bool MovimientoPermitido(Sprite todasPiezas){
+        int column_o =  position.first/56;
+        int fill_o = 7-(position.second/56);
+        int column_d =  next_position.first/56;
+        int fill_d = 7-(next_position.second/56);
 
-};
+        cout<<"OColumn: "<<(position.first/56)<< "  :  "<<"OFill: "<<7-(position.second/56)<<endl;
+        cout<<"DColumn: "<<(next_position.first/56)<< "  :  "<<"DFill: "<<7-(next_position.second/56)<<endl;
 
-Caballo::~Caballo() {
-};
+        if (column_o + 2 == column_d and (fill_o + 1 == fill_d or fill_o == fill_d - 1)){
+            position.first = next_position.first;
+            position.second = next_position.second;
+            return true;
+        } else if (fill_o + 2 == fill_d and (column_o + 1 == column_d or column_o - 1== column_d)){
+            position.first = next_position.first;
+            position.second = next_position.second;
+            return true;
+        }else if((column_o-2==column_d or column_d-2==column_o)and(fill_o-1==fill_d)){
+            position.first = next_position.first;
+            position.second = next_position.second;
+            return true;
+        }else if (column_o-2==column_d and fill_d-1==fill_o){
+            position.first = next_position.first;
+            position.second = next_position.second;
+            return true;
+        }else if (fill_o-2==fill_d and (column_d-1==column_o or column_o-1 == column_d)){
+            position.first = next_position.first;
+            position.second = next_position.second;
+            return true;
+        }else{
+            return false;
+        }
+    }
 
+    bool casillaValida(int anaX, int anaY){
+        int column_o =  position.first/56;
+        int fill_o = 7-(position.second/56);
+        int column_d =  anaX/56;
+        int fill_d = 7-(anaY/56);
+
+
+        if (column_o + 2 == column_d and (fill_o + 1 == fill_d or fill_o == fill_d - 1)){
+
+            return true;
+        } else if (fill_o + 2 == fill_d and (column_o + 1 == column_d or column_o - 1== column_d)){
+
+            return true;
+        }else if((column_o-2==column_d or column_d-2==column_o)and(fill_o-1==fill_d)){
+
+            return true;
+        }else if (column_o-2==column_d and fill_d-1==fill_o){
+
+            return true;
+        }else if (fill_o-2==fill_d and (column_d-1==column_o or column_o-1 == column_d)){
+
+            return true;
+        }else{
+            return false;
+        }
+    }
+
+}; // Completo
+class Alfil : public Pieza{
+
+public:
+
+    Alfil(pair<int, int> position, pair<int, int> next_position, bool pieceColor, bool wasMove, Sprite pieza) : Pieza(position, next_position, pieceColor,wasMove, pieza) {};
+    ~Alfil() {};
+
+    bool MovimientoPermitido(Sprite todasPiezas){
+        int column_o =  position.first/56;
+        int fill_o = 7-(position.second/56);
+        int column_d =  next_position.first/56;
+        int fill_d = 7-(next_position.second/56);
+
+        cout<<"OColumn: "<<(position.first/56)<< "  :  "<<"OFill: "<<7-(position.second/56)<<endl;
+        cout<<"DColumn: "<<(next_position.first/56)<< "  :  "<<"DFill: "<<7-(next_position.second/56)<<endl;
+
+        if(abs(column_d-column_o)==abs(fill_d-fill_o)){
+            position.first = next_position.first;
+            position.second = next_position.second;
+            return true;
+        }else{
+            return false;
+        }
+    }
+
+    bool casillaValida(int anaX, int anaY){
+        int column_o =  position.first/56;
+        int fill_o = 7-(position.second/56);
+        int column_d =  anaX/56;
+        int fill_d = 7-(anaY/56);
+
+
+        if(abs(column_d-column_o)==abs(fill_d-fill_o)){
+
+            return true;
+        }else{
+            return false;
+        }
+    }
+
+}; // Completo
 class Torre : public Pieza{
 
-    public:
-        Torre(pair<int, int>, pair<int, int>, bool, bool, bool);
-        ~Torre();
-    
-};
+public:
 
-Torre::Torre(pair<int, int> position, pair<int, int> next_position, bool blanca, bool negra, bool selected) 
-            : Pieza(position, next_position, blanca, negra, selected) {
+    Torre(pair<int, int> position, pair<int, int> next_position, bool pieceColor, bool wasMove, Sprite pieza) : Pieza(position, next_position, pieceColor,wasMove, pieza) {};
+    ~Torre() {};
 
-};
+    bool MovimientoPermitido(Sprite todasPiezas){
+        int column_o =  position.first/56;
+        int fill_o = 7-(position.second/56);
+        int column_d =  next_position.first/56;
+        int fill_d = 7-(next_position.second/56);
 
-Torre::~Torre() {
-};
+        cout<<"OColumn: "<<(position.first/56)<< "  :  "<<"OFill: "<<7-(position.second/56)<<endl;
+        cout<<"DColumn: "<<(next_position.first/56)<< "  :  "<<"DFill: "<<7-(next_position.second/56)<<endl;
+        if (column_o == column_d or fill_d == fill_o){
+            position.first = next_position.first;
+            position.second = next_position.second;
+            return true;
+        }else{
+            return false;
+        }
+    }
+
+    bool casillaValida(int anaX, int anaY){
+        int column_o =  position.first/56;
+        int fill_o = 7-(position.second/56);
+        int column_d =  anaX/56;
+        int fill_d = 7-(anaY/56);
 
 
+        if (column_o == column_d or fill_d == fill_o){
+
+            return true;
+        }else{
+            return false;
+        }
+    }
+
+};// Completo
 class Dama : public Pieza{
 
-    public:
-        Dama(pair<int, int>, pair<int, int>, bool, bool, bool);
-        ~Dama();
-    
-};
+public:
 
-Dama::Dama(pair<int, int> position, pair<int, int> next_position, bool blanca, bool negra, bool selected) 
-            : Pieza(position, next_position, blanca, negra, selected) {
+    Dama(pair<int, int> position, pair<int, int> next_position, bool pieceColor, bool wasMove, Sprite pieza) : Pieza(position, next_position, pieceColor,wasMove, pieza) {};
+    ~Dama() {};
 
-};
+    bool MovimientoPermitido(Sprite todasPiezas) {
+        int column_o = position.first / 56;
+        int fill_o = 7 - (position.second / 56);
+        int column_d = next_position.first / 56;
+        int fill_d = 7 - (next_position.second / 56);
 
-Dama::~Dama() {
-};
+        cout << "OColumn: " << (position.first / 56) << "  :  " << "OFill: " << 7 - (position.second / 56) << endl;
+        cout << "DColumn: " << (next_position.first / 56) << "  :  " << "DFill: " << 7 - (next_position.second / 56)
+             << endl;
+        if (abs(column_d - column_o) == abs(fill_d - fill_o)) {
+            position.first = next_position.first;
+            position.second = next_position.second;
+            return true;
+        } else if (column_o == column_d or fill_d == fill_o){
+            position.first = next_position.first;
+            position.second = next_position.second;
+            return true;
+        } else if ((column_o == column_d or column_d + 1 == column_o or column_o + 1 == column_d) and
+                   (fill_o == fill_d or fill_d + 1 == fill_o or fill_o + 1 == fill_d)) {
+            position.first = next_position.first;
+            position.second = next_position.second;
+            return true;
+        } else {
+            return false;
+        }
+    }
 
+    bool casillaValida(int anaX, int anaY){
+        int column_o = position.first / 56;
+        int fill_o = 7 - (position.second / 56);
+        int column_d =  anaX/56;
+        int fill_d = 7-(anaY/56);
+
+        if (abs(column_d - column_o) == abs(fill_d - fill_o)) {
+
+            return true;
+        } else if (column_o == column_d or fill_d == fill_o){
+
+            return true;
+        } else if ((column_o == column_d or column_d + 1 == column_o or column_o + 1 == column_d) and
+                   (fill_o == fill_d or fill_d + 1 == fill_o or fill_o + 1 == fill_d)) {
+
+            return true;
+        } else {
+            return false;
+        }
+    }
+}; // Completo
 class Rey : public Pieza{
 
-    public:
-        Rey(pair<int, int>, pair<int, int>, bool, bool, bool);
-        ~Rey();
-    
-};
+public:
 
-Rey::Rey(pair<int, int> position, pair<int, int> next_position, bool blanca, bool negra, bool selected) 
-            : Pieza(position, next_position, blanca, negra, selected) {
+    Rey(pair<int, int> position, pair<int, int> next_position, bool pieceColor, bool wasMove, Sprite pieza) : Pieza(position, next_position, pieceColor,wasMove, pieza) {};
+    ~Rey() {};
 
-};
-Rey::~Rey() {
-};
+    bool MovimientoPermitido(Sprite todasPiezas){
+        int column_o =  position.first/56;
+        int fill_o = 7-(position.second/56);
+        int column_d =  next_position.first/56;
+        int fill_d = 7-(next_position.second/56);
 
-#endif
+        cout<<"OColumn: "<<(position.first/56)<< "  :  "<<"OFill: "<<7-(position.second/56)<<endl;
+        cout<<"DColumn: "<<(next_position.first/56)<< "  :  "<<"DFill: "<<7-(next_position.second/56)<<endl;
+        if((column_o==column_d or column_d + 1 == column_o or column_o+1==column_d)and(fill_o ==fill_d or fill_d+1==fill_o or fill_o+1==fill_d)){
+            position.first = next_position.first;
+            position.second = next_position.second;
+            return true;
+        }else{
+            return false;
+        }
+    }
+    bool casillaValida(int anaX, int anaY){
+        int column_o =  position.first/56;
+        int fill_o = 7-(position.second/56);
+        int column_d =  anaX/56;
+        int fill_d = 7-(anaY/56);
+
+
+        if((column_o==column_d or column_d + 1 == column_o or column_o+1==column_d)and(fill_o ==fill_d or fill_d+1==fill_o or fill_o+1==fill_d)){
+
+            return true;
+        }else{
+            return false;
+        }
+    }
+}; // Completo
+
+
+
+#endif //CHESS_AJEDREZ_H
