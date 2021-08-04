@@ -1,1 +1,42 @@
-[![Work in Repl.it](https://classroom.github.com/assets/work-in-replit-14baed9a392b3a25080506f3b7b6d57f295ec2978f6f33ec97e36a161684cbe9.svg)](https://classroom.github.com/online_ide?assignment_repo_id=432680&assignment_repo_type=GroupAssignmentRepo)
+# Chess ♟️
+ 
+## Autores ✒️
+* **Fernando Guillen**
+* **Aaron Santamaria** 
+* **Renzo Fernandez** 
+* **Julian Mujica** 
+ 
+ 
+## Descripción del proyecto 💬
+
+El proyecto es un juego de ajedrez con interfaz grafica en donde el jugador se enfrenta a una CPU.
+
+ 
+## Objetivos principales 📜
+ 
+### Misión  📃
+ 
+ 
+Nuestra misión es ofrecer horas de entretenimiento a nuestros usuarios.
+
+### Visión 👀
+ 
+Nuestra vision es dejar de lado el papel y que todo el mundo pueda tener acceso a una herramienta sencilla para organizar objetos del hogar.
+
+### Diagrama de clases
+
+ 
+## Tecnologias utilizadas 🛠️⚙️
+ 
+* [C++](https://devdocs.io/cpp/) - Lenguaje de programacion utilizado
+* [SFML](https://www.sfml-dev.org/index.php) - Libreria multimedia utilizada
+* 
+ 
+ 
+## Despliegue 💨
+ 
+Ejecutar el archivo [main.cpp](https://github.com/CS1103/proyecto-final-grupo_juego_ajedrez/blob/main/main.cpp) despues de haber instalado correctamente la libreria multimedia SFML.
+ 
+ 
+
+
