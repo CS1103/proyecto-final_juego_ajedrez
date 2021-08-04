@@ -4,7 +4,7 @@
 
  
 ## Autores ✒️
-| <a target="_blank">**Fernando Guillen**</a> | <a target="_blank">**Aaron Santamaria**</a> | <a target="_blank">**Renzo Fernandez**</a> |<a target="_blank">**Julian Mujica**</a> |
+| <a target="_blank">**Fernando Guillen**</a> | <a target="_blank">**Aaron Santamaria**</a> | <a target="_blank">**Julian Mujica**</a> |<a target="_blank">**Renzo Fernandez**</a> |
 | :---: | :---:| :---:| :---:|
 | ![Fernando](https://avatars.githubusercontent.com/u/66321787) | ![Aaron](https://avatars.githubusercontent.com/u/83294705?v=3&s=150) | ![Julian](https://avatars.githubusercontent.com/u/63757024?v=3&s=150) | ![Renzo](https://avatars2.githubusercontent.com/u/55298493) |
 | <a href="https://github.com/FernandoGuillenR" target="_blank">`github.com/FernandoGuillenR`</a> | <a href="https://github.com/AronSantamaria" target="_blank">`github.com/AronSantamaria`</a> | <a href="https://github.com/julianmgm" target="_blank">`github.com/julianmgm`</a> |<a href="" target="_blank">`github.com/Renzo`</a> |
