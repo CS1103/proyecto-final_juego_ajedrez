@@ -23,6 +23,7 @@ public:
     cpu_player(bool _loss){
         loss = _loss;
     }
+
     deque<pair<int,int>> posibilidadesDePeon(Peon _peonA){
         deque<pair<int,int>> where;
         for (int i = 0; i < 8; ++i) {
@@ -35,6 +36,7 @@ public:
                 }
             }
         }
+
         return where;
     }
     deque<pair<int,int>> posibilidadesDeTorre(Torre _torreA){
@@ -93,7 +95,7 @@ public:
         }
         return where;
     }
-    deque<pair<int,int>> posibiliadesDeRey(Rey _reyA){
+    deque<pair<int,int>> posibilidadesDeRey(Rey _reyA){
         deque<pair<int,int>> where;
         for (int i = 0; i < 8; ++i) {
             for (int j = 0; j < 8; ++j) {

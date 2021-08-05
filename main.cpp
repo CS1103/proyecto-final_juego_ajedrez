@@ -9,7 +9,6 @@
 using namespace std;
 using namespace sf;
 
-
 int size = 56;
 Vector2f offset(28,28);
 
@@ -83,6 +82,9 @@ void whatClassIs(T t){
 
 
 int main(){
+    //      Cramos el vector con posiciones actualizadas;
+    vector<pair<int,int>> matrix;
+
     //      Se crea la ventana
     RenderWindow window(VideoMode(504, 504), "Chess");
 
@@ -143,6 +145,7 @@ int main(){
     Rey rey2({f[3].getPosition().x,f[3].getPosition().y}, {f[3].getPosition().x,f[3].getPosition().y}, 0, false, f[3]);
 
 
+
     bool isMove=false;
     float dx=0, dy=0;
     Vector2f oldPos,newPos;
@@ -151,12 +154,12 @@ int main(){
     int n=0;
 
     cout<<"----"<<endl;
-    auto dequex = cpup.posibilidadesDeTorre(torre1);
+    auto dequex = cpup.posibilidadesDeTorre();
     cout<<"Tamanio: "<<dequex.size()<<endl;
+
     for (int i = 0; i < dequex.size(); ++i) {
         cout<<dequex[i].first<<" "<<dequex[i].second<<endl;
     }
-
 
     while (window.isOpen()){
         Vector2i pos = Mouse::getPosition(window) - Vector2i(offset);
@@ -583,8 +586,6 @@ int main(){
         for(int i=0;i<32;i++){
             f[i].move(-offset);
         }
-
-        //peon1.setWasMove(false);
 
 
         //      Efectuar cambios
