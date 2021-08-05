@@ -372,6 +372,9 @@ int main(){
         cout<<dequex[i].first<<" "<<dequex[i].second<<endl;
     }
     */
+    bool removido = false;
+    auto positionRemove = newPos;
+    int whatPiece = 0;
 
     while (window.isOpen()){
         Vector2i pos = Mouse::getPosition(window) - Vector2i(offset);
@@ -425,9 +428,12 @@ int main(){
                                 if (matrix[newPos.x+newPos.y/56].first == 0  and matrix[newPos.x+newPos.y/56].second == -1){
                                     f[n].setPosition(newPos);
                                 }else{
+                                    removido = true;
+                                    positionRemove = newPos;
                                     switch(matrix[(newPos.x/56)+((newPos.y/56)*8)].second){
                                         case 1:
                                             caballo3.setAlive(false);
+                                            whatPiece = 1;
                                             break;
                                         case 2:
                                             alfil3.setAlive(false);
@@ -4076,6 +4082,10 @@ int main(){
             cout<<"Gano BLANCAS"<<endl;
             window.close();
         }
+
+        //      Ficha borrada detectada
+
+
 
 
         //      Animacion de arastrar
