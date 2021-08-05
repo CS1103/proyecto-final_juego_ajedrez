@@ -5,6 +5,7 @@
 #include "Connector.hpp"
 #include "ajedrez.h"
 #include "cpu_player.h"
+#include "jugador.h"
 
 using namespace std;
 using namespace sf;
@@ -270,7 +271,19 @@ bool verificarRey2(Rey _rey2){
         return true;
     }
 }
+
+
+
 int main(){
+    //      Puntaje de piezas;
+    int peon_p = 10;
+    int caballo_p = 30;
+    int alfil_p = 30;
+    int torre_p = 50;
+    int dama_p = 90;
+    int rey_p = 900;
+
+
     //      Cramos el vector con posiciones actualizadas;
     vector<pair<int,int>> matrix;
 
@@ -296,6 +309,9 @@ int main(){
 
     //      Creamos al jugador CPU
     cpu_player cpup(false);
+    jugador jugador1(0);
+    jugador jugador2(0);
+
 
 
     //      Asociar las piezas con el objeto
@@ -434,95 +450,126 @@ int main(){
                                         case 1:
                                             caballo3.setAlive(false);
                                             whatPiece = 1;
+                                            jugador1.increace(caballo_p);
                                             break;
                                         case 2:
                                             alfil3.setAlive(false);
+                                            jugador1.increace(alfil_p);
                                             break;
                                         case 3:
                                             rey2.setAlive(false);
+                                            jugador1.increace(rey_p);
                                             break;
                                         case 4:
                                             dama2.setAlive(false);
+                                            jugador1.increace(dama_p);
                                             break;
                                         case 5:
                                             alfil4.setAlive(false);
+                                            jugador1.increace(alfil_p);
                                             break;
                                         case 6:
                                             caballo4.setAlive(false);
+                                            jugador1.increace(caballo_p);
                                             break;
                                         case 7:
                                             torre4.setAlive(false);
+                                            jugador1.increace(torre_p);
                                             break;
                                         case 8:
                                             peon9.setAlive(false);
+                                            jugador1.increace(peon_p);
                                             break;
                                         case 9:
                                             peon10.setAlive(false);
+                                            jugador1.increace(peon_p);
                                             break;
                                         case 10:
                                             peon11.setAlive(false);
+                                            jugador1.increace(peon_p);
                                             break;
                                         case 11:
                                             peon12.setAlive(false);
+                                            jugador1.increace(peon_p);
                                             break;
                                         case 12:
                                             peon13.setAlive(false);
+                                            jugador1.increace(peon_p);
                                             break;
                                         case 13:
                                             peon14.setAlive(false);
+                                            jugador1.increace(peon_p);
                                             break;
                                         case 14:
                                             peon15.setAlive(false);
+                                            jugador1.increace(peon_p);
                                             break;
                                         case 15:
                                             peon16.setAlive(false);
+                                            jugador1.increace(peon_p);
                                             break;
                                         case 16:
                                             peon1.setAlive(false);
+                                            jugador2.increace(peon_p);
                                             break;
                                         case 17:
                                             peon2.setAlive(false);
+                                            jugador2.increace(peon_p);
                                             break;
                                         case 18:
                                             peon3.setAlive(false);
+                                            jugador2.increace(peon_p);
                                             break;
                                         case 19:
                                             peon4.setAlive(false);
+                                            jugador2.increace(peon_p);
                                             break;
                                         case 20:
                                             peon5.setAlive(false);
+                                            jugador2.increace(peon_p);
                                             break;
                                         case 21:
                                             peon6.setAlive(false);
+                                            jugador2.increace(peon_p);
                                             break;
                                         case 22:
                                             peon7.setAlive(false);
+                                            jugador2.increace(peon_p);
                                             break;
                                         case 23:
                                             peon8.setAlive(false);
+                                            jugador2.increace(peon_p);
                                         case 24:
                                             torre1.setAlive(false);
+                                            jugador2.increace(torre_p);
                                             break;
                                         case 25:
                                             caballo1.setAlive(false);
+                                            jugador2.increace(caballo_p);
                                             break;
                                         case 26:
                                             alfil1.setAlive(false);
+                                            jugador2.increace(alfil_p);
                                             break;
                                         case 27:
                                             rey1.setAlive(false);
+                                            jugador2.increace(rey_p);
                                             break;
                                         case 28:
                                             dama1.setAlive(false);
+                                            jugador2.increace(dama_p);
                                             break;
                                         case 29:
                                             alfil2.setAlive(false);
+                                            jugador2.increace(alfil_p);
                                             break;
                                         case 30:
                                             caballo2.setAlive(false);
+                                            jugador2.increace(caballo_p);
                                             break;
                                         case 31:
                                             torre2.setAlive(false);
+                                            jugador2.increace(torre_p);
                                             break;
 
 
@@ -548,95 +595,127 @@ int main(){
                                     switch(matrix[(newPos.x/56)+((newPos.y/56)*8)].second){
                                         case 1:
                                             caballo3.setAlive(false);
+                                            whatPiece = 1;
+                                            jugador1.increace(caballo_p);
                                             break;
                                         case 2:
                                             alfil3.setAlive(false);
+                                            jugador1.increace(alfil_p);
                                             break;
                                         case 3:
                                             rey2.setAlive(false);
+                                            jugador1.increace(rey_p);
                                             break;
                                         case 4:
                                             dama2.setAlive(false);
+                                            jugador1.increace(dama_p);
                                             break;
                                         case 5:
                                             alfil4.setAlive(false);
+                                            jugador1.increace(alfil_p);
                                             break;
                                         case 6:
                                             caballo4.setAlive(false);
+                                            jugador1.increace(caballo_p);
                                             break;
                                         case 7:
                                             torre4.setAlive(false);
+                                            jugador1.increace(torre_p);
                                             break;
                                         case 8:
                                             peon9.setAlive(false);
+                                            jugador1.increace(peon_p);
                                             break;
                                         case 9:
                                             peon10.setAlive(false);
+                                            jugador1.increace(peon_p);
                                             break;
                                         case 10:
                                             peon11.setAlive(false);
+                                            jugador1.increace(peon_p);
                                             break;
                                         case 11:
                                             peon12.setAlive(false);
+                                            jugador1.increace(peon_p);
                                             break;
                                         case 12:
                                             peon13.setAlive(false);
+                                            jugador1.increace(peon_p);
                                             break;
                                         case 13:
                                             peon14.setAlive(false);
+                                            jugador1.increace(peon_p);
                                             break;
                                         case 14:
                                             peon15.setAlive(false);
+                                            jugador1.increace(peon_p);
                                             break;
                                         case 15:
                                             peon16.setAlive(false);
+                                            jugador1.increace(peon_p);
                                             break;
                                         case 16:
                                             peon1.setAlive(false);
+                                            jugador2.increace(peon_p);
                                             break;
                                         case 17:
                                             peon2.setAlive(false);
+                                            jugador2.increace(peon_p);
                                             break;
                                         case 18:
                                             peon3.setAlive(false);
+                                            jugador2.increace(peon_p);
                                             break;
                                         case 19:
                                             peon4.setAlive(false);
+                                            jugador2.increace(peon_p);
                                             break;
                                         case 20:
                                             peon5.setAlive(false);
+                                            jugador2.increace(peon_p);
                                             break;
                                         case 21:
                                             peon6.setAlive(false);
+                                            jugador2.increace(peon_p);
                                             break;
                                         case 22:
                                             peon7.setAlive(false);
+                                            jugador2.increace(peon_p);
                                             break;
                                         case 23:
                                             peon8.setAlive(false);
+                                            jugador2.increace(peon_p);
                                         case 24:
                                             torre1.setAlive(false);
+                                            jugador2.increace(torre_p);
                                             break;
                                         case 25:
                                             caballo1.setAlive(false);
+                                            jugador2.increace(caballo_p);
                                             break;
                                         case 26:
                                             alfil1.setAlive(false);
+                                            jugador2.increace(alfil_p);
                                             break;
                                         case 27:
                                             rey1.setAlive(false);
+                                            jugador2.increace(rey_p);
                                             break;
                                         case 28:
                                             dama1.setAlive(false);
+                                            jugador2.increace(dama_p);
                                             break;
                                         case 29:
                                             alfil2.setAlive(false);
+                                            jugador2.increace(alfil_p);
                                             break;
                                         case 30:
                                             caballo2.setAlive(false);
+                                            jugador2.increace(caballo_p);
                                             break;
                                         case 31:
                                             torre2.setAlive(false);
+                                            jugador2.increace(torre_p);
                                             break;
 
 
@@ -660,95 +739,127 @@ int main(){
                                     switch(matrix[(newPos.x/56)+((newPos.y/56)*8)].second){
                                         case 1:
                                             caballo3.setAlive(false);
+                                            whatPiece = 1;
+                                            jugador1.increace(caballo_p);
                                             break;
                                         case 2:
                                             alfil3.setAlive(false);
+                                            jugador1.increace(alfil_p);
                                             break;
                                         case 3:
                                             rey2.setAlive(false);
+                                            jugador1.increace(rey_p);
                                             break;
                                         case 4:
                                             dama2.setAlive(false);
+                                            jugador1.increace(dama_p);
                                             break;
                                         case 5:
                                             alfil4.setAlive(false);
+                                            jugador1.increace(alfil_p);
                                             break;
                                         case 6:
                                             caballo4.setAlive(false);
+                                            jugador1.increace(caballo_p);
                                             break;
                                         case 7:
                                             torre4.setAlive(false);
+                                            jugador1.increace(torre_p);
                                             break;
                                         case 8:
                                             peon9.setAlive(false);
+                                            jugador1.increace(peon_p);
                                             break;
                                         case 9:
                                             peon10.setAlive(false);
+                                            jugador1.increace(peon_p);
                                             break;
                                         case 10:
                                             peon11.setAlive(false);
+                                            jugador1.increace(peon_p);
                                             break;
                                         case 11:
                                             peon12.setAlive(false);
+                                            jugador1.increace(peon_p);
                                             break;
                                         case 12:
                                             peon13.setAlive(false);
+                                            jugador1.increace(peon_p);
                                             break;
                                         case 13:
                                             peon14.setAlive(false);
+                                            jugador1.increace(peon_p);
                                             break;
                                         case 14:
                                             peon15.setAlive(false);
+                                            jugador1.increace(peon_p);
                                             break;
                                         case 15:
                                             peon16.setAlive(false);
+                                            jugador1.increace(peon_p);
                                             break;
                                         case 16:
                                             peon1.setAlive(false);
+                                            jugador2.increace(peon_p);
                                             break;
                                         case 17:
                                             peon2.setAlive(false);
+                                            jugador2.increace(peon_p);
                                             break;
                                         case 18:
                                             peon3.setAlive(false);
+                                            jugador2.increace(peon_p);
                                             break;
                                         case 19:
                                             peon4.setAlive(false);
+                                            jugador2.increace(peon_p);
                                             break;
                                         case 20:
                                             peon5.setAlive(false);
+                                            jugador2.increace(peon_p);
                                             break;
                                         case 21:
                                             peon6.setAlive(false);
+                                            jugador2.increace(peon_p);
                                             break;
                                         case 22:
                                             peon7.setAlive(false);
+                                            jugador2.increace(peon_p);
                                             break;
                                         case 23:
                                             peon8.setAlive(false);
+                                            jugador2.increace(peon_p);
                                         case 24:
                                             torre1.setAlive(false);
+                                            jugador2.increace(torre_p);
                                             break;
                                         case 25:
                                             caballo1.setAlive(false);
+                                            jugador2.increace(caballo_p);
                                             break;
                                         case 26:
                                             alfil1.setAlive(false);
+                                            jugador2.increace(alfil_p);
                                             break;
                                         case 27:
                                             rey1.setAlive(false);
+                                            jugador2.increace(rey_p);
                                             break;
                                         case 28:
                                             dama1.setAlive(false);
+                                            jugador2.increace(dama_p);
                                             break;
                                         case 29:
                                             alfil2.setAlive(false);
+                                            jugador2.increace(alfil_p);
                                             break;
                                         case 30:
                                             caballo2.setAlive(false);
+                                            jugador2.increace(caballo_p);
                                             break;
                                         case 31:
                                             torre2.setAlive(false);
+                                            jugador2.increace(torre_p);
                                             break;
 
 
@@ -772,95 +883,127 @@ int main(){
                                     switch(matrix[(newPos.x/56)+((newPos.y/56)*8)].second){
                                         case 1:
                                             caballo3.setAlive(false);
+                                            whatPiece = 1;
+                                            jugador1.increace(caballo_p);
                                             break;
                                         case 2:
                                             alfil3.setAlive(false);
+                                            jugador1.increace(alfil_p);
                                             break;
                                         case 3:
                                             rey2.setAlive(false);
+                                            jugador1.increace(rey_p);
                                             break;
                                         case 4:
                                             dama2.setAlive(false);
+                                            jugador1.increace(dama_p);
                                             break;
                                         case 5:
                                             alfil4.setAlive(false);
+                                            jugador1.increace(alfil_p);
                                             break;
                                         case 6:
                                             caballo4.setAlive(false);
+                                            jugador1.increace(caballo_p);
                                             break;
                                         case 7:
                                             torre4.setAlive(false);
+                                            jugador1.increace(torre_p);
                                             break;
                                         case 8:
                                             peon9.setAlive(false);
+                                            jugador1.increace(peon_p);
                                             break;
                                         case 9:
                                             peon10.setAlive(false);
+                                            jugador1.increace(peon_p);
                                             break;
                                         case 10:
                                             peon11.setAlive(false);
+                                            jugador1.increace(peon_p);
                                             break;
                                         case 11:
                                             peon12.setAlive(false);
+                                            jugador1.increace(peon_p);
                                             break;
                                         case 12:
                                             peon13.setAlive(false);
+                                            jugador1.increace(peon_p);
                                             break;
                                         case 13:
                                             peon14.setAlive(false);
+                                            jugador1.increace(peon_p);
                                             break;
                                         case 14:
                                             peon15.setAlive(false);
+                                            jugador1.increace(peon_p);
                                             break;
                                         case 15:
                                             peon16.setAlive(false);
+                                            jugador1.increace(peon_p);
                                             break;
                                         case 16:
                                             peon1.setAlive(false);
+                                            jugador2.increace(peon_p);
                                             break;
                                         case 17:
                                             peon2.setAlive(false);
+                                            jugador2.increace(peon_p);
                                             break;
                                         case 18:
                                             peon3.setAlive(false);
+                                            jugador2.increace(peon_p);
                                             break;
                                         case 19:
                                             peon4.setAlive(false);
+                                            jugador2.increace(peon_p);
                                             break;
                                         case 20:
                                             peon5.setAlive(false);
+                                            jugador2.increace(peon_p);
                                             break;
                                         case 21:
                                             peon6.setAlive(false);
+                                            jugador2.increace(peon_p);
                                             break;
                                         case 22:
                                             peon7.setAlive(false);
+                                            jugador2.increace(peon_p);
                                             break;
                                         case 23:
                                             peon8.setAlive(false);
+                                            jugador2.increace(peon_p);
                                         case 24:
                                             torre1.setAlive(false);
+                                            jugador2.increace(torre_p);
                                             break;
                                         case 25:
                                             caballo1.setAlive(false);
+                                            jugador2.increace(caballo_p);
                                             break;
                                         case 26:
                                             alfil1.setAlive(false);
+                                            jugador2.increace(alfil_p);
                                             break;
                                         case 27:
                                             rey1.setAlive(false);
+                                            jugador2.increace(rey_p);
                                             break;
                                         case 28:
                                             dama1.setAlive(false);
+                                            jugador2.increace(dama_p);
                                             break;
                                         case 29:
                                             alfil2.setAlive(false);
+                                            jugador2.increace(alfil_p);
                                             break;
                                         case 30:
                                             caballo2.setAlive(false);
+                                            jugador2.increace(caballo_p);
                                             break;
                                         case 31:
                                             torre2.setAlive(false);
+                                            jugador2.increace(torre_p);
                                             break;
 
 
@@ -883,101 +1026,129 @@ int main(){
                                 }else{
                                     //cout<<(newPos.x/56)+((newPos.y/56)*8)<<endl;
                                     switch(matrix[(newPos.x/56)+((newPos.y/56)*8)].second){
-
-                                        case 0:
-                                            torre3.setAlive(false);
-                                            break;
                                         case 1:
                                             caballo3.setAlive(false);
+                                            whatPiece = 1;
+                                            jugador1.increace(caballo_p);
                                             break;
                                         case 2:
                                             alfil3.setAlive(false);
+                                            jugador1.increace(alfil_p);
                                             break;
                                         case 3:
                                             rey2.setAlive(false);
+                                            jugador1.increace(rey_p);
                                             break;
                                         case 4:
                                             dama2.setAlive(false);
+                                            jugador1.increace(dama_p);
                                             break;
                                         case 5:
                                             alfil4.setAlive(false);
+                                            jugador1.increace(alfil_p);
                                             break;
                                         case 6:
                                             caballo4.setAlive(false);
+                                            jugador1.increace(caballo_p);
                                             break;
                                         case 7:
                                             torre4.setAlive(false);
+                                            jugador1.increace(torre_p);
                                             break;
                                         case 8:
                                             peon9.setAlive(false);
+                                            jugador1.increace(peon_p);
                                             break;
                                         case 9:
                                             peon10.setAlive(false);
+                                            jugador1.increace(peon_p);
                                             break;
                                         case 10:
                                             peon11.setAlive(false);
+                                            jugador1.increace(peon_p);
                                             break;
                                         case 11:
                                             peon12.setAlive(false);
+                                            jugador1.increace(peon_p);
                                             break;
                                         case 12:
                                             peon13.setAlive(false);
+                                            jugador1.increace(peon_p);
                                             break;
                                         case 13:
                                             peon14.setAlive(false);
+                                            jugador1.increace(peon_p);
                                             break;
                                         case 14:
                                             peon15.setAlive(false);
+                                            jugador1.increace(peon_p);
                                             break;
                                         case 15:
                                             peon16.setAlive(false);
+                                            jugador1.increace(peon_p);
                                             break;
                                         case 16:
                                             peon1.setAlive(false);
+                                            jugador2.increace(peon_p);
                                             break;
                                         case 17:
                                             peon2.setAlive(false);
+                                            jugador2.increace(peon_p);
                                             break;
                                         case 18:
                                             peon3.setAlive(false);
+                                            jugador2.increace(peon_p);
                                             break;
                                         case 19:
                                             peon4.setAlive(false);
+                                            jugador2.increace(peon_p);
                                             break;
                                         case 20:
                                             peon5.setAlive(false);
+                                            jugador2.increace(peon_p);
                                             break;
                                         case 21:
                                             peon6.setAlive(false);
+                                            jugador2.increace(peon_p);
                                             break;
                                         case 22:
                                             peon7.setAlive(false);
+                                            jugador2.increace(peon_p);
                                             break;
                                         case 23:
                                             peon8.setAlive(false);
+                                            jugador2.increace(peon_p);
                                         case 24:
                                             torre1.setAlive(false);
+                                            jugador2.increace(torre_p);
                                             break;
                                         case 25:
                                             caballo1.setAlive(false);
+                                            jugador2.increace(caballo_p);
                                             break;
                                         case 26:
                                             alfil1.setAlive(false);
+                                            jugador2.increace(alfil_p);
                                             break;
                                         case 27:
                                             rey1.setAlive(false);
+                                            jugador2.increace(rey_p);
                                             break;
                                         case 28:
                                             dama1.setAlive(false);
+                                            jugador2.increace(dama_p);
                                             break;
                                         case 29:
                                             alfil2.setAlive(false);
+                                            jugador2.increace(alfil_p);
                                             break;
                                         case 30:
                                             caballo2.setAlive(false);
+                                            jugador2.increace(caballo_p);
                                             break;
                                         case 31:
                                             torre2.setAlive(false);
+                                            jugador2.increace(torre_p);
                                             break;
 
 
@@ -1003,95 +1174,127 @@ int main(){
                                     switch(matrix[(newPos.x/56)+((newPos.y/56)*8)].second){
                                         case 1:
                                             caballo3.setAlive(false);
+                                            whatPiece = 1;
+                                            jugador1.increace(caballo_p);
                                             break;
                                         case 2:
                                             alfil3.setAlive(false);
+                                            jugador1.increace(alfil_p);
                                             break;
                                         case 3:
                                             rey2.setAlive(false);
+                                            jugador1.increace(rey_p);
                                             break;
                                         case 4:
                                             dama2.setAlive(false);
+                                            jugador1.increace(dama_p);
                                             break;
                                         case 5:
                                             alfil4.setAlive(false);
+                                            jugador1.increace(alfil_p);
                                             break;
                                         case 6:
                                             caballo4.setAlive(false);
+                                            jugador1.increace(caballo_p);
                                             break;
                                         case 7:
                                             torre4.setAlive(false);
+                                            jugador1.increace(torre_p);
                                             break;
                                         case 8:
                                             peon9.setAlive(false);
+                                            jugador1.increace(peon_p);
                                             break;
                                         case 9:
                                             peon10.setAlive(false);
+                                            jugador1.increace(peon_p);
                                             break;
                                         case 10:
                                             peon11.setAlive(false);
+                                            jugador1.increace(peon_p);
                                             break;
                                         case 11:
                                             peon12.setAlive(false);
+                                            jugador1.increace(peon_p);
                                             break;
                                         case 12:
                                             peon13.setAlive(false);
+                                            jugador1.increace(peon_p);
                                             break;
                                         case 13:
                                             peon14.setAlive(false);
+                                            jugador1.increace(peon_p);
                                             break;
                                         case 14:
                                             peon15.setAlive(false);
+                                            jugador1.increace(peon_p);
                                             break;
                                         case 15:
                                             peon16.setAlive(false);
+                                            jugador1.increace(peon_p);
                                             break;
                                         case 16:
                                             peon1.setAlive(false);
+                                            jugador2.increace(peon_p);
                                             break;
                                         case 17:
                                             peon2.setAlive(false);
+                                            jugador2.increace(peon_p);
                                             break;
                                         case 18:
                                             peon3.setAlive(false);
+                                            jugador2.increace(peon_p);
                                             break;
                                         case 19:
                                             peon4.setAlive(false);
+                                            jugador2.increace(peon_p);
                                             break;
                                         case 20:
                                             peon5.setAlive(false);
+                                            jugador2.increace(peon_p);
                                             break;
                                         case 21:
                                             peon6.setAlive(false);
+                                            jugador2.increace(peon_p);
                                             break;
                                         case 22:
                                             peon7.setAlive(false);
+                                            jugador2.increace(peon_p);
                                             break;
                                         case 23:
                                             peon8.setAlive(false);
+                                            jugador2.increace(peon_p);
                                         case 24:
                                             torre1.setAlive(false);
+                                            jugador2.increace(torre_p);
                                             break;
                                         case 25:
                                             caballo1.setAlive(false);
+                                            jugador2.increace(caballo_p);
                                             break;
                                         case 26:
                                             alfil1.setAlive(false);
+                                            jugador2.increace(alfil_p);
                                             break;
                                         case 27:
                                             rey1.setAlive(false);
+                                            jugador2.increace(rey_p);
                                             break;
                                         case 28:
                                             dama1.setAlive(false);
+                                            jugador2.increace(dama_p);
                                             break;
                                         case 29:
                                             alfil2.setAlive(false);
+                                            jugador2.increace(alfil_p);
                                             break;
                                         case 30:
                                             caballo2.setAlive(false);
+                                            jugador2.increace(caballo_p);
                                             break;
                                         case 31:
                                             torre2.setAlive(false);
+                                            jugador2.increace(torre_p);
                                             break;
 
 
@@ -1115,95 +1318,127 @@ int main(){
                                     switch(matrix[(newPos.x/56)+((newPos.y/56)*8)].second){
                                         case 1:
                                             caballo3.setAlive(false);
+                                            whatPiece = 1;
+                                            jugador1.increace(caballo_p);
                                             break;
                                         case 2:
                                             alfil3.setAlive(false);
+                                            jugador1.increace(alfil_p);
                                             break;
                                         case 3:
                                             rey2.setAlive(false);
+                                            jugador1.increace(rey_p);
                                             break;
                                         case 4:
                                             dama2.setAlive(false);
+                                            jugador1.increace(dama_p);
                                             break;
                                         case 5:
                                             alfil4.setAlive(false);
+                                            jugador1.increace(alfil_p);
                                             break;
                                         case 6:
                                             caballo4.setAlive(false);
+                                            jugador1.increace(caballo_p);
                                             break;
                                         case 7:
                                             torre4.setAlive(false);
+                                            jugador1.increace(torre_p);
                                             break;
                                         case 8:
                                             peon9.setAlive(false);
+                                            jugador1.increace(peon_p);
                                             break;
                                         case 9:
                                             peon10.setAlive(false);
+                                            jugador1.increace(peon_p);
                                             break;
                                         case 10:
                                             peon11.setAlive(false);
+                                            jugador1.increace(peon_p);
                                             break;
                                         case 11:
                                             peon12.setAlive(false);
+                                            jugador1.increace(peon_p);
                                             break;
                                         case 12:
                                             peon13.setAlive(false);
+                                            jugador1.increace(peon_p);
                                             break;
                                         case 13:
                                             peon14.setAlive(false);
+                                            jugador1.increace(peon_p);
                                             break;
                                         case 14:
                                             peon15.setAlive(false);
+                                            jugador1.increace(peon_p);
                                             break;
                                         case 15:
                                             peon16.setAlive(false);
+                                            jugador1.increace(peon_p);
                                             break;
                                         case 16:
                                             peon1.setAlive(false);
+                                            jugador2.increace(peon_p);
                                             break;
                                         case 17:
                                             peon2.setAlive(false);
+                                            jugador2.increace(peon_p);
                                             break;
                                         case 18:
                                             peon3.setAlive(false);
+                                            jugador2.increace(peon_p);
                                             break;
                                         case 19:
                                             peon4.setAlive(false);
+                                            jugador2.increace(peon_p);
                                             break;
                                         case 20:
                                             peon5.setAlive(false);
+                                            jugador2.increace(peon_p);
                                             break;
                                         case 21:
                                             peon6.setAlive(false);
+                                            jugador2.increace(peon_p);
                                             break;
                                         case 22:
                                             peon7.setAlive(false);
+                                            jugador2.increace(peon_p);
                                             break;
                                         case 23:
                                             peon8.setAlive(false);
+                                            jugador2.increace(peon_p);
                                         case 24:
                                             torre1.setAlive(false);
+                                            jugador2.increace(torre_p);
                                             break;
                                         case 25:
                                             caballo1.setAlive(false);
+                                            jugador2.increace(caballo_p);
                                             break;
                                         case 26:
                                             alfil1.setAlive(false);
+                                            jugador2.increace(alfil_p);
                                             break;
                                         case 27:
                                             rey1.setAlive(false);
+                                            jugador2.increace(rey_p);
                                             break;
                                         case 28:
                                             dama1.setAlive(false);
+                                            jugador2.increace(dama_p);
                                             break;
                                         case 29:
                                             alfil2.setAlive(false);
+                                            jugador2.increace(alfil_p);
                                             break;
                                         case 30:
                                             caballo2.setAlive(false);
+                                            jugador2.increace(caballo_p);
                                             break;
                                         case 31:
                                             torre2.setAlive(false);
+                                            jugador2.increace(torre_p);
                                             break;
 
 
@@ -1227,95 +1462,127 @@ int main(){
                                     switch(matrix[(newPos.x/56)+((newPos.y/56)*8)].second){
                                         case 1:
                                             caballo3.setAlive(false);
+                                            whatPiece = 1;
+                                            jugador1.increace(caballo_p);
                                             break;
                                         case 2:
                                             alfil3.setAlive(false);
+                                            jugador1.increace(alfil_p);
                                             break;
                                         case 3:
                                             rey2.setAlive(false);
+                                            jugador1.increace(rey_p);
                                             break;
                                         case 4:
                                             dama2.setAlive(false);
+                                            jugador1.increace(dama_p);
                                             break;
                                         case 5:
                                             alfil4.setAlive(false);
+                                            jugador1.increace(alfil_p);
                                             break;
                                         case 6:
                                             caballo4.setAlive(false);
+                                            jugador1.increace(caballo_p);
                                             break;
                                         case 7:
                                             torre4.setAlive(false);
+                                            jugador1.increace(torre_p);
                                             break;
                                         case 8:
                                             peon9.setAlive(false);
+                                            jugador1.increace(peon_p);
                                             break;
                                         case 9:
                                             peon10.setAlive(false);
+                                            jugador1.increace(peon_p);
                                             break;
                                         case 10:
                                             peon11.setAlive(false);
+                                            jugador1.increace(peon_p);
                                             break;
                                         case 11:
                                             peon12.setAlive(false);
+                                            jugador1.increace(peon_p);
                                             break;
                                         case 12:
                                             peon13.setAlive(false);
+                                            jugador1.increace(peon_p);
                                             break;
                                         case 13:
                                             peon14.setAlive(false);
+                                            jugador1.increace(peon_p);
                                             break;
                                         case 14:
                                             peon15.setAlive(false);
+                                            jugador1.increace(peon_p);
                                             break;
                                         case 15:
                                             peon16.setAlive(false);
+                                            jugador1.increace(peon_p);
                                             break;
                                         case 16:
                                             peon1.setAlive(false);
+                                            jugador2.increace(peon_p);
                                             break;
                                         case 17:
                                             peon2.setAlive(false);
+                                            jugador2.increace(peon_p);
                                             break;
                                         case 18:
                                             peon3.setAlive(false);
+                                            jugador2.increace(peon_p);
                                             break;
                                         case 19:
                                             peon4.setAlive(false);
+                                            jugador2.increace(peon_p);
                                             break;
                                         case 20:
                                             peon5.setAlive(false);
+                                            jugador2.increace(peon_p);
                                             break;
                                         case 21:
                                             peon6.setAlive(false);
+                                            jugador2.increace(peon_p);
                                             break;
                                         case 22:
                                             peon7.setAlive(false);
+                                            jugador2.increace(peon_p);
                                             break;
                                         case 23:
                                             peon8.setAlive(false);
+                                            jugador2.increace(peon_p);
                                         case 24:
                                             torre1.setAlive(false);
+                                            jugador2.increace(torre_p);
                                             break;
                                         case 25:
                                             caballo1.setAlive(false);
+                                            jugador2.increace(caballo_p);
                                             break;
                                         case 26:
                                             alfil1.setAlive(false);
+                                            jugador2.increace(alfil_p);
                                             break;
                                         case 27:
                                             rey1.setAlive(false);
+                                            jugador2.increace(rey_p);
                                             break;
                                         case 28:
                                             dama1.setAlive(false);
+                                            jugador2.increace(dama_p);
                                             break;
                                         case 29:
                                             alfil2.setAlive(false);
+                                            jugador2.increace(alfil_p);
                                             break;
                                         case 30:
                                             caballo2.setAlive(false);
+                                            jugador2.increace(caballo_p);
                                             break;
                                         case 31:
                                             torre2.setAlive(false);
+                                            jugador2.increace(torre_p);
                                             break;
 
 
@@ -1339,95 +1606,127 @@ int main(){
                                     switch(matrix[(newPos.x/56)+((newPos.y/56)*8)].second){
                                         case 1:
                                             caballo3.setAlive(false);
+                                            whatPiece = 1;
+                                            jugador1.increace(caballo_p);
                                             break;
                                         case 2:
                                             alfil3.setAlive(false);
+                                            jugador1.increace(alfil_p);
                                             break;
                                         case 3:
                                             rey2.setAlive(false);
+                                            jugador1.increace(rey_p);
                                             break;
                                         case 4:
                                             dama2.setAlive(false);
+                                            jugador1.increace(dama_p);
                                             break;
                                         case 5:
                                             alfil4.setAlive(false);
+                                            jugador1.increace(alfil_p);
                                             break;
                                         case 6:
                                             caballo4.setAlive(false);
+                                            jugador1.increace(caballo_p);
                                             break;
                                         case 7:
                                             torre4.setAlive(false);
+                                            jugador1.increace(torre_p);
                                             break;
                                         case 8:
                                             peon9.setAlive(false);
+                                            jugador1.increace(peon_p);
                                             break;
                                         case 9:
                                             peon10.setAlive(false);
+                                            jugador1.increace(peon_p);
                                             break;
                                         case 10:
                                             peon11.setAlive(false);
+                                            jugador1.increace(peon_p);
                                             break;
                                         case 11:
                                             peon12.setAlive(false);
+                                            jugador1.increace(peon_p);
                                             break;
                                         case 12:
                                             peon13.setAlive(false);
+                                            jugador1.increace(peon_p);
                                             break;
                                         case 13:
                                             peon14.setAlive(false);
+                                            jugador1.increace(peon_p);
                                             break;
                                         case 14:
                                             peon15.setAlive(false);
+                                            jugador1.increace(peon_p);
                                             break;
                                         case 15:
                                             peon16.setAlive(false);
+                                            jugador1.increace(peon_p);
                                             break;
                                         case 16:
                                             peon1.setAlive(false);
+                                            jugador2.increace(peon_p);
                                             break;
                                         case 17:
                                             peon2.setAlive(false);
+                                            jugador2.increace(peon_p);
                                             break;
                                         case 18:
                                             peon3.setAlive(false);
+                                            jugador2.increace(peon_p);
                                             break;
                                         case 19:
                                             peon4.setAlive(false);
+                                            jugador2.increace(peon_p);
                                             break;
                                         case 20:
                                             peon5.setAlive(false);
+                                            jugador2.increace(peon_p);
                                             break;
                                         case 21:
                                             peon6.setAlive(false);
+                                            jugador2.increace(peon_p);
                                             break;
                                         case 22:
                                             peon7.setAlive(false);
+                                            jugador2.increace(peon_p);
                                             break;
                                         case 23:
                                             peon8.setAlive(false);
+                                            jugador2.increace(peon_p);
                                         case 24:
                                             torre1.setAlive(false);
+                                            jugador2.increace(torre_p);
                                             break;
                                         case 25:
                                             caballo1.setAlive(false);
+                                            jugador2.increace(caballo_p);
                                             break;
                                         case 26:
                                             alfil1.setAlive(false);
+                                            jugador2.increace(alfil_p);
                                             break;
                                         case 27:
                                             rey1.setAlive(false);
+                                            jugador2.increace(rey_p);
                                             break;
                                         case 28:
                                             dama1.setAlive(false);
+                                            jugador2.increace(dama_p);
                                             break;
                                         case 29:
                                             alfil2.setAlive(false);
+                                            jugador2.increace(alfil_p);
                                             break;
                                         case 30:
                                             caballo2.setAlive(false);
+                                            jugador2.increace(caballo_p);
                                             break;
                                         case 31:
                                             torre2.setAlive(false);
+                                            jugador2.increace(torre_p);
                                             break;
 
 
@@ -1451,95 +1750,127 @@ int main(){
                                     switch(matrix[(newPos.x/56)+((newPos.y/56)*8)].second){
                                         case 1:
                                             caballo3.setAlive(false);
+                                            whatPiece = 1;
+                                            jugador1.increace(caballo_p);
                                             break;
                                         case 2:
                                             alfil3.setAlive(false);
+                                            jugador1.increace(alfil_p);
                                             break;
                                         case 3:
                                             rey2.setAlive(false);
+                                            jugador1.increace(rey_p);
                                             break;
                                         case 4:
                                             dama2.setAlive(false);
+                                            jugador1.increace(dama_p);
                                             break;
                                         case 5:
                                             alfil4.setAlive(false);
+                                            jugador1.increace(alfil_p);
                                             break;
                                         case 6:
                                             caballo4.setAlive(false);
+                                            jugador1.increace(caballo_p);
                                             break;
                                         case 7:
                                             torre4.setAlive(false);
+                                            jugador1.increace(torre_p);
                                             break;
                                         case 8:
                                             peon9.setAlive(false);
+                                            jugador1.increace(peon_p);
                                             break;
                                         case 9:
                                             peon10.setAlive(false);
+                                            jugador1.increace(peon_p);
                                             break;
                                         case 10:
                                             peon11.setAlive(false);
+                                            jugador1.increace(peon_p);
                                             break;
                                         case 11:
                                             peon12.setAlive(false);
+                                            jugador1.increace(peon_p);
                                             break;
                                         case 12:
                                             peon13.setAlive(false);
+                                            jugador1.increace(peon_p);
                                             break;
                                         case 13:
                                             peon14.setAlive(false);
+                                            jugador1.increace(peon_p);
                                             break;
                                         case 14:
                                             peon15.setAlive(false);
+                                            jugador1.increace(peon_p);
                                             break;
                                         case 15:
                                             peon16.setAlive(false);
+                                            jugador1.increace(peon_p);
                                             break;
                                         case 16:
                                             peon1.setAlive(false);
+                                            jugador2.increace(peon_p);
                                             break;
                                         case 17:
                                             peon2.setAlive(false);
+                                            jugador2.increace(peon_p);
                                             break;
                                         case 18:
                                             peon3.setAlive(false);
+                                            jugador2.increace(peon_p);
                                             break;
                                         case 19:
                                             peon4.setAlive(false);
+                                            jugador2.increace(peon_p);
                                             break;
                                         case 20:
                                             peon5.setAlive(false);
+                                            jugador2.increace(peon_p);
                                             break;
                                         case 21:
                                             peon6.setAlive(false);
+                                            jugador2.increace(peon_p);
                                             break;
                                         case 22:
                                             peon7.setAlive(false);
+                                            jugador2.increace(peon_p);
                                             break;
                                         case 23:
                                             peon8.setAlive(false);
+                                            jugador2.increace(peon_p);
                                         case 24:
                                             torre1.setAlive(false);
+                                            jugador2.increace(torre_p);
                                             break;
                                         case 25:
                                             caballo1.setAlive(false);
+                                            jugador2.increace(caballo_p);
                                             break;
                                         case 26:
                                             alfil1.setAlive(false);
+                                            jugador2.increace(alfil_p);
                                             break;
                                         case 27:
                                             rey1.setAlive(false);
+                                            jugador2.increace(rey_p);
                                             break;
                                         case 28:
                                             dama1.setAlive(false);
+                                            jugador2.increace(dama_p);
                                             break;
                                         case 29:
                                             alfil2.setAlive(false);
+                                            jugador2.increace(alfil_p);
                                             break;
                                         case 30:
                                             caballo2.setAlive(false);
+                                            jugador2.increace(caballo_p);
                                             break;
                                         case 31:
                                             torre2.setAlive(false);
+                                            jugador2.increace(torre_p);
                                             break;
 
 
@@ -1563,95 +1894,127 @@ int main(){
                                     switch(matrix[(newPos.x/56)+((newPos.y/56)*8)].second){
                                         case 1:
                                             caballo3.setAlive(false);
+                                            whatPiece = 1;
+                                            jugador1.increace(caballo_p);
                                             break;
                                         case 2:
                                             alfil3.setAlive(false);
+                                            jugador1.increace(alfil_p);
                                             break;
                                         case 3:
                                             rey2.setAlive(false);
+                                            jugador1.increace(rey_p);
                                             break;
                                         case 4:
                                             dama2.setAlive(false);
+                                            jugador1.increace(dama_p);
                                             break;
                                         case 5:
                                             alfil4.setAlive(false);
+                                            jugador1.increace(alfil_p);
                                             break;
                                         case 6:
                                             caballo4.setAlive(false);
+                                            jugador1.increace(caballo_p);
                                             break;
                                         case 7:
                                             torre4.setAlive(false);
+                                            jugador1.increace(torre_p);
                                             break;
                                         case 8:
                                             peon9.setAlive(false);
+                                            jugador1.increace(peon_p);
                                             break;
                                         case 9:
                                             peon10.setAlive(false);
+                                            jugador1.increace(peon_p);
                                             break;
                                         case 10:
                                             peon11.setAlive(false);
+                                            jugador1.increace(peon_p);
                                             break;
                                         case 11:
                                             peon12.setAlive(false);
+                                            jugador1.increace(peon_p);
                                             break;
                                         case 12:
                                             peon13.setAlive(false);
+                                            jugador1.increace(peon_p);
                                             break;
                                         case 13:
                                             peon14.setAlive(false);
+                                            jugador1.increace(peon_p);
                                             break;
                                         case 14:
                                             peon15.setAlive(false);
+                                            jugador1.increace(peon_p);
                                             break;
                                         case 15:
                                             peon16.setAlive(false);
+                                            jugador1.increace(peon_p);
                                             break;
                                         case 16:
                                             peon1.setAlive(false);
+                                            jugador2.increace(peon_p);
                                             break;
                                         case 17:
                                             peon2.setAlive(false);
+                                            jugador2.increace(peon_p);
                                             break;
                                         case 18:
                                             peon3.setAlive(false);
+                                            jugador2.increace(peon_p);
                                             break;
                                         case 19:
                                             peon4.setAlive(false);
+                                            jugador2.increace(peon_p);
                                             break;
                                         case 20:
                                             peon5.setAlive(false);
+                                            jugador2.increace(peon_p);
                                             break;
                                         case 21:
                                             peon6.setAlive(false);
+                                            jugador2.increace(peon_p);
                                             break;
                                         case 22:
                                             peon7.setAlive(false);
+                                            jugador2.increace(peon_p);
                                             break;
                                         case 23:
                                             peon8.setAlive(false);
+                                            jugador2.increace(peon_p);
                                         case 24:
                                             torre1.setAlive(false);
+                                            jugador2.increace(torre_p);
                                             break;
                                         case 25:
                                             caballo1.setAlive(false);
+                                            jugador2.increace(caballo_p);
                                             break;
                                         case 26:
                                             alfil1.setAlive(false);
+                                            jugador2.increace(alfil_p);
                                             break;
                                         case 27:
                                             rey1.setAlive(false);
+                                            jugador2.increace(rey_p);
                                             break;
                                         case 28:
                                             dama1.setAlive(false);
+                                            jugador2.increace(dama_p);
                                             break;
                                         case 29:
                                             alfil2.setAlive(false);
+                                            jugador2.increace(alfil_p);
                                             break;
                                         case 30:
                                             caballo2.setAlive(false);
+                                            jugador2.increace(caballo_p);
                                             break;
                                         case 31:
                                             torre2.setAlive(false);
+                                            jugador2.increace(torre_p);
                                             break;
 
 
@@ -1675,95 +2038,127 @@ int main(){
                                     switch(matrix[(newPos.x/56)+((newPos.y/56)*8)].second){
                                         case 1:
                                             caballo3.setAlive(false);
+                                            whatPiece = 1;
+                                            jugador1.increace(caballo_p);
                                             break;
                                         case 2:
                                             alfil3.setAlive(false);
+                                            jugador1.increace(alfil_p);
                                             break;
                                         case 3:
                                             rey2.setAlive(false);
+                                            jugador1.increace(rey_p);
                                             break;
                                         case 4:
                                             dama2.setAlive(false);
+                                            jugador1.increace(dama_p);
                                             break;
                                         case 5:
                                             alfil4.setAlive(false);
+                                            jugador1.increace(alfil_p);
                                             break;
                                         case 6:
                                             caballo4.setAlive(false);
+                                            jugador1.increace(caballo_p);
                                             break;
                                         case 7:
                                             torre4.setAlive(false);
+                                            jugador1.increace(torre_p);
                                             break;
                                         case 8:
                                             peon9.setAlive(false);
+                                            jugador1.increace(peon_p);
                                             break;
                                         case 9:
                                             peon10.setAlive(false);
+                                            jugador1.increace(peon_p);
                                             break;
                                         case 10:
                                             peon11.setAlive(false);
+                                            jugador1.increace(peon_p);
                                             break;
                                         case 11:
                                             peon12.setAlive(false);
+                                            jugador1.increace(peon_p);
                                             break;
                                         case 12:
                                             peon13.setAlive(false);
+                                            jugador1.increace(peon_p);
                                             break;
                                         case 13:
                                             peon14.setAlive(false);
+                                            jugador1.increace(peon_p);
                                             break;
                                         case 14:
                                             peon15.setAlive(false);
+                                            jugador1.increace(peon_p);
                                             break;
                                         case 15:
                                             peon16.setAlive(false);
+                                            jugador1.increace(peon_p);
                                             break;
                                         case 16:
                                             peon1.setAlive(false);
+                                            jugador2.increace(peon_p);
                                             break;
                                         case 17:
                                             peon2.setAlive(false);
+                                            jugador2.increace(peon_p);
                                             break;
                                         case 18:
                                             peon3.setAlive(false);
+                                            jugador2.increace(peon_p);
                                             break;
                                         case 19:
                                             peon4.setAlive(false);
+                                            jugador2.increace(peon_p);
                                             break;
                                         case 20:
                                             peon5.setAlive(false);
+                                            jugador2.increace(peon_p);
                                             break;
                                         case 21:
                                             peon6.setAlive(false);
+                                            jugador2.increace(peon_p);
                                             break;
                                         case 22:
                                             peon7.setAlive(false);
+                                            jugador2.increace(peon_p);
                                             break;
                                         case 23:
                                             peon8.setAlive(false);
+                                            jugador2.increace(peon_p);
                                         case 24:
                                             torre1.setAlive(false);
+                                            jugador2.increace(torre_p);
                                             break;
                                         case 25:
                                             caballo1.setAlive(false);
+                                            jugador2.increace(caballo_p);
                                             break;
                                         case 26:
                                             alfil1.setAlive(false);
+                                            jugador2.increace(alfil_p);
                                             break;
                                         case 27:
                                             rey1.setAlive(false);
+                                            jugador2.increace(rey_p);
                                             break;
                                         case 28:
                                             dama1.setAlive(false);
+                                            jugador2.increace(dama_p);
                                             break;
                                         case 29:
                                             alfil2.setAlive(false);
+                                            jugador2.increace(alfil_p);
                                             break;
                                         case 30:
                                             caballo2.setAlive(false);
+                                            jugador2.increace(caballo_p);
                                             break;
                                         case 31:
                                             torre2.setAlive(false);
+                                            jugador2.increace(torre_p);
                                             break;
 
 
@@ -1787,95 +2182,127 @@ int main(){
                                     switch(matrix[(newPos.x/56)+((newPos.y/56)*8)].second){
                                         case 1:
                                             caballo3.setAlive(false);
+                                            whatPiece = 1;
+                                            jugador1.increace(caballo_p);
                                             break;
                                         case 2:
                                             alfil3.setAlive(false);
+                                            jugador1.increace(alfil_p);
                                             break;
                                         case 3:
                                             rey2.setAlive(false);
+                                            jugador1.increace(rey_p);
                                             break;
                                         case 4:
                                             dama2.setAlive(false);
+                                            jugador1.increace(dama_p);
                                             break;
                                         case 5:
                                             alfil4.setAlive(false);
+                                            jugador1.increace(alfil_p);
                                             break;
                                         case 6:
                                             caballo4.setAlive(false);
+                                            jugador1.increace(caballo_p);
                                             break;
                                         case 7:
                                             torre4.setAlive(false);
+                                            jugador1.increace(torre_p);
                                             break;
                                         case 8:
                                             peon9.setAlive(false);
+                                            jugador1.increace(peon_p);
                                             break;
                                         case 9:
                                             peon10.setAlive(false);
+                                            jugador1.increace(peon_p);
                                             break;
                                         case 10:
                                             peon11.setAlive(false);
+                                            jugador1.increace(peon_p);
                                             break;
                                         case 11:
                                             peon12.setAlive(false);
+                                            jugador1.increace(peon_p);
                                             break;
                                         case 12:
                                             peon13.setAlive(false);
+                                            jugador1.increace(peon_p);
                                             break;
                                         case 13:
                                             peon14.setAlive(false);
+                                            jugador1.increace(peon_p);
                                             break;
                                         case 14:
                                             peon15.setAlive(false);
+                                            jugador1.increace(peon_p);
                                             break;
                                         case 15:
                                             peon16.setAlive(false);
+                                            jugador1.increace(peon_p);
                                             break;
                                         case 16:
                                             peon1.setAlive(false);
+                                            jugador2.increace(peon_p);
                                             break;
                                         case 17:
                                             peon2.setAlive(false);
+                                            jugador2.increace(peon_p);
                                             break;
                                         case 18:
                                             peon3.setAlive(false);
+                                            jugador2.increace(peon_p);
                                             break;
                                         case 19:
                                             peon4.setAlive(false);
+                                            jugador2.increace(peon_p);
                                             break;
                                         case 20:
                                             peon5.setAlive(false);
+                                            jugador2.increace(peon_p);
                                             break;
                                         case 21:
                                             peon6.setAlive(false);
+                                            jugador2.increace(peon_p);
                                             break;
                                         case 22:
                                             peon7.setAlive(false);
+                                            jugador2.increace(peon_p);
                                             break;
                                         case 23:
                                             peon8.setAlive(false);
+                                            jugador2.increace(peon_p);
                                         case 24:
                                             torre1.setAlive(false);
+                                            jugador2.increace(torre_p);
                                             break;
                                         case 25:
                                             caballo1.setAlive(false);
+                                            jugador2.increace(caballo_p);
                                             break;
                                         case 26:
                                             alfil1.setAlive(false);
+                                            jugador2.increace(alfil_p);
                                             break;
                                         case 27:
                                             rey1.setAlive(false);
+                                            jugador2.increace(rey_p);
                                             break;
                                         case 28:
                                             dama1.setAlive(false);
+                                            jugador2.increace(dama_p);
                                             break;
                                         case 29:
                                             alfil2.setAlive(false);
+                                            jugador2.increace(alfil_p);
                                             break;
                                         case 30:
                                             caballo2.setAlive(false);
+                                            jugador2.increace(caballo_p);
                                             break;
                                         case 31:
                                             torre2.setAlive(false);
+                                            jugador2.increace(torre_p);
                                             break;
 
 
@@ -1898,95 +2325,127 @@ int main(){
                                     switch(matrix[(newPos.x/56)+((newPos.y/56)*8)].second){
                                         case 1:
                                             caballo3.setAlive(false);
+                                            whatPiece = 1;
+                                            jugador1.increace(caballo_p);
                                             break;
                                         case 2:
                                             alfil3.setAlive(false);
+                                            jugador1.increace(alfil_p);
                                             break;
                                         case 3:
                                             rey2.setAlive(false);
+                                            jugador1.increace(rey_p);
                                             break;
                                         case 4:
                                             dama2.setAlive(false);
+                                            jugador1.increace(dama_p);
                                             break;
                                         case 5:
                                             alfil4.setAlive(false);
+                                            jugador1.increace(alfil_p);
                                             break;
                                         case 6:
                                             caballo4.setAlive(false);
+                                            jugador1.increace(caballo_p);
                                             break;
                                         case 7:
                                             torre4.setAlive(false);
+                                            jugador1.increace(torre_p);
                                             break;
                                         case 8:
                                             peon9.setAlive(false);
+                                            jugador1.increace(peon_p);
                                             break;
                                         case 9:
                                             peon10.setAlive(false);
+                                            jugador1.increace(peon_p);
                                             break;
                                         case 10:
                                             peon11.setAlive(false);
+                                            jugador1.increace(peon_p);
                                             break;
                                         case 11:
                                             peon12.setAlive(false);
+                                            jugador1.increace(peon_p);
                                             break;
                                         case 12:
                                             peon13.setAlive(false);
+                                            jugador1.increace(peon_p);
                                             break;
                                         case 13:
                                             peon14.setAlive(false);
+                                            jugador1.increace(peon_p);
                                             break;
                                         case 14:
                                             peon15.setAlive(false);
+                                            jugador1.increace(peon_p);
                                             break;
                                         case 15:
                                             peon16.setAlive(false);
+                                            jugador1.increace(peon_p);
                                             break;
                                         case 16:
                                             peon1.setAlive(false);
+                                            jugador2.increace(peon_p);
                                             break;
                                         case 17:
                                             peon2.setAlive(false);
+                                            jugador2.increace(peon_p);
                                             break;
                                         case 18:
                                             peon3.setAlive(false);
+                                            jugador2.increace(peon_p);
                                             break;
                                         case 19:
                                             peon4.setAlive(false);
+                                            jugador2.increace(peon_p);
                                             break;
                                         case 20:
                                             peon5.setAlive(false);
+                                            jugador2.increace(peon_p);
                                             break;
                                         case 21:
                                             peon6.setAlive(false);
+                                            jugador2.increace(peon_p);
                                             break;
                                         case 22:
                                             peon7.setAlive(false);
+                                            jugador2.increace(peon_p);
                                             break;
                                         case 23:
                                             peon8.setAlive(false);
+                                            jugador2.increace(peon_p);
                                         case 24:
                                             torre1.setAlive(false);
+                                            jugador2.increace(torre_p);
                                             break;
                                         case 25:
                                             caballo1.setAlive(false);
+                                            jugador2.increace(caballo_p);
                                             break;
                                         case 26:
                                             alfil1.setAlive(false);
+                                            jugador2.increace(alfil_p);
                                             break;
                                         case 27:
                                             rey1.setAlive(false);
+                                            jugador2.increace(rey_p);
                                             break;
                                         case 28:
                                             dama1.setAlive(false);
+                                            jugador2.increace(dama_p);
                                             break;
                                         case 29:
                                             alfil2.setAlive(false);
+                                            jugador2.increace(alfil_p);
                                             break;
                                         case 30:
                                             caballo2.setAlive(false);
+                                            jugador2.increace(caballo_p);
                                             break;
                                         case 31:
                                             torre2.setAlive(false);
+                                            jugador2.increace(torre_p);
                                             break;
 
 
@@ -2010,95 +2469,127 @@ int main(){
                                     switch(matrix[(newPos.x/56)+((newPos.y/56)*8)].second){
                                         case 1:
                                             caballo3.setAlive(false);
+                                            whatPiece = 1;
+                                            jugador1.increace(caballo_p);
                                             break;
                                         case 2:
                                             alfil3.setAlive(false);
+                                            jugador1.increace(alfil_p);
                                             break;
                                         case 3:
                                             rey2.setAlive(false);
+                                            jugador1.increace(rey_p);
                                             break;
                                         case 4:
                                             dama2.setAlive(false);
+                                            jugador1.increace(dama_p);
                                             break;
                                         case 5:
                                             alfil4.setAlive(false);
+                                            jugador1.increace(alfil_p);
                                             break;
                                         case 6:
                                             caballo4.setAlive(false);
+                                            jugador1.increace(caballo_p);
                                             break;
                                         case 7:
                                             torre4.setAlive(false);
+                                            jugador1.increace(torre_p);
                                             break;
                                         case 8:
                                             peon9.setAlive(false);
+                                            jugador1.increace(peon_p);
                                             break;
                                         case 9:
                                             peon10.setAlive(false);
+                                            jugador1.increace(peon_p);
                                             break;
                                         case 10:
                                             peon11.setAlive(false);
+                                            jugador1.increace(peon_p);
                                             break;
                                         case 11:
                                             peon12.setAlive(false);
+                                            jugador1.increace(peon_p);
                                             break;
                                         case 12:
                                             peon13.setAlive(false);
+                                            jugador1.increace(peon_p);
                                             break;
                                         case 13:
                                             peon14.setAlive(false);
+                                            jugador1.increace(peon_p);
                                             break;
                                         case 14:
                                             peon15.setAlive(false);
+                                            jugador1.increace(peon_p);
                                             break;
                                         case 15:
                                             peon16.setAlive(false);
+                                            jugador1.increace(peon_p);
                                             break;
                                         case 16:
                                             peon1.setAlive(false);
+                                            jugador2.increace(peon_p);
                                             break;
                                         case 17:
                                             peon2.setAlive(false);
+                                            jugador2.increace(peon_p);
                                             break;
                                         case 18:
                                             peon3.setAlive(false);
+                                            jugador2.increace(peon_p);
                                             break;
                                         case 19:
                                             peon4.setAlive(false);
+                                            jugador2.increace(peon_p);
                                             break;
                                         case 20:
                                             peon5.setAlive(false);
+                                            jugador2.increace(peon_p);
                                             break;
                                         case 21:
                                             peon6.setAlive(false);
+                                            jugador2.increace(peon_p);
                                             break;
                                         case 22:
                                             peon7.setAlive(false);
+                                            jugador2.increace(peon_p);
                                             break;
                                         case 23:
                                             peon8.setAlive(false);
+                                            jugador2.increace(peon_p);
                                         case 24:
                                             torre1.setAlive(false);
+                                            jugador2.increace(torre_p);
                                             break;
                                         case 25:
                                             caballo1.setAlive(false);
+                                            jugador2.increace(caballo_p);
                                             break;
                                         case 26:
                                             alfil1.setAlive(false);
+                                            jugador2.increace(alfil_p);
                                             break;
                                         case 27:
                                             rey1.setAlive(false);
+                                            jugador2.increace(rey_p);
                                             break;
                                         case 28:
                                             dama1.setAlive(false);
+                                            jugador2.increace(dama_p);
                                             break;
                                         case 29:
                                             alfil2.setAlive(false);
+                                            jugador2.increace(alfil_p);
                                             break;
                                         case 30:
                                             caballo2.setAlive(false);
+                                            jugador2.increace(caballo_p);
                                             break;
                                         case 31:
                                             torre2.setAlive(false);
+                                            jugador2.increace(torre_p);
                                             break;
 
 
@@ -2122,95 +2613,127 @@ int main(){
                                     switch(matrix[(newPos.x/56)+((newPos.y/56)*8)].second){
                                         case 1:
                                             caballo3.setAlive(false);
+                                            whatPiece = 1;
+                                            jugador1.increace(caballo_p);
                                             break;
                                         case 2:
                                             alfil3.setAlive(false);
+                                            jugador1.increace(alfil_p);
                                             break;
                                         case 3:
                                             rey2.setAlive(false);
+                                            jugador1.increace(rey_p);
                                             break;
                                         case 4:
                                             dama2.setAlive(false);
+                                            jugador1.increace(dama_p);
                                             break;
                                         case 5:
                                             alfil4.setAlive(false);
+                                            jugador1.increace(alfil_p);
                                             break;
                                         case 6:
                                             caballo4.setAlive(false);
+                                            jugador1.increace(caballo_p);
                                             break;
                                         case 7:
                                             torre4.setAlive(false);
+                                            jugador1.increace(torre_p);
                                             break;
                                         case 8:
                                             peon9.setAlive(false);
+                                            jugador1.increace(peon_p);
                                             break;
                                         case 9:
                                             peon10.setAlive(false);
+                                            jugador1.increace(peon_p);
                                             break;
                                         case 10:
                                             peon11.setAlive(false);
+                                            jugador1.increace(peon_p);
                                             break;
                                         case 11:
                                             peon12.setAlive(false);
+                                            jugador1.increace(peon_p);
                                             break;
                                         case 12:
                                             peon13.setAlive(false);
+                                            jugador1.increace(peon_p);
                                             break;
                                         case 13:
                                             peon14.setAlive(false);
+                                            jugador1.increace(peon_p);
                                             break;
                                         case 14:
                                             peon15.setAlive(false);
+                                            jugador1.increace(peon_p);
                                             break;
                                         case 15:
                                             peon16.setAlive(false);
+                                            jugador1.increace(peon_p);
                                             break;
                                         case 16:
                                             peon1.setAlive(false);
+                                            jugador2.increace(peon_p);
                                             break;
                                         case 17:
                                             peon2.setAlive(false);
+                                            jugador2.increace(peon_p);
                                             break;
                                         case 18:
                                             peon3.setAlive(false);
+                                            jugador2.increace(peon_p);
                                             break;
                                         case 19:
                                             peon4.setAlive(false);
+                                            jugador2.increace(peon_p);
                                             break;
                                         case 20:
                                             peon5.setAlive(false);
+                                            jugador2.increace(peon_p);
                                             break;
                                         case 21:
                                             peon6.setAlive(false);
+                                            jugador2.increace(peon_p);
                                             break;
                                         case 22:
                                             peon7.setAlive(false);
+                                            jugador2.increace(peon_p);
                                             break;
                                         case 23:
                                             peon8.setAlive(false);
+                                            jugador2.increace(peon_p);
                                         case 24:
                                             torre1.setAlive(false);
+                                            jugador2.increace(torre_p);
                                             break;
                                         case 25:
                                             caballo1.setAlive(false);
+                                            jugador2.increace(caballo_p);
                                             break;
                                         case 26:
                                             alfil1.setAlive(false);
+                                            jugador2.increace(alfil_p);
                                             break;
                                         case 27:
                                             rey1.setAlive(false);
+                                            jugador2.increace(rey_p);
                                             break;
                                         case 28:
                                             dama1.setAlive(false);
+                                            jugador2.increace(dama_p);
                                             break;
                                         case 29:
                                             alfil2.setAlive(false);
+                                            jugador2.increace(alfil_p);
                                             break;
                                         case 30:
                                             caballo2.setAlive(false);
+                                            jugador2.increace(caballo_p);
                                             break;
                                         case 31:
                                             torre2.setAlive(false);
+                                            jugador2.increace(torre_p);
                                             break;
 
 
@@ -2235,95 +2758,127 @@ int main(){
                                     switch(matrix[(newPos.x/56)+((newPos.y/56)*8)].second){
                                         case 1:
                                             caballo3.setAlive(false);
+                                            whatPiece = 1;
+                                            jugador1.increace(caballo_p);
                                             break;
                                         case 2:
                                             alfil3.setAlive(false);
+                                            jugador1.increace(alfil_p);
                                             break;
                                         case 3:
                                             rey2.setAlive(false);
+                                            jugador1.increace(rey_p);
                                             break;
                                         case 4:
                                             dama2.setAlive(false);
+                                            jugador1.increace(dama_p);
                                             break;
                                         case 5:
                                             alfil4.setAlive(false);
+                                            jugador1.increace(alfil_p);
                                             break;
                                         case 6:
                                             caballo4.setAlive(false);
+                                            jugador1.increace(caballo_p);
                                             break;
                                         case 7:
                                             torre4.setAlive(false);
+                                            jugador1.increace(torre_p);
                                             break;
                                         case 8:
                                             peon9.setAlive(false);
+                                            jugador1.increace(peon_p);
                                             break;
                                         case 9:
                                             peon10.setAlive(false);
+                                            jugador1.increace(peon_p);
                                             break;
                                         case 10:
                                             peon11.setAlive(false);
+                                            jugador1.increace(peon_p);
                                             break;
                                         case 11:
                                             peon12.setAlive(false);
+                                            jugador1.increace(peon_p);
                                             break;
                                         case 12:
                                             peon13.setAlive(false);
+                                            jugador1.increace(peon_p);
                                             break;
                                         case 13:
                                             peon14.setAlive(false);
+                                            jugador1.increace(peon_p);
                                             break;
                                         case 14:
                                             peon15.setAlive(false);
+                                            jugador1.increace(peon_p);
                                             break;
                                         case 15:
                                             peon16.setAlive(false);
+                                            jugador1.increace(peon_p);
                                             break;
                                         case 16:
                                             peon1.setAlive(false);
+                                            jugador2.increace(peon_p);
                                             break;
                                         case 17:
                                             peon2.setAlive(false);
+                                            jugador2.increace(peon_p);
                                             break;
                                         case 18:
                                             peon3.setAlive(false);
+                                            jugador2.increace(peon_p);
                                             break;
                                         case 19:
                                             peon4.setAlive(false);
+                                            jugador2.increace(peon_p);
                                             break;
                                         case 20:
                                             peon5.setAlive(false);
+                                            jugador2.increace(peon_p);
                                             break;
                                         case 21:
                                             peon6.setAlive(false);
+                                            jugador2.increace(peon_p);
                                             break;
                                         case 22:
                                             peon7.setAlive(false);
+                                            jugador2.increace(peon_p);
                                             break;
                                         case 23:
                                             peon8.setAlive(false);
+                                            jugador2.increace(peon_p);
                                         case 24:
                                             torre1.setAlive(false);
+                                            jugador2.increace(torre_p);
                                             break;
                                         case 25:
                                             caballo1.setAlive(false);
+                                            jugador2.increace(caballo_p);
                                             break;
                                         case 26:
                                             alfil1.setAlive(false);
+                                            jugador2.increace(alfil_p);
                                             break;
                                         case 27:
                                             rey1.setAlive(false);
+                                            jugador2.increace(rey_p);
                                             break;
                                         case 28:
                                             dama1.setAlive(false);
+                                            jugador2.increace(dama_p);
                                             break;
                                         case 29:
                                             alfil2.setAlive(false);
+                                            jugador2.increace(alfil_p);
                                             break;
                                         case 30:
                                             caballo2.setAlive(false);
+                                            jugador2.increace(caballo_p);
                                             break;
                                         case 31:
                                             torre2.setAlive(false);
+                                            jugador2.increace(torre_p);
                                             break;
 
 
@@ -2349,95 +2904,127 @@ int main(){
                                     switch(matrix[(newPos.x/56)+((newPos.y/56)*8)].second){
                                         case 1:
                                             caballo3.setAlive(false);
+                                            whatPiece = 1;
+                                            jugador1.increace(caballo_p);
                                             break;
                                         case 2:
                                             alfil3.setAlive(false);
+                                            jugador1.increace(alfil_p);
                                             break;
                                         case 3:
                                             rey2.setAlive(false);
+                                            jugador1.increace(rey_p);
                                             break;
                                         case 4:
                                             dama2.setAlive(false);
+                                            jugador1.increace(dama_p);
                                             break;
                                         case 5:
                                             alfil4.setAlive(false);
+                                            jugador1.increace(alfil_p);
                                             break;
                                         case 6:
                                             caballo4.setAlive(false);
+                                            jugador1.increace(caballo_p);
                                             break;
                                         case 7:
                                             torre4.setAlive(false);
+                                            jugador1.increace(torre_p);
                                             break;
                                         case 8:
                                             peon9.setAlive(false);
+                                            jugador1.increace(peon_p);
                                             break;
                                         case 9:
                                             peon10.setAlive(false);
+                                            jugador1.increace(peon_p);
                                             break;
                                         case 10:
                                             peon11.setAlive(false);
+                                            jugador1.increace(peon_p);
                                             break;
                                         case 11:
                                             peon12.setAlive(false);
+                                            jugador1.increace(peon_p);
                                             break;
                                         case 12:
                                             peon13.setAlive(false);
+                                            jugador1.increace(peon_p);
                                             break;
                                         case 13:
                                             peon14.setAlive(false);
+                                            jugador1.increace(peon_p);
                                             break;
                                         case 14:
                                             peon15.setAlive(false);
+                                            jugador1.increace(peon_p);
                                             break;
                                         case 15:
                                             peon16.setAlive(false);
+                                            jugador1.increace(peon_p);
                                             break;
                                         case 16:
                                             peon1.setAlive(false);
+                                            jugador2.increace(peon_p);
                                             break;
                                         case 17:
                                             peon2.setAlive(false);
+                                            jugador2.increace(peon_p);
                                             break;
                                         case 18:
                                             peon3.setAlive(false);
+                                            jugador2.increace(peon_p);
                                             break;
                                         case 19:
                                             peon4.setAlive(false);
+                                            jugador2.increace(peon_p);
                                             break;
                                         case 20:
                                             peon5.setAlive(false);
+                                            jugador2.increace(peon_p);
                                             break;
                                         case 21:
                                             peon6.setAlive(false);
+                                            jugador2.increace(peon_p);
                                             break;
                                         case 22:
                                             peon7.setAlive(false);
+                                            jugador2.increace(peon_p);
                                             break;
                                         case 23:
                                             peon8.setAlive(false);
+                                            jugador2.increace(peon_p);
                                         case 24:
                                             torre1.setAlive(false);
+                                            jugador2.increace(torre_p);
                                             break;
                                         case 25:
                                             caballo1.setAlive(false);
+                                            jugador2.increace(caballo_p);
                                             break;
                                         case 26:
                                             alfil1.setAlive(false);
+                                            jugador2.increace(alfil_p);
                                             break;
                                         case 27:
                                             rey1.setAlive(false);
+                                            jugador2.increace(rey_p);
                                             break;
                                         case 28:
                                             dama1.setAlive(false);
+                                            jugador2.increace(dama_p);
                                             break;
                                         case 29:
                                             alfil2.setAlive(false);
+                                            jugador2.increace(alfil_p);
                                             break;
                                         case 30:
                                             caballo2.setAlive(false);
+                                            jugador2.increace(caballo_p);
                                             break;
                                         case 31:
                                             torre2.setAlive(false);
+                                            jugador2.increace(torre_p);
                                             break;
 
 
@@ -2461,95 +3048,127 @@ int main(){
                                     switch(matrix[(newPos.x/56)+((newPos.y/56)*8)].second){
                                         case 1:
                                             caballo3.setAlive(false);
+                                            whatPiece = 1;
+                                            jugador1.increace(caballo_p);
                                             break;
                                         case 2:
                                             alfil3.setAlive(false);
+                                            jugador1.increace(alfil_p);
                                             break;
                                         case 3:
                                             rey2.setAlive(false);
+                                            jugador1.increace(rey_p);
                                             break;
                                         case 4:
                                             dama2.setAlive(false);
+                                            jugador1.increace(dama_p);
                                             break;
                                         case 5:
                                             alfil4.setAlive(false);
+                                            jugador1.increace(alfil_p);
                                             break;
                                         case 6:
                                             caballo4.setAlive(false);
+                                            jugador1.increace(caballo_p);
                                             break;
                                         case 7:
                                             torre4.setAlive(false);
+                                            jugador1.increace(torre_p);
                                             break;
                                         case 8:
                                             peon9.setAlive(false);
+                                            jugador1.increace(peon_p);
                                             break;
                                         case 9:
                                             peon10.setAlive(false);
+                                            jugador1.increace(peon_p);
                                             break;
                                         case 10:
                                             peon11.setAlive(false);
+                                            jugador1.increace(peon_p);
                                             break;
                                         case 11:
                                             peon12.setAlive(false);
+                                            jugador1.increace(peon_p);
                                             break;
                                         case 12:
                                             peon13.setAlive(false);
+                                            jugador1.increace(peon_p);
                                             break;
                                         case 13:
                                             peon14.setAlive(false);
+                                            jugador1.increace(peon_p);
                                             break;
                                         case 14:
                                             peon15.setAlive(false);
+                                            jugador1.increace(peon_p);
                                             break;
                                         case 15:
                                             peon16.setAlive(false);
+                                            jugador1.increace(peon_p);
                                             break;
                                         case 16:
                                             peon1.setAlive(false);
+                                            jugador2.increace(peon_p);
                                             break;
                                         case 17:
                                             peon2.setAlive(false);
+                                            jugador2.increace(peon_p);
                                             break;
                                         case 18:
                                             peon3.setAlive(false);
+                                            jugador2.increace(peon_p);
                                             break;
                                         case 19:
                                             peon4.setAlive(false);
+                                            jugador2.increace(peon_p);
                                             break;
                                         case 20:
                                             peon5.setAlive(false);
+                                            jugador2.increace(peon_p);
                                             break;
                                         case 21:
                                             peon6.setAlive(false);
+                                            jugador2.increace(peon_p);
                                             break;
                                         case 22:
                                             peon7.setAlive(false);
+                                            jugador2.increace(peon_p);
                                             break;
                                         case 23:
                                             peon8.setAlive(false);
+                                            jugador2.increace(peon_p);
                                         case 24:
                                             torre1.setAlive(false);
+                                            jugador2.increace(torre_p);
                                             break;
                                         case 25:
                                             caballo1.setAlive(false);
+                                            jugador2.increace(caballo_p);
                                             break;
                                         case 26:
                                             alfil1.setAlive(false);
+                                            jugador2.increace(alfil_p);
                                             break;
                                         case 27:
                                             rey1.setAlive(false);
+                                            jugador2.increace(rey_p);
                                             break;
                                         case 28:
                                             dama1.setAlive(false);
+                                            jugador2.increace(dama_p);
                                             break;
                                         case 29:
                                             alfil2.setAlive(false);
+                                            jugador2.increace(alfil_p);
                                             break;
                                         case 30:
                                             caballo2.setAlive(false);
+                                            jugador2.increace(caballo_p);
                                             break;
                                         case 31:
                                             torre2.setAlive(false);
+                                            jugador2.increace(torre_p);
                                             break;
 
 
@@ -2573,95 +3192,127 @@ int main(){
                                     switch(matrix[(newPos.x/56)+((newPos.y/56)*8)].second){
                                         case 1:
                                             caballo3.setAlive(false);
+                                            whatPiece = 1;
+                                            jugador1.increace(caballo_p);
                                             break;
                                         case 2:
                                             alfil3.setAlive(false);
+                                            jugador1.increace(alfil_p);
                                             break;
                                         case 3:
                                             rey2.setAlive(false);
+                                            jugador1.increace(rey_p);
                                             break;
                                         case 4:
                                             dama2.setAlive(false);
+                                            jugador1.increace(dama_p);
                                             break;
                                         case 5:
                                             alfil4.setAlive(false);
+                                            jugador1.increace(alfil_p);
                                             break;
                                         case 6:
                                             caballo4.setAlive(false);
+                                            jugador1.increace(caballo_p);
                                             break;
                                         case 7:
                                             torre4.setAlive(false);
+                                            jugador1.increace(torre_p);
                                             break;
                                         case 8:
                                             peon9.setAlive(false);
+                                            jugador1.increace(peon_p);
                                             break;
                                         case 9:
                                             peon10.setAlive(false);
+                                            jugador1.increace(peon_p);
                                             break;
                                         case 10:
                                             peon11.setAlive(false);
+                                            jugador1.increace(peon_p);
                                             break;
                                         case 11:
                                             peon12.setAlive(false);
+                                            jugador1.increace(peon_p);
                                             break;
                                         case 12:
                                             peon13.setAlive(false);
+                                            jugador1.increace(peon_p);
                                             break;
                                         case 13:
                                             peon14.setAlive(false);
+                                            jugador1.increace(peon_p);
                                             break;
                                         case 14:
                                             peon15.setAlive(false);
+                                            jugador1.increace(peon_p);
                                             break;
                                         case 15:
                                             peon16.setAlive(false);
+                                            jugador1.increace(peon_p);
                                             break;
                                         case 16:
                                             peon1.setAlive(false);
+                                            jugador2.increace(peon_p);
                                             break;
                                         case 17:
                                             peon2.setAlive(false);
+                                            jugador2.increace(peon_p);
                                             break;
                                         case 18:
                                             peon3.setAlive(false);
+                                            jugador2.increace(peon_p);
                                             break;
                                         case 19:
                                             peon4.setAlive(false);
+                                            jugador2.increace(peon_p);
                                             break;
                                         case 20:
                                             peon5.setAlive(false);
+                                            jugador2.increace(peon_p);
                                             break;
                                         case 21:
                                             peon6.setAlive(false);
+                                            jugador2.increace(peon_p);
                                             break;
                                         case 22:
                                             peon7.setAlive(false);
+                                            jugador2.increace(peon_p);
                                             break;
                                         case 23:
                                             peon8.setAlive(false);
+                                            jugador2.increace(peon_p);
                                         case 24:
                                             torre1.setAlive(false);
+                                            jugador2.increace(torre_p);
                                             break;
                                         case 25:
                                             caballo1.setAlive(false);
+                                            jugador2.increace(caballo_p);
                                             break;
                                         case 26:
                                             alfil1.setAlive(false);
+                                            jugador2.increace(alfil_p);
                                             break;
                                         case 27:
                                             rey1.setAlive(false);
+                                            jugador2.increace(rey_p);
                                             break;
                                         case 28:
                                             dama1.setAlive(false);
+                                            jugador2.increace(dama_p);
                                             break;
                                         case 29:
                                             alfil2.setAlive(false);
+                                            jugador2.increace(alfil_p);
                                             break;
                                         case 30:
                                             caballo2.setAlive(false);
+                                            jugador2.increace(caballo_p);
                                             break;
                                         case 31:
                                             torre2.setAlive(false);
+                                            jugador2.increace(torre_p);
                                             break;
 
 
@@ -2685,95 +3336,127 @@ int main(){
                                     switch(matrix[(newPos.x/56)+((newPos.y/56)*8)].second){
                                         case 1:
                                             caballo3.setAlive(false);
+                                            whatPiece = 1;
+                                            jugador1.increace(caballo_p);
                                             break;
                                         case 2:
                                             alfil3.setAlive(false);
+                                            jugador1.increace(alfil_p);
                                             break;
                                         case 3:
                                             rey2.setAlive(false);
+                                            jugador1.increace(rey_p);
                                             break;
                                         case 4:
                                             dama2.setAlive(false);
+                                            jugador1.increace(dama_p);
                                             break;
                                         case 5:
                                             alfil4.setAlive(false);
+                                            jugador1.increace(alfil_p);
                                             break;
                                         case 6:
                                             caballo4.setAlive(false);
+                                            jugador1.increace(caballo_p);
                                             break;
                                         case 7:
                                             torre4.setAlive(false);
+                                            jugador1.increace(torre_p);
                                             break;
                                         case 8:
                                             peon9.setAlive(false);
+                                            jugador1.increace(peon_p);
                                             break;
                                         case 9:
                                             peon10.setAlive(false);
+                                            jugador1.increace(peon_p);
                                             break;
                                         case 10:
                                             peon11.setAlive(false);
+                                            jugador1.increace(peon_p);
                                             break;
                                         case 11:
                                             peon12.setAlive(false);
+                                            jugador1.increace(peon_p);
                                             break;
                                         case 12:
                                             peon13.setAlive(false);
+                                            jugador1.increace(peon_p);
                                             break;
                                         case 13:
                                             peon14.setAlive(false);
+                                            jugador1.increace(peon_p);
                                             break;
                                         case 14:
                                             peon15.setAlive(false);
+                                            jugador1.increace(peon_p);
                                             break;
                                         case 15:
                                             peon16.setAlive(false);
+                                            jugador1.increace(peon_p);
                                             break;
                                         case 16:
                                             peon1.setAlive(false);
+                                            jugador2.increace(peon_p);
                                             break;
                                         case 17:
                                             peon2.setAlive(false);
+                                            jugador2.increace(peon_p);
                                             break;
                                         case 18:
                                             peon3.setAlive(false);
+                                            jugador2.increace(peon_p);
                                             break;
                                         case 19:
                                             peon4.setAlive(false);
+                                            jugador2.increace(peon_p);
                                             break;
                                         case 20:
                                             peon5.setAlive(false);
+                                            jugador2.increace(peon_p);
                                             break;
                                         case 21:
                                             peon6.setAlive(false);
+                                            jugador2.increace(peon_p);
                                             break;
                                         case 22:
                                             peon7.setAlive(false);
+                                            jugador2.increace(peon_p);
                                             break;
                                         case 23:
                                             peon8.setAlive(false);
+                                            jugador2.increace(peon_p);
                                         case 24:
                                             torre1.setAlive(false);
+                                            jugador2.increace(torre_p);
                                             break;
                                         case 25:
                                             caballo1.setAlive(false);
+                                            jugador2.increace(caballo_p);
                                             break;
                                         case 26:
                                             alfil1.setAlive(false);
+                                            jugador2.increace(alfil_p);
                                             break;
                                         case 27:
                                             rey1.setAlive(false);
+                                            jugador2.increace(rey_p);
                                             break;
                                         case 28:
                                             dama1.setAlive(false);
+                                            jugador2.increace(dama_p);
                                             break;
                                         case 29:
                                             alfil2.setAlive(false);
+                                            jugador2.increace(alfil_p);
                                             break;
                                         case 30:
                                             caballo2.setAlive(false);
+                                            jugador2.increace(caballo_p);
                                             break;
                                         case 31:
                                             torre2.setAlive(false);
+                                            jugador2.increace(torre_p);
                                             break;
 
 
@@ -2797,95 +3480,127 @@ int main(){
                                     switch(matrix[(newPos.x/56)+((newPos.y/56)*8)].second){
                                         case 1:
                                             caballo3.setAlive(false);
+                                            whatPiece = 1;
+                                            jugador1.increace(caballo_p);
                                             break;
                                         case 2:
                                             alfil3.setAlive(false);
+                                            jugador1.increace(alfil_p);
                                             break;
                                         case 3:
                                             rey2.setAlive(false);
+                                            jugador1.increace(rey_p);
                                             break;
                                         case 4:
                                             dama2.setAlive(false);
+                                            jugador1.increace(dama_p);
                                             break;
                                         case 5:
                                             alfil4.setAlive(false);
+                                            jugador1.increace(alfil_p);
                                             break;
                                         case 6:
                                             caballo4.setAlive(false);
+                                            jugador1.increace(caballo_p);
                                             break;
                                         case 7:
                                             torre4.setAlive(false);
+                                            jugador1.increace(torre_p);
                                             break;
                                         case 8:
                                             peon9.setAlive(false);
+                                            jugador1.increace(peon_p);
                                             break;
                                         case 9:
                                             peon10.setAlive(false);
+                                            jugador1.increace(peon_p);
                                             break;
                                         case 10:
                                             peon11.setAlive(false);
+                                            jugador1.increace(peon_p);
                                             break;
                                         case 11:
                                             peon12.setAlive(false);
+                                            jugador1.increace(peon_p);
                                             break;
                                         case 12:
                                             peon13.setAlive(false);
+                                            jugador1.increace(peon_p);
                                             break;
                                         case 13:
                                             peon14.setAlive(false);
+                                            jugador1.increace(peon_p);
                                             break;
                                         case 14:
                                             peon15.setAlive(false);
+                                            jugador1.increace(peon_p);
                                             break;
                                         case 15:
                                             peon16.setAlive(false);
+                                            jugador1.increace(peon_p);
                                             break;
                                         case 16:
                                             peon1.setAlive(false);
+                                            jugador2.increace(peon_p);
                                             break;
                                         case 17:
                                             peon2.setAlive(false);
+                                            jugador2.increace(peon_p);
                                             break;
                                         case 18:
                                             peon3.setAlive(false);
+                                            jugador2.increace(peon_p);
                                             break;
                                         case 19:
                                             peon4.setAlive(false);
+                                            jugador2.increace(peon_p);
                                             break;
                                         case 20:
                                             peon5.setAlive(false);
+                                            jugador2.increace(peon_p);
                                             break;
                                         case 21:
                                             peon6.setAlive(false);
+                                            jugador2.increace(peon_p);
                                             break;
                                         case 22:
                                             peon7.setAlive(false);
+                                            jugador2.increace(peon_p);
                                             break;
                                         case 23:
                                             peon8.setAlive(false);
+                                            jugador2.increace(peon_p);
                                         case 24:
                                             torre1.setAlive(false);
+                                            jugador2.increace(torre_p);
                                             break;
                                         case 25:
                                             caballo1.setAlive(false);
+                                            jugador2.increace(caballo_p);
                                             break;
                                         case 26:
                                             alfil1.setAlive(false);
+                                            jugador2.increace(alfil_p);
                                             break;
                                         case 27:
                                             rey1.setAlive(false);
+                                            jugador2.increace(rey_p);
                                             break;
                                         case 28:
                                             dama1.setAlive(false);
+                                            jugador2.increace(dama_p);
                                             break;
                                         case 29:
                                             alfil2.setAlive(false);
+                                            jugador2.increace(alfil_p);
                                             break;
                                         case 30:
                                             caballo2.setAlive(false);
+                                            jugador2.increace(caballo_p);
                                             break;
                                         case 31:
                                             torre2.setAlive(false);
+                                            jugador2.increace(torre_p);
                                             break;
 
 
@@ -2909,95 +3624,127 @@ int main(){
                                     switch(matrix[(newPos.x/56)+((newPos.y/56)*8)].second){
                                         case 1:
                                             caballo3.setAlive(false);
+                                            whatPiece = 1;
+                                            jugador1.increace(caballo_p);
                                             break;
                                         case 2:
                                             alfil3.setAlive(false);
+                                            jugador1.increace(alfil_p);
                                             break;
                                         case 3:
                                             rey2.setAlive(false);
+                                            jugador1.increace(rey_p);
                                             break;
                                         case 4:
                                             dama2.setAlive(false);
+                                            jugador1.increace(dama_p);
                                             break;
                                         case 5:
                                             alfil4.setAlive(false);
+                                            jugador1.increace(alfil_p);
                                             break;
                                         case 6:
                                             caballo4.setAlive(false);
+                                            jugador1.increace(caballo_p);
                                             break;
                                         case 7:
                                             torre4.setAlive(false);
+                                            jugador1.increace(torre_p);
                                             break;
                                         case 8:
                                             peon9.setAlive(false);
+                                            jugador1.increace(peon_p);
                                             break;
                                         case 9:
                                             peon10.setAlive(false);
+                                            jugador1.increace(peon_p);
                                             break;
                                         case 10:
                                             peon11.setAlive(false);
+                                            jugador1.increace(peon_p);
                                             break;
                                         case 11:
                                             peon12.setAlive(false);
+                                            jugador1.increace(peon_p);
                                             break;
                                         case 12:
                                             peon13.setAlive(false);
+                                            jugador1.increace(peon_p);
                                             break;
                                         case 13:
                                             peon14.setAlive(false);
+                                            jugador1.increace(peon_p);
                                             break;
                                         case 14:
                                             peon15.setAlive(false);
+                                            jugador1.increace(peon_p);
                                             break;
                                         case 15:
                                             peon16.setAlive(false);
+                                            jugador1.increace(peon_p);
                                             break;
                                         case 16:
                                             peon1.setAlive(false);
+                                            jugador2.increace(peon_p);
                                             break;
                                         case 17:
                                             peon2.setAlive(false);
+                                            jugador2.increace(peon_p);
                                             break;
                                         case 18:
                                             peon3.setAlive(false);
+                                            jugador2.increace(peon_p);
                                             break;
                                         case 19:
                                             peon4.setAlive(false);
+                                            jugador2.increace(peon_p);
                                             break;
                                         case 20:
                                             peon5.setAlive(false);
+                                            jugador2.increace(peon_p);
                                             break;
                                         case 21:
                                             peon6.setAlive(false);
+                                            jugador2.increace(peon_p);
                                             break;
                                         case 22:
                                             peon7.setAlive(false);
+                                            jugador2.increace(peon_p);
                                             break;
                                         case 23:
                                             peon8.setAlive(false);
+                                            jugador2.increace(peon_p);
                                         case 24:
                                             torre1.setAlive(false);
+                                            jugador2.increace(torre_p);
                                             break;
                                         case 25:
                                             caballo1.setAlive(false);
+                                            jugador2.increace(caballo_p);
                                             break;
                                         case 26:
                                             alfil1.setAlive(false);
+                                            jugador2.increace(alfil_p);
                                             break;
                                         case 27:
                                             rey1.setAlive(false);
+                                            jugador2.increace(rey_p);
                                             break;
                                         case 28:
                                             dama1.setAlive(false);
+                                            jugador2.increace(dama_p);
                                             break;
                                         case 29:
                                             alfil2.setAlive(false);
+                                            jugador2.increace(alfil_p);
                                             break;
                                         case 30:
                                             caballo2.setAlive(false);
+                                            jugador2.increace(caballo_p);
                                             break;
                                         case 31:
                                             torre2.setAlive(false);
+                                            jugador2.increace(torre_p);
                                             break;
 
 
@@ -3021,95 +3768,127 @@ int main(){
                                     switch(matrix[(newPos.x/56)+((newPos.y/56)*8)].second){
                                         case 1:
                                             caballo3.setAlive(false);
+                                            whatPiece = 1;
+                                            jugador1.increace(caballo_p);
                                             break;
                                         case 2:
                                             alfil3.setAlive(false);
+                                            jugador1.increace(alfil_p);
                                             break;
                                         case 3:
                                             rey2.setAlive(false);
+                                            jugador1.increace(rey_p);
                                             break;
                                         case 4:
                                             dama2.setAlive(false);
+                                            jugador1.increace(dama_p);
                                             break;
                                         case 5:
                                             alfil4.setAlive(false);
+                                            jugador1.increace(alfil_p);
                                             break;
                                         case 6:
                                             caballo4.setAlive(false);
+                                            jugador1.increace(caballo_p);
                                             break;
                                         case 7:
                                             torre4.setAlive(false);
+                                            jugador1.increace(torre_p);
                                             break;
                                         case 8:
                                             peon9.setAlive(false);
+                                            jugador1.increace(peon_p);
                                             break;
                                         case 9:
                                             peon10.setAlive(false);
+                                            jugador1.increace(peon_p);
                                             break;
                                         case 10:
                                             peon11.setAlive(false);
+                                            jugador1.increace(peon_p);
                                             break;
                                         case 11:
                                             peon12.setAlive(false);
+                                            jugador1.increace(peon_p);
                                             break;
                                         case 12:
                                             peon13.setAlive(false);
+                                            jugador1.increace(peon_p);
                                             break;
                                         case 13:
                                             peon14.setAlive(false);
+                                            jugador1.increace(peon_p);
                                             break;
                                         case 14:
                                             peon15.setAlive(false);
+                                            jugador1.increace(peon_p);
                                             break;
                                         case 15:
                                             peon16.setAlive(false);
+                                            jugador1.increace(peon_p);
                                             break;
                                         case 16:
                                             peon1.setAlive(false);
+                                            jugador2.increace(peon_p);
                                             break;
                                         case 17:
                                             peon2.setAlive(false);
+                                            jugador2.increace(peon_p);
                                             break;
                                         case 18:
                                             peon3.setAlive(false);
+                                            jugador2.increace(peon_p);
                                             break;
                                         case 19:
                                             peon4.setAlive(false);
+                                            jugador2.increace(peon_p);
                                             break;
                                         case 20:
                                             peon5.setAlive(false);
+                                            jugador2.increace(peon_p);
                                             break;
                                         case 21:
                                             peon6.setAlive(false);
+                                            jugador2.increace(peon_p);
                                             break;
                                         case 22:
                                             peon7.setAlive(false);
+                                            jugador2.increace(peon_p);
                                             break;
                                         case 23:
                                             peon8.setAlive(false);
+                                            jugador2.increace(peon_p);
                                         case 24:
                                             torre1.setAlive(false);
+                                            jugador2.increace(torre_p);
                                             break;
                                         case 25:
                                             caballo1.setAlive(false);
+                                            jugador2.increace(caballo_p);
                                             break;
                                         case 26:
                                             alfil1.setAlive(false);
+                                            jugador2.increace(alfil_p);
                                             break;
                                         case 27:
                                             rey1.setAlive(false);
+                                            jugador2.increace(rey_p);
                                             break;
                                         case 28:
                                             dama1.setAlive(false);
+                                            jugador2.increace(dama_p);
                                             break;
                                         case 29:
                                             alfil2.setAlive(false);
+                                            jugador2.increace(alfil_p);
                                             break;
                                         case 30:
                                             caballo2.setAlive(false);
+                                            jugador2.increace(caballo_p);
                                             break;
                                         case 31:
                                             torre2.setAlive(false);
+                                            jugador2.increace(torre_p);
                                             break;
 
 
@@ -3133,95 +3912,127 @@ int main(){
                                     switch(matrix[(newPos.x/56)+((newPos.y/56)*8)].second){
                                         case 1:
                                             caballo3.setAlive(false);
+                                            whatPiece = 1;
+                                            jugador1.increace(caballo_p);
                                             break;
                                         case 2:
                                             alfil3.setAlive(false);
+                                            jugador1.increace(alfil_p);
                                             break;
                                         case 3:
                                             rey2.setAlive(false);
+                                            jugador1.increace(rey_p);
                                             break;
                                         case 4:
                                             dama2.setAlive(false);
+                                            jugador1.increace(dama_p);
                                             break;
                                         case 5:
                                             alfil4.setAlive(false);
+                                            jugador1.increace(alfil_p);
                                             break;
                                         case 6:
                                             caballo4.setAlive(false);
+                                            jugador1.increace(caballo_p);
                                             break;
                                         case 7:
                                             torre4.setAlive(false);
+                                            jugador1.increace(torre_p);
                                             break;
                                         case 8:
                                             peon9.setAlive(false);
+                                            jugador1.increace(peon_p);
                                             break;
                                         case 9:
                                             peon10.setAlive(false);
+                                            jugador1.increace(peon_p);
                                             break;
                                         case 10:
                                             peon11.setAlive(false);
+                                            jugador1.increace(peon_p);
                                             break;
                                         case 11:
                                             peon12.setAlive(false);
+                                            jugador1.increace(peon_p);
                                             break;
                                         case 12:
                                             peon13.setAlive(false);
+                                            jugador1.increace(peon_p);
                                             break;
                                         case 13:
                                             peon14.setAlive(false);
+                                            jugador1.increace(peon_p);
                                             break;
                                         case 14:
                                             peon15.setAlive(false);
+                                            jugador1.increace(peon_p);
                                             break;
                                         case 15:
                                             peon16.setAlive(false);
+                                            jugador1.increace(peon_p);
                                             break;
                                         case 16:
                                             peon1.setAlive(false);
+                                            jugador2.increace(peon_p);
                                             break;
                                         case 17:
                                             peon2.setAlive(false);
+                                            jugador2.increace(peon_p);
                                             break;
                                         case 18:
                                             peon3.setAlive(false);
+                                            jugador2.increace(peon_p);
                                             break;
                                         case 19:
                                             peon4.setAlive(false);
+                                            jugador2.increace(peon_p);
                                             break;
                                         case 20:
                                             peon5.setAlive(false);
+                                            jugador2.increace(peon_p);
                                             break;
                                         case 21:
                                             peon6.setAlive(false);
+                                            jugador2.increace(peon_p);
                                             break;
                                         case 22:
                                             peon7.setAlive(false);
+                                            jugador2.increace(peon_p);
                                             break;
                                         case 23:
                                             peon8.setAlive(false);
+                                            jugador2.increace(peon_p);
                                         case 24:
                                             torre1.setAlive(false);
+                                            jugador2.increace(torre_p);
                                             break;
                                         case 25:
                                             caballo1.setAlive(false);
+                                            jugador2.increace(caballo_p);
                                             break;
                                         case 26:
                                             alfil1.setAlive(false);
+                                            jugador2.increace(alfil_p);
                                             break;
                                         case 27:
                                             rey1.setAlive(false);
+                                            jugador2.increace(rey_p);
                                             break;
                                         case 28:
                                             dama1.setAlive(false);
+                                            jugador2.increace(dama_p);
                                             break;
                                         case 29:
                                             alfil2.setAlive(false);
+                                            jugador2.increace(alfil_p);
                                             break;
                                         case 30:
                                             caballo2.setAlive(false);
+                                            jugador2.increace(caballo_p);
                                             break;
                                         case 31:
                                             torre2.setAlive(false);
+                                            jugador2.increace(torre_p);
                                             break;
 
 
@@ -3245,95 +4056,127 @@ int main(){
                                     switch(matrix[(newPos.x/56)+((newPos.y/56)*8)].second){
                                         case 1:
                                             caballo3.setAlive(false);
+                                            whatPiece = 1;
+                                            jugador1.increace(caballo_p);
                                             break;
                                         case 2:
                                             alfil3.setAlive(false);
+                                            jugador1.increace(alfil_p);
                                             break;
                                         case 3:
                                             rey2.setAlive(false);
+                                            jugador1.increace(rey_p);
                                             break;
                                         case 4:
                                             dama2.setAlive(false);
+                                            jugador1.increace(dama_p);
                                             break;
                                         case 5:
                                             alfil4.setAlive(false);
+                                            jugador1.increace(alfil_p);
                                             break;
                                         case 6:
                                             caballo4.setAlive(false);
+                                            jugador1.increace(caballo_p);
                                             break;
                                         case 7:
                                             torre4.setAlive(false);
+                                            jugador1.increace(torre_p);
                                             break;
                                         case 8:
                                             peon9.setAlive(false);
+                                            jugador1.increace(peon_p);
                                             break;
                                         case 9:
                                             peon10.setAlive(false);
+                                            jugador1.increace(peon_p);
                                             break;
                                         case 10:
                                             peon11.setAlive(false);
+                                            jugador1.increace(peon_p);
                                             break;
                                         case 11:
                                             peon12.setAlive(false);
+                                            jugador1.increace(peon_p);
                                             break;
                                         case 12:
                                             peon13.setAlive(false);
+                                            jugador1.increace(peon_p);
                                             break;
                                         case 13:
                                             peon14.setAlive(false);
+                                            jugador1.increace(peon_p);
                                             break;
                                         case 14:
                                             peon15.setAlive(false);
+                                            jugador1.increace(peon_p);
                                             break;
                                         case 15:
                                             peon16.setAlive(false);
+                                            jugador1.increace(peon_p);
                                             break;
                                         case 16:
                                             peon1.setAlive(false);
+                                            jugador2.increace(peon_p);
                                             break;
                                         case 17:
                                             peon2.setAlive(false);
+                                            jugador2.increace(peon_p);
                                             break;
                                         case 18:
                                             peon3.setAlive(false);
+                                            jugador2.increace(peon_p);
                                             break;
                                         case 19:
                                             peon4.setAlive(false);
+                                            jugador2.increace(peon_p);
                                             break;
                                         case 20:
                                             peon5.setAlive(false);
+                                            jugador2.increace(peon_p);
                                             break;
                                         case 21:
                                             peon6.setAlive(false);
+                                            jugador2.increace(peon_p);
                                             break;
                                         case 22:
                                             peon7.setAlive(false);
+                                            jugador2.increace(peon_p);
                                             break;
                                         case 23:
                                             peon8.setAlive(false);
+                                            jugador2.increace(peon_p);
                                         case 24:
                                             torre1.setAlive(false);
+                                            jugador2.increace(torre_p);
                                             break;
                                         case 25:
                                             caballo1.setAlive(false);
+                                            jugador2.increace(caballo_p);
                                             break;
                                         case 26:
                                             alfil1.setAlive(false);
+                                            jugador2.increace(alfil_p);
                                             break;
                                         case 27:
                                             rey1.setAlive(false);
+                                            jugador2.increace(rey_p);
                                             break;
                                         case 28:
                                             dama1.setAlive(false);
+                                            jugador2.increace(dama_p);
                                             break;
                                         case 29:
                                             alfil2.setAlive(false);
+                                            jugador2.increace(alfil_p);
                                             break;
                                         case 30:
                                             caballo2.setAlive(false);
+                                            jugador2.increace(caballo_p);
                                             break;
                                         case 31:
                                             torre2.setAlive(false);
+                                            jugador2.increace(torre_p);
                                             break;
 
 
@@ -3357,95 +4200,127 @@ int main(){
                                     switch(matrix[(newPos.x/56)+((newPos.y/56)*8)].second){
                                         case 1:
                                             caballo3.setAlive(false);
+                                            whatPiece = 1;
+                                            jugador1.increace(caballo_p);
                                             break;
                                         case 2:
                                             alfil3.setAlive(false);
+                                            jugador1.increace(alfil_p);
                                             break;
                                         case 3:
                                             rey2.setAlive(false);
+                                            jugador1.increace(rey_p);
                                             break;
                                         case 4:
                                             dama2.setAlive(false);
+                                            jugador1.increace(dama_p);
                                             break;
                                         case 5:
                                             alfil4.setAlive(false);
+                                            jugador1.increace(alfil_p);
                                             break;
                                         case 6:
                                             caballo4.setAlive(false);
+                                            jugador1.increace(caballo_p);
                                             break;
                                         case 7:
                                             torre4.setAlive(false);
+                                            jugador1.increace(torre_p);
                                             break;
                                         case 8:
                                             peon9.setAlive(false);
+                                            jugador1.increace(peon_p);
                                             break;
                                         case 9:
                                             peon10.setAlive(false);
+                                            jugador1.increace(peon_p);
                                             break;
                                         case 10:
                                             peon11.setAlive(false);
+                                            jugador1.increace(peon_p);
                                             break;
                                         case 11:
                                             peon12.setAlive(false);
+                                            jugador1.increace(peon_p);
                                             break;
                                         case 12:
                                             peon13.setAlive(false);
+                                            jugador1.increace(peon_p);
                                             break;
                                         case 13:
                                             peon14.setAlive(false);
+                                            jugador1.increace(peon_p);
                                             break;
                                         case 14:
                                             peon15.setAlive(false);
+                                            jugador1.increace(peon_p);
                                             break;
                                         case 15:
                                             peon16.setAlive(false);
+                                            jugador1.increace(peon_p);
                                             break;
                                         case 16:
                                             peon1.setAlive(false);
+                                            jugador2.increace(peon_p);
                                             break;
                                         case 17:
                                             peon2.setAlive(false);
+                                            jugador2.increace(peon_p);
                                             break;
                                         case 18:
                                             peon3.setAlive(false);
+                                            jugador2.increace(peon_p);
                                             break;
                                         case 19:
                                             peon4.setAlive(false);
+                                            jugador2.increace(peon_p);
                                             break;
                                         case 20:
                                             peon5.setAlive(false);
+                                            jugador2.increace(peon_p);
                                             break;
                                         case 21:
                                             peon6.setAlive(false);
+                                            jugador2.increace(peon_p);
                                             break;
                                         case 22:
                                             peon7.setAlive(false);
+                                            jugador2.increace(peon_p);
                                             break;
                                         case 23:
                                             peon8.setAlive(false);
+                                            jugador2.increace(peon_p);
                                         case 24:
                                             torre1.setAlive(false);
+                                            jugador2.increace(torre_p);
                                             break;
                                         case 25:
                                             caballo1.setAlive(false);
+                                            jugador2.increace(caballo_p);
                                             break;
                                         case 26:
                                             alfil1.setAlive(false);
+                                            jugador2.increace(alfil_p);
                                             break;
                                         case 27:
                                             rey1.setAlive(false);
+                                            jugador2.increace(rey_p);
                                             break;
                                         case 28:
                                             dama1.setAlive(false);
+                                            jugador2.increace(dama_p);
                                             break;
                                         case 29:
                                             alfil2.setAlive(false);
+                                            jugador2.increace(alfil_p);
                                             break;
                                         case 30:
                                             caballo2.setAlive(false);
+                                            jugador2.increace(caballo_p);
                                             break;
                                         case 31:
                                             torre2.setAlive(false);
+                                            jugador2.increace(torre_p);
                                             break;
 
 
@@ -3469,95 +4344,127 @@ int main(){
                                     switch(matrix[(newPos.x/56)+((newPos.y/56)*8)].second){
                                         case 1:
                                             caballo3.setAlive(false);
+                                            whatPiece = 1;
+                                            jugador1.increace(caballo_p);
                                             break;
                                         case 2:
                                             alfil3.setAlive(false);
+                                            jugador1.increace(alfil_p);
                                             break;
                                         case 3:
                                             rey2.setAlive(false);
+                                            jugador1.increace(rey_p);
                                             break;
                                         case 4:
                                             dama2.setAlive(false);
+                                            jugador1.increace(dama_p);
                                             break;
                                         case 5:
                                             alfil4.setAlive(false);
+                                            jugador1.increace(alfil_p);
                                             break;
                                         case 6:
                                             caballo4.setAlive(false);
+                                            jugador1.increace(caballo_p);
                                             break;
                                         case 7:
                                             torre4.setAlive(false);
+                                            jugador1.increace(torre_p);
                                             break;
                                         case 8:
                                             peon9.setAlive(false);
+                                            jugador1.increace(peon_p);
                                             break;
                                         case 9:
                                             peon10.setAlive(false);
+                                            jugador1.increace(peon_p);
                                             break;
                                         case 10:
                                             peon11.setAlive(false);
+                                            jugador1.increace(peon_p);
                                             break;
                                         case 11:
                                             peon12.setAlive(false);
+                                            jugador1.increace(peon_p);
                                             break;
                                         case 12:
                                             peon13.setAlive(false);
+                                            jugador1.increace(peon_p);
                                             break;
                                         case 13:
                                             peon14.setAlive(false);
+                                            jugador1.increace(peon_p);
                                             break;
                                         case 14:
                                             peon15.setAlive(false);
+                                            jugador1.increace(peon_p);
                                             break;
                                         case 15:
                                             peon16.setAlive(false);
+                                            jugador1.increace(peon_p);
                                             break;
                                         case 16:
                                             peon1.setAlive(false);
+                                            jugador2.increace(peon_p);
                                             break;
                                         case 17:
                                             peon2.setAlive(false);
+                                            jugador2.increace(peon_p);
                                             break;
                                         case 18:
                                             peon3.setAlive(false);
+                                            jugador2.increace(peon_p);
                                             break;
                                         case 19:
                                             peon4.setAlive(false);
+                                            jugador2.increace(peon_p);
                                             break;
                                         case 20:
                                             peon5.setAlive(false);
+                                            jugador2.increace(peon_p);
                                             break;
                                         case 21:
                                             peon6.setAlive(false);
+                                            jugador2.increace(peon_p);
                                             break;
                                         case 22:
                                             peon7.setAlive(false);
+                                            jugador2.increace(peon_p);
                                             break;
                                         case 23:
                                             peon8.setAlive(false);
+                                            jugador2.increace(peon_p);
                                         case 24:
                                             torre1.setAlive(false);
+                                            jugador2.increace(torre_p);
                                             break;
                                         case 25:
                                             caballo1.setAlive(false);
+                                            jugador2.increace(caballo_p);
                                             break;
                                         case 26:
                                             alfil1.setAlive(false);
+                                            jugador2.increace(alfil_p);
                                             break;
                                         case 27:
                                             rey1.setAlive(false);
+                                            jugador2.increace(rey_p);
                                             break;
                                         case 28:
                                             dama1.setAlive(false);
+                                            jugador2.increace(dama_p);
                                             break;
                                         case 29:
                                             alfil2.setAlive(false);
+                                            jugador2.increace(alfil_p);
                                             break;
                                         case 30:
                                             caballo2.setAlive(false);
+                                            jugador2.increace(caballo_p);
                                             break;
                                         case 31:
                                             torre2.setAlive(false);
+                                            jugador2.increace(torre_p);
                                             break;
 
 
@@ -3581,95 +4488,127 @@ int main(){
                                     switch(matrix[(newPos.x/56)+((newPos.y/56)*8)].second){
                                         case 1:
                                             caballo3.setAlive(false);
+                                            whatPiece = 1;
+                                            jugador1.increace(caballo_p);
                                             break;
                                         case 2:
                                             alfil3.setAlive(false);
+                                            jugador1.increace(alfil_p);
                                             break;
                                         case 3:
                                             rey2.setAlive(false);
+                                            jugador1.increace(rey_p);
                                             break;
                                         case 4:
                                             dama2.setAlive(false);
+                                            jugador1.increace(dama_p);
                                             break;
                                         case 5:
                                             alfil4.setAlive(false);
+                                            jugador1.increace(alfil_p);
                                             break;
                                         case 6:
                                             caballo4.setAlive(false);
+                                            jugador1.increace(caballo_p);
                                             break;
                                         case 7:
                                             torre4.setAlive(false);
+                                            jugador1.increace(torre_p);
                                             break;
                                         case 8:
                                             peon9.setAlive(false);
+                                            jugador1.increace(peon_p);
                                             break;
                                         case 9:
                                             peon10.setAlive(false);
+                                            jugador1.increace(peon_p);
                                             break;
                                         case 10:
                                             peon11.setAlive(false);
+                                            jugador1.increace(peon_p);
                                             break;
                                         case 11:
                                             peon12.setAlive(false);
+                                            jugador1.increace(peon_p);
                                             break;
                                         case 12:
                                             peon13.setAlive(false);
+                                            jugador1.increace(peon_p);
                                             break;
                                         case 13:
                                             peon14.setAlive(false);
+                                            jugador1.increace(peon_p);
                                             break;
                                         case 14:
                                             peon15.setAlive(false);
+                                            jugador1.increace(peon_p);
                                             break;
                                         case 15:
                                             peon16.setAlive(false);
+                                            jugador1.increace(peon_p);
                                             break;
                                         case 16:
                                             peon1.setAlive(false);
+                                            jugador2.increace(peon_p);
                                             break;
                                         case 17:
                                             peon2.setAlive(false);
+                                            jugador2.increace(peon_p);
                                             break;
                                         case 18:
                                             peon3.setAlive(false);
+                                            jugador2.increace(peon_p);
                                             break;
                                         case 19:
                                             peon4.setAlive(false);
+                                            jugador2.increace(peon_p);
                                             break;
                                         case 20:
                                             peon5.setAlive(false);
+                                            jugador2.increace(peon_p);
                                             break;
                                         case 21:
                                             peon6.setAlive(false);
+                                            jugador2.increace(peon_p);
                                             break;
                                         case 22:
                                             peon7.setAlive(false);
+                                            jugador2.increace(peon_p);
                                             break;
                                         case 23:
                                             peon8.setAlive(false);
+                                            jugador2.increace(peon_p);
                                         case 24:
                                             torre1.setAlive(false);
+                                            jugador2.increace(torre_p);
                                             break;
                                         case 25:
                                             caballo1.setAlive(false);
+                                            jugador2.increace(caballo_p);
                                             break;
                                         case 26:
                                             alfil1.setAlive(false);
+                                            jugador2.increace(alfil_p);
                                             break;
                                         case 27:
                                             rey1.setAlive(false);
+                                            jugador2.increace(rey_p);
                                             break;
                                         case 28:
                                             dama1.setAlive(false);
+                                            jugador2.increace(dama_p);
                                             break;
                                         case 29:
                                             alfil2.setAlive(false);
+                                            jugador2.increace(alfil_p);
                                             break;
                                         case 30:
                                             caballo2.setAlive(false);
+                                            jugador2.increace(caballo_p);
                                             break;
                                         case 31:
                                             torre2.setAlive(false);
+                                            jugador2.increace(torre_p);
                                             break;
 
 
@@ -3693,95 +4632,127 @@ int main(){
                                     switch(matrix[(newPos.x/56)+((newPos.y/56)*8)].second){
                                         case 1:
                                             caballo3.setAlive(false);
+                                            whatPiece = 1;
+                                            jugador1.increace(caballo_p);
                                             break;
                                         case 2:
                                             alfil3.setAlive(false);
+                                            jugador1.increace(alfil_p);
                                             break;
                                         case 3:
                                             rey2.setAlive(false);
+                                            jugador1.increace(rey_p);
                                             break;
                                         case 4:
                                             dama2.setAlive(false);
+                                            jugador1.increace(dama_p);
                                             break;
                                         case 5:
                                             alfil4.setAlive(false);
+                                            jugador1.increace(alfil_p);
                                             break;
                                         case 6:
                                             caballo4.setAlive(false);
+                                            jugador1.increace(caballo_p);
                                             break;
                                         case 7:
                                             torre4.setAlive(false);
+                                            jugador1.increace(torre_p);
                                             break;
                                         case 8:
                                             peon9.setAlive(false);
+                                            jugador1.increace(peon_p);
                                             break;
                                         case 9:
                                             peon10.setAlive(false);
+                                            jugador1.increace(peon_p);
                                             break;
                                         case 10:
                                             peon11.setAlive(false);
+                                            jugador1.increace(peon_p);
                                             break;
                                         case 11:
                                             peon12.setAlive(false);
+                                            jugador1.increace(peon_p);
                                             break;
                                         case 12:
                                             peon13.setAlive(false);
+                                            jugador1.increace(peon_p);
                                             break;
                                         case 13:
                                             peon14.setAlive(false);
+                                            jugador1.increace(peon_p);
                                             break;
                                         case 14:
                                             peon15.setAlive(false);
+                                            jugador1.increace(peon_p);
                                             break;
                                         case 15:
                                             peon16.setAlive(false);
+                                            jugador1.increace(peon_p);
                                             break;
                                         case 16:
                                             peon1.setAlive(false);
+                                            jugador2.increace(peon_p);
                                             break;
                                         case 17:
                                             peon2.setAlive(false);
+                                            jugador2.increace(peon_p);
                                             break;
                                         case 18:
                                             peon3.setAlive(false);
+                                            jugador2.increace(peon_p);
                                             break;
                                         case 19:
                                             peon4.setAlive(false);
+                                            jugador2.increace(peon_p);
                                             break;
                                         case 20:
                                             peon5.setAlive(false);
+                                            jugador2.increace(peon_p);
                                             break;
                                         case 21:
                                             peon6.setAlive(false);
+                                            jugador2.increace(peon_p);
                                             break;
                                         case 22:
                                             peon7.setAlive(false);
+                                            jugador2.increace(peon_p);
                                             break;
                                         case 23:
                                             peon8.setAlive(false);
+                                            jugador2.increace(peon_p);
                                         case 24:
                                             torre1.setAlive(false);
+                                            jugador2.increace(torre_p);
                                             break;
                                         case 25:
                                             caballo1.setAlive(false);
+                                            jugador2.increace(caballo_p);
                                             break;
                                         case 26:
                                             alfil1.setAlive(false);
+                                            jugador2.increace(alfil_p);
                                             break;
                                         case 27:
                                             rey1.setAlive(false);
+                                            jugador2.increace(rey_p);
                                             break;
                                         case 28:
                                             dama1.setAlive(false);
+                                            jugador2.increace(dama_p);
                                             break;
                                         case 29:
                                             alfil2.setAlive(false);
+                                            jugador2.increace(alfil_p);
                                             break;
                                         case 30:
                                             caballo2.setAlive(false);
+                                            jugador2.increace(caballo_p);
                                             break;
                                         case 31:
                                             torre2.setAlive(false);
+                                            jugador2.increace(torre_p);
                                             break;
 
 
@@ -3805,95 +4776,127 @@ int main(){
                                     switch(matrix[(newPos.x/56)+((newPos.y/56)*8)].second){
                                         case 1:
                                             caballo3.setAlive(false);
+                                            whatPiece = 1;
+                                            jugador1.increace(caballo_p);
                                             break;
                                         case 2:
                                             alfil3.setAlive(false);
+                                            jugador1.increace(alfil_p);
                                             break;
                                         case 3:
                                             rey2.setAlive(false);
+                                            jugador1.increace(rey_p);
                                             break;
                                         case 4:
                                             dama2.setAlive(false);
+                                            jugador1.increace(dama_p);
                                             break;
                                         case 5:
                                             alfil4.setAlive(false);
+                                            jugador1.increace(alfil_p);
                                             break;
                                         case 6:
                                             caballo4.setAlive(false);
+                                            jugador1.increace(caballo_p);
                                             break;
                                         case 7:
                                             torre4.setAlive(false);
+                                            jugador1.increace(torre_p);
                                             break;
                                         case 8:
                                             peon9.setAlive(false);
+                                            jugador1.increace(peon_p);
                                             break;
                                         case 9:
                                             peon10.setAlive(false);
+                                            jugador1.increace(peon_p);
                                             break;
                                         case 10:
                                             peon11.setAlive(false);
+                                            jugador1.increace(peon_p);
                                             break;
                                         case 11:
                                             peon12.setAlive(false);
+                                            jugador1.increace(peon_p);
                                             break;
                                         case 12:
                                             peon13.setAlive(false);
+                                            jugador1.increace(peon_p);
                                             break;
                                         case 13:
                                             peon14.setAlive(false);
+                                            jugador1.increace(peon_p);
                                             break;
                                         case 14:
                                             peon15.setAlive(false);
+                                            jugador1.increace(peon_p);
                                             break;
                                         case 15:
                                             peon16.setAlive(false);
+                                            jugador1.increace(peon_p);
                                             break;
                                         case 16:
                                             peon1.setAlive(false);
+                                            jugador2.increace(peon_p);
                                             break;
                                         case 17:
                                             peon2.setAlive(false);
+                                            jugador2.increace(peon_p);
                                             break;
                                         case 18:
                                             peon3.setAlive(false);
+                                            jugador2.increace(peon_p);
                                             break;
                                         case 19:
                                             peon4.setAlive(false);
+                                            jugador2.increace(peon_p);
                                             break;
                                         case 20:
                                             peon5.setAlive(false);
+                                            jugador2.increace(peon_p);
                                             break;
                                         case 21:
                                             peon6.setAlive(false);
+                                            jugador2.increace(peon_p);
                                             break;
                                         case 22:
                                             peon7.setAlive(false);
+                                            jugador2.increace(peon_p);
                                             break;
                                         case 23:
                                             peon8.setAlive(false);
+                                            jugador2.increace(peon_p);
                                         case 24:
                                             torre1.setAlive(false);
+                                            jugador2.increace(torre_p);
                                             break;
                                         case 25:
                                             caballo1.setAlive(false);
+                                            jugador2.increace(caballo_p);
                                             break;
                                         case 26:
                                             alfil1.setAlive(false);
+                                            jugador2.increace(alfil_p);
                                             break;
                                         case 27:
                                             rey1.setAlive(false);
+                                            jugador2.increace(rey_p);
                                             break;
                                         case 28:
                                             dama1.setAlive(false);
+                                            jugador2.increace(dama_p);
                                             break;
                                         case 29:
                                             alfil2.setAlive(false);
+                                            jugador2.increace(alfil_p);
                                             break;
                                         case 30:
                                             caballo2.setAlive(false);
+                                            jugador2.increace(caballo_p);
                                             break;
                                         case 31:
                                             torre2.setAlive(false);
+                                            jugador2.increace(torre_p);
                                             break;
 
 
@@ -3917,95 +4920,127 @@ int main(){
                                     switch(matrix[(newPos.x/56)+((newPos.y/56)*8)].second){
                                         case 1:
                                             caballo3.setAlive(false);
+                                            whatPiece = 1;
+                                            jugador1.increace(caballo_p);
                                             break;
                                         case 2:
                                             alfil3.setAlive(false);
+                                            jugador1.increace(alfil_p);
                                             break;
                                         case 3:
                                             rey2.setAlive(false);
+                                            jugador1.increace(rey_p);
                                             break;
                                         case 4:
                                             dama2.setAlive(false);
+                                            jugador1.increace(dama_p);
                                             break;
                                         case 5:
                                             alfil4.setAlive(false);
+                                            jugador1.increace(alfil_p);
                                             break;
                                         case 6:
                                             caballo4.setAlive(false);
+                                            jugador1.increace(caballo_p);
                                             break;
                                         case 7:
                                             torre4.setAlive(false);
+                                            jugador1.increace(torre_p);
                                             break;
                                         case 8:
                                             peon9.setAlive(false);
+                                            jugador1.increace(peon_p);
                                             break;
                                         case 9:
                                             peon10.setAlive(false);
+                                            jugador1.increace(peon_p);
                                             break;
                                         case 10:
                                             peon11.setAlive(false);
+                                            jugador1.increace(peon_p);
                                             break;
                                         case 11:
                                             peon12.setAlive(false);
+                                            jugador1.increace(peon_p);
                                             break;
                                         case 12:
                                             peon13.setAlive(false);
+                                            jugador1.increace(peon_p);
                                             break;
                                         case 13:
                                             peon14.setAlive(false);
+                                            jugador1.increace(peon_p);
                                             break;
                                         case 14:
                                             peon15.setAlive(false);
+                                            jugador1.increace(peon_p);
                                             break;
                                         case 15:
                                             peon16.setAlive(false);
+                                            jugador1.increace(peon_p);
                                             break;
                                         case 16:
                                             peon1.setAlive(false);
+                                            jugador2.increace(peon_p);
                                             break;
                                         case 17:
                                             peon2.setAlive(false);
+                                            jugador2.increace(peon_p);
                                             break;
                                         case 18:
                                             peon3.setAlive(false);
+                                            jugador2.increace(peon_p);
                                             break;
                                         case 19:
                                             peon4.setAlive(false);
+                                            jugador2.increace(peon_p);
                                             break;
                                         case 20:
                                             peon5.setAlive(false);
+                                            jugador2.increace(peon_p);
                                             break;
                                         case 21:
                                             peon6.setAlive(false);
+                                            jugador2.increace(peon_p);
                                             break;
                                         case 22:
                                             peon7.setAlive(false);
+                                            jugador2.increace(peon_p);
                                             break;
                                         case 23:
                                             peon8.setAlive(false);
+                                            jugador2.increace(peon_p);
                                         case 24:
                                             torre1.setAlive(false);
+                                            jugador2.increace(torre_p);
                                             break;
                                         case 25:
                                             caballo1.setAlive(false);
+                                            jugador2.increace(caballo_p);
                                             break;
                                         case 26:
                                             alfil1.setAlive(false);
+                                            jugador2.increace(alfil_p);
                                             break;
                                         case 27:
                                             rey1.setAlive(false);
+                                            jugador2.increace(rey_p);
                                             break;
                                         case 28:
                                             dama1.setAlive(false);
+                                            jugador2.increace(dama_p);
                                             break;
                                         case 29:
                                             alfil2.setAlive(false);
+                                            jugador2.increace(alfil_p);
                                             break;
                                         case 30:
                                             caballo2.setAlive(false);
+                                            jugador2.increace(caballo_p);
                                             break;
                                         case 31:
                                             torre2.setAlive(false);
+                                            jugador2.increace(torre_p);
                                             break;
 
 
@@ -4019,9 +5054,7 @@ int main(){
                             }
                             break;
 
-                        default:
-                            f[n].setPosition(newPos);
-                            break;
+
                     }
 
                 }
@@ -4116,8 +5149,15 @@ int main(){
         //      Efectuar cambios
         window.display();
     }
+    window.clear();
+
+
 
     CloseConnection();
+
+
+    cout<<"Jugador blancas obtuvo >>  "<<jugador1.getPuntaje()<<endl;
+    cout<<"Jugador negras obtuvo >>  "<<jugador2.getPuntaje()<<endl;
 
 
     return 0;

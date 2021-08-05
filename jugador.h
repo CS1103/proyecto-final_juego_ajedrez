@@ -16,9 +16,16 @@ using namespace sf;
 
 class jugador {
 private:
-    int puntaje;
+    int puntaje = 0;
 public:
     jugador(int puntaje) : puntaje(puntaje) {}
+
+    void increace(int _puntaje){
+        puntaje = _puntaje;
+    }
+    int getPuntaje(){
+        return puntaje;
+    }
 };
 
 
