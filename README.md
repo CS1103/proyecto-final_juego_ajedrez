@@ -55,6 +55,7 @@ Video tutorial para el despliegue del proyecto:
 ## Bibliografia 📎
 
 * [Tutorial de instalacion SMFL](https://www.youtube.com/watch?v=QQc5OdbEjRY) 
+* [Tutorial de Despliegue Proyecto](https://www.youtube.com/watch?v=QQc5OdbEjRY) 
 
  
 
