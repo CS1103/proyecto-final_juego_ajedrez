@@ -46,6 +46,11 @@ Ejecutar el archivo [main.cpp](https://github.com/CS1103/proyecto-final-grupo_ju
 
 [![Youtube tutorial](https://img.youtube.com/vi/QQc5OdbEjRY/0.jpg)](https://www.youtube.com/watch?v=QQc5OdbEjRY)
 
+
+## Bibliografia 📎
+
+* [Tutorial de instalacion SMFL](https://www.youtube.com/watch?v=QQc5OdbEjRY) 
+
  
 
 
