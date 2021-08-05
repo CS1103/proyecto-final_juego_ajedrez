@@ -79,11 +79,186 @@ template <typename T>
 void whatClassIs(T t){
     cout<<__PRETTY_FUNCTION__ <<endl;
 }
+// 0 -> x
+// 1 -> y
+// 2 -> i
+// 3 -> piece
+// 4 -> alive
+vector<vector<int>> posiciones;
+void obtenerPosiciones(Peon peon1, Peon peon2, Peon peon3, Peon peon4, Peon peon5,Peon peon6,Peon peon7,Peon peon8, Torre torre1, Torre torre2, Caballo caballo1, Caballo caballo2, Alfil alfil1, Alfil alfil2, Dama dama1, Rey rey1,
+                       Peon peon9, Peon peon10, Peon peon11, Peon peon12, Peon peon13, Peon peon14, Peon peon15, Peon peon16, Torre torre3,Torre torre4, Caballo caballo3, Caballo caballo4, Alfil alfil3, Alfil alfil4, Dama dama2, Rey rey2 ){
+    posiciones.clear();
+    if (peon1.getColor() == true){
+        posiciones.push_back({peon1.getX(),peon1.getY(),16, 6,peon1.getAlive()});
+    }else{
+        posiciones.push_back({peon1.getX(),peon1.getY(),16, -6, peon1.getAlive()});
+    }
+    if (peon2.getColor() == true){
+        posiciones.push_back({peon2.getX(),peon2.getY(),17, 6,peon2.getAlive()});
+    }else{
+        posiciones.push_back({peon2.getX(),peon2.getY(),17, -6, peon2.getAlive()});
+    }
+    if (peon3.getColor() == true){
+        posiciones.push_back({peon3.getX(),peon3.getY(),18, 6,peon3.getAlive()});
+    }else{
+        posiciones.push_back({peon3.getX(),peon3.getY(),18, -6, peon3.getAlive()});
+    }
+    if (peon4.getColor() == true){
+        posiciones.push_back({peon4.getX(),peon4.getY(),19, 6,peon4.getAlive()});
+    }else{
+        posiciones.push_back({peon4.getX(),peon4.getY(),19, -6, peon4.getAlive()});
+    }
+    if (peon5.getColor() == true){
+        posiciones.push_back({peon5.getX(),peon5.getY(),20, 6,peon5.getAlive()});
+    }else{
+        posiciones.push_back({peon5.getX(),peon5.getY(),20, -6, peon5.getAlive()});
+    }
+    if (peon6.getColor() == true){
+        posiciones.push_back({peon6.getX(),peon6.getY(),21, 6,peon6.getAlive()});
+    }else{
+        posiciones.push_back({peon6.getX(),peon6.getY(),21, -6, peon6.getAlive()});
+    }
+    if (peon7.getColor() == true){
+        posiciones.push_back({peon7.getX(),peon7.getY(),22, 6,peon7.getAlive()});
+    }else{
+        posiciones.push_back({peon7.getX(),peon7.getY(),22, -6, peon7.getAlive()});
+    }
+    if (peon8.getColor() == true){
+        posiciones.push_back({peon8.getX(),peon8.getY(),23, 6,peon8.getAlive()});
+    }else{
+        posiciones.push_back({peon8.getX(),peon8.getY(),23, -6, peon8.getAlive()});
+    }
+    if (torre1.getColor() == true){
+        posiciones.push_back({torre1.getX(),torre1.getY(),24, 1,torre1.getAlive()});
+    }else{
+        posiciones.push_back({torre1.getX(),torre1.getY(),24, -1, torre1.getAlive()});
+    }
+    if (torre2.getColor() == true){
+        posiciones.push_back({torre2.getX(),torre2.getY(),31, 1,torre2.getAlive()});
+    }else{
+        posiciones.push_back({torre2.getX(),torre2.getY(),31, -1, torre2.getAlive()});
+    }
+    if (caballo1.getColor() == true){
+        posiciones.push_back({caballo1.getX(),caballo1.getY(),25, 2,caballo1.getAlive()});
+    }else{
+        posiciones.push_back({caballo1.getX(),caballo1.getY(),25, -2, caballo1.getAlive()});
+    }
+    if (caballo2.getColor() == true){
+        posiciones.push_back({caballo2.getX(),caballo2.getY(),30, 2,caballo2.getAlive()});
+    }else{
+        posiciones.push_back({caballo2.getX(),caballo2.getY(),30, -2, caballo2.getAlive()});
+    }
+    if (alfil1.getColor() == true){
+        posiciones.push_back({alfil1.getX(),alfil1.getY(),26, 3,alfil1.getAlive()});
+    }else{
+        posiciones.push_back({alfil1.getX(),alfil1.getY(),26, -3, alfil1.getAlive()});
+    }
+    if (alfil2.getColor() == true){
+        posiciones.push_back({alfil2.getX(),alfil2.getY(),29, 3,alfil2.getAlive()});
+    }else{
+        posiciones.push_back({alfil2.getX(),alfil2.getY(),29, -3, alfil2.getAlive()});
+    }
+    if (dama1.getColor() == true){
+        posiciones.push_back({dama1.getX(),alfil2.getY(),28, 4,dama1.getAlive()});
+    }else{
+        posiciones.push_back({dama1.getX(),alfil2.getY(),28, -4, dama1.getAlive()});
+    }
+    if (rey1.getColor() == true){
+        posiciones.push_back({rey1.getX(),rey1.getY(),27, 5,rey1.getAlive()});
+    }else{
+        posiciones.push_back({rey1.getX(),rey1.getY(),27, -5, rey1.getAlive()});
+    }
 
 
+
+
+    if (peon9.getColor() == true){
+        posiciones.push_back({peon9.getX(),peon9.getY(),8, 6,peon9.getAlive()});
+    }else{
+        posiciones.push_back({peon9.getX(),peon9.getY(),8, -6, peon9.getAlive()});
+    }
+    if (peon10.getColor() == true){
+        posiciones.push_back({peon10.getX(),peon10.getY(),9, 6,peon10.getAlive()});
+    }else{
+        posiciones.push_back({peon10.getX(),peon10.getY(),9, -6, peon10.getAlive()});
+    }
+    if (peon11.getColor() == true){
+        posiciones.push_back({peon11.getX(),peon11.getY(),10, 6,peon11.getAlive()});
+    }else{
+        posiciones.push_back({peon11.getX(),peon11.getY(),10, -6, peon11.getAlive()});
+    }
+    if (peon12.getColor() == true){
+        posiciones.push_back({peon12.getX(),peon12.getY(),11, 6,peon12.getAlive()});
+    }else{
+        posiciones.push_back({peon12.getX(),peon12.getY(),11, -6, peon12.getAlive()});
+    }
+    if (peon13.getColor() == true){
+        posiciones.push_back({peon13.getX(),peon13.getY(),12, 6,peon13.getAlive()});
+    }else{
+        posiciones.push_back({peon13.getX(),peon13.getY(),12, -6, peon13.getAlive()});
+    }
+    if (peon14.getColor() == true){
+        posiciones.push_back({peon14.getX(),peon14.getY(),13, 6,peon14.getAlive()});
+    }else{
+        posiciones.push_back({peon14.getX(),peon14.getY(),13, -6, peon14.getAlive()});
+    }
+    if (peon15.getColor() == true){
+        posiciones.push_back({peon15.getX(),peon15.getY(),14, 6,peon15.getAlive()});
+    }else{
+        posiciones.push_back({peon15.getX(),peon15.getY(),14, -6, peon15.getAlive()});
+    }
+    if (peon16.getColor() == true){
+        posiciones.push_back({peon16.getX(),peon16.getY(),15, 6,peon16.getAlive()});
+    }else{
+        posiciones.push_back({peon16.getX(),peon16.getY(),15, -6, peon16.getAlive()});
+    }
+    if (torre3.getColor() == true){
+        posiciones.push_back({torre3.getX(),torre3.getY(),0, 1,torre3.getAlive()});
+    }else{
+        posiciones.push_back({torre3.getX(),torre3.getY(),0, -1, torre3.getAlive()});
+    }
+    if (torre4.getColor() == true){
+        posiciones.push_back({torre4.getX(),torre4.getY(),7, 1,torre4.getAlive()});
+    }else{
+        posiciones.push_back({torre4.getX(),torre4.getY(),7, -1, torre4.getAlive()});
+    }
+    if (caballo3.getColor() == true){
+        posiciones.push_back({caballo3.getX(),caballo3.getY(),1, 2,caballo3.getAlive()});
+    }else{
+        posiciones.push_back({caballo3.getX(),caballo3.getY(),1, -2, caballo3.getAlive()});
+    }
+    if (caballo4.getColor() == true){
+        posiciones.push_back({caballo4.getX(),caballo4.getY(),6, 2,caballo4.getAlive()});
+    }else{
+        posiciones.push_back({caballo4.getX(),caballo4.getY(),6, -2, caballo4.getAlive()});
+    }
+    if (alfil3.getColor() == true){
+        posiciones.push_back({alfil3.getX(),alfil3.getY(),2, 3,alfil3.getAlive()});
+    }else{
+        posiciones.push_back({alfil3.getX(),alfil3.getY(),2, -3, alfil3.getAlive()});
+    }
+    if (alfil4.getColor() == true){
+        posiciones.push_back({alfil4.getX(),alfil4.getY(),5, 3,alfil4.getAlive()});
+    }else{
+        posiciones.push_back({alfil4.getX(),alfil4.getY(),5, -3, alfil4.getAlive()});
+    }
+    if (dama2.getColor() == true){
+        posiciones.push_back({dama2.getX(),dama2.getY(),4, 4,dama2.getAlive()});
+    }else{
+        posiciones.push_back({dama2.getX(),dama2.getY(),4, -4, dama2.getAlive()});
+    }
+    if (rey2.getColor() == true){
+        posiciones.push_back({rey2.getX(),rey2.getY(),3, 5,rey2.getAlive()});
+    }else{
+        posiciones.push_back({rey2.getX(),rey2.getY(),3, -5, rey2.getAlive()});
+    }
+
+
+}
 int main(){
     //      Cramos el vector con posiciones actualizadas;
     vector<pair<int,int>> matrix;
+
 
     //      Se crea la ventana
     RenderWindow window(VideoMode(504, 504), "Chess");
@@ -145,6 +320,28 @@ int main(){
     Rey rey2({f[3].getPosition().x,f[3].getPosition().y}, {f[3].getPosition().x,f[3].getPosition().y}, 0, false, f[3]);
 
 
+    obtenerPosiciones(peon1,peon2,peon3,peon4,peon5,peon6,peon7,peon8,torre1,torre2,caballo1,caballo2,alfil1,alfil2,dama1,rey1,peon9,peon10,peon11,peon12,peon13,peon14,peon15,peon16,torre3,torre4,caballo3,caballo4,alfil3,alfil4,dama2,rey2);
+    bool entre = false;
+    int x = 0;
+    for (int i = 0; i < 64; ++i) {
+        entre = false;
+        x=0;
+        for (int j = 0; j < posiciones.size(); ++j) {
+            if (i == (posiciones[j][0]/56 + posiciones[j][1]/56*8) and posiciones[j][4] == 1){
+                x = j;
+                entre = true;
+                break;
+            }else{
+                entre = false;
+            }
+        }
+        if (entre == true){
+            matrix.push_back({posiciones[x][3], posiciones[x][2]});
+        }else{
+            matrix.push_back({0, -1});
+        }
+    }
+
 
     bool isMove=false;
     float dx=0, dy=0;
@@ -152,14 +349,15 @@ int main(){
     Vector2f piezaBorrada;
     string str;
     int n=0;
-
+    /*
     cout<<"----"<<endl;
-    auto dequex = cpup.posibilidadesDeTorre();
+    auto dequex = cpup.posibilidadesDeTorre(torre2);
     cout<<"Tamanio: "<<dequex.size()<<endl;
 
     for (int i = 0; i < dequex.size(); ++i) {
         cout<<dequex[i].first<<" "<<dequex[i].second<<endl;
     }
+     */
 
     while (window.isOpen()){
         Vector2i pos = Mouse::getPosition(window) - Vector2i(offset);
@@ -538,6 +736,24 @@ int main(){
                 }
             }
         }
+        for (int i = 0; i < 64; ++i) {
+            entre = false;
+            x=0;
+            for (int j = 0; j < posiciones.size(); ++j) {
+                if (i == (posiciones[j][0]/56 + posiciones[j][1]/56*8) and posiciones[j][4] == 1){
+                    x = j;
+                    entre = true;
+                    break;
+                }else{
+                    entre = false;
+                }
+            }
+            if (entre == true){
+                matrix.push_back({posiciones[x][3], posiciones[x][2]});
+            }else{
+                matrix.push_back({0, -1});
+            }
+        }
 
         //comp move
         if (Keyboard::isKeyPressed(Keyboard::Space)){
@@ -586,6 +802,7 @@ int main(){
         for(int i=0;i<32;i++){
             f[i].move(-offset);
         }
+
 
 
         //      Efectuar cambios
