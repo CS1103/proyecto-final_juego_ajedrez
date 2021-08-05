@@ -39,6 +39,7 @@ Pieza, Peon, Alfil, Caballo, Torre, Dama Rey y cpu_player.
 * [C++](https://devdocs.io/cpp/) - Lenguaje de programacion utilizado
 * [SFML](https://www.sfml-dev.org/index.php) - Libreria multimedia utilizada
 * [Clion](https://www.jetbrains.com/es-es/clion/) - IDE Utilizada
+* [STL](https://docs.microsoft.com/en-us/cpp/standard-library/cpp-standard-library-reference?view=msvc-160) - Libreria Utilizada para Vectores, Unordered maps y Deques.
 
  
  
