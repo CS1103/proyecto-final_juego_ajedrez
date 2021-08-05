@@ -45,7 +45,7 @@ Pieza, Peon, Alfil, Caballo, Torre, Dama Rey y cpu_player.
  
 ## Despliegue 💨
  
-Ejecutar el archivo [main.cpp](https://github.com/CS1103/proyecto-final-grupo_juego_ajedrez/blob/main/main.cpp) despues de haber instalado correctamente la libreria multimedia SFML.
+Ejecutar el archivo [Main.cpp](https://github.com/CS1103/proyecto-final-grupo_juego_ajedrez/blob/main/main.cpp) despues de haber instalado correctamente la libreria multimedia SFML.
 
 Video tutorial para el despliegue del proyecto:
 
@@ -56,7 +56,7 @@ Video tutorial para el despliegue del proyecto:
 
 * [Tutorial de instalacion SMFL](https://www.youtube.com/watch?v=QQc5OdbEjRY) 
 * [Tutorial de Despliegue Proyecto](https://www.youtube.com/watch?v=QQc5OdbEjRY) 
-* [Algoritmo Minimax(CPU)](https://www.cprogramming.com/tutorial/AI/minimaxtree1.html)  
+* [Algoritmo Minimax (CPU)](https://www.cprogramming.com/tutorial/AI/minimaxtree1.html)  
 
  
 
