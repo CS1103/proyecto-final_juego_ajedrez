@@ -736,7 +736,12 @@ int main(){
                 }
             }
         }
+        obtenerPosiciones(peon1,peon2,peon3,peon4,peon5,peon6,peon7,peon8,torre1,torre2,caballo1,caballo2,alfil1,alfil2,dama1,rey1,peon9,peon10,peon11,peon12,peon13,peon14,peon15,peon16,torre3,torre4,caballo3,caballo4,alfil3,alfil4,dama2,rey2);
+        entre = false;
+        x = 0;
+        matrix.clear();
         for (int i = 0; i < 64; ++i) {
+
             entre = false;
             x=0;
             for (int j = 0; j < posiciones.size(); ++j) {
@@ -754,6 +759,7 @@ int main(){
                 matrix.push_back({0, -1});
             }
         }
+        cout<<"tamanio: "<<matrix.size()<<endl;
 
         //comp move
         if (Keyboard::isKeyPressed(Keyboard::Space)){
