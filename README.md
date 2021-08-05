@@ -22,6 +22,8 @@ El proyecto se basa en un juego de ajedrez que se desarrolla en un tablero y que
 Nuestra objetivo principal es ofrecer horas de entretenimiento a nuestros usuarios y que se puedan medir contra una CPU con inteligencia o contra un amigo o familiar.
 
 ![Checkmate gif](https://github.com/CS1103/proyecto-final-grupo_juego_ajedrez/blob/main/images/cpu.gif)
+![Tournament gif](https://github.com/CS1103/proyecto-final-grupo_juego_ajedrez/blob/main/images/j8q4la.gif)
+
 
 
 
