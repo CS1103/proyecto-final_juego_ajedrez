@@ -56,6 +56,7 @@ Video tutorial para el despliegue del proyecto:
 
 * [Tutorial de instalacion SMFL](https://www.youtube.com/watch?v=QQc5OdbEjRY) 
 * [Tutorial de Despliegue Proyecto](https://www.youtube.com/watch?v=QQc5OdbEjRY) 
+* [Algoritmo Minimax(CPU)](https://www.cprogramming.com/tutorial/AI/minimaxtree1.html)  
 
  
 
