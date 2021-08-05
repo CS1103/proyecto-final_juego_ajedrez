@@ -47,6 +47,8 @@ Pieza, Peon, Alfil, Caballo, Torre, Dama Rey y cpu_player.
  
 Ejecutar el archivo [main.cpp](https://github.com/CS1103/proyecto-final-grupo_juego_ajedrez/blob/main/main.cpp) despues de haber instalado correctamente la libreria multimedia SFML.
 
+Video tutorial para el despliegue del proyecto:
+
 [![Youtube tutorial](https://img.youtube.com/vi/QQc5OdbEjRY/0.jpg)](https://www.youtube.com/watch?v=QQc5OdbEjRY)
 
 
