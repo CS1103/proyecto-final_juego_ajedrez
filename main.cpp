@@ -255,6 +255,21 @@ void obtenerPosiciones(Peon peon1, Peon peon2, Peon peon3, Peon peon4, Peon peon
 
 
 }
+
+bool verificarRey1(Rey _rey1){
+    if(_rey1.getAlive()){
+        return false;
+    }else{
+        return true;
+    }
+}
+bool verificarRey2(Rey _rey2){
+    if(_rey2.getAlive()){
+        return false;
+    }else{
+        return true;
+    }
+}
 int main(){
     //      Cramos el vector con posiciones actualizadas;
     vector<pair<int,int>> matrix;
@@ -353,11 +368,10 @@ int main(){
     cout<<"----"<<endl;
     auto dequex = cpup.posibilidadesDeTorre(torre2);
     cout<<"Tamanio: "<<dequex.size()<<endl;
-
     for (int i = 0; i < dequex.size(); ++i) {
         cout<<dequex[i].first<<" "<<dequex[i].second<<endl;
     }
-     */
+    */
 
     while (window.isOpen()){
         Vector2i pos = Mouse::getPosition(window) - Vector2i(offset);
@@ -402,14 +416,116 @@ int main(){
                     newPos = Vector2f( size*int(p.x/size), size*int(p.y/size) );
                     str = toChessNote(oldPos)+toChessNote(newPos);
                     move(str);
-
                     switch (n) {
                         case 0:
                             torre3.setXNPos(newPos.x);
                             torre3.setYNPos(newPos.y);
                             if (torre3.MovimientoPermitido(f[32])){
 
-                                f[n].setPosition(newPos);
+                                if (matrix[newPos.x+newPos.y/56].first == 0  and matrix[newPos.x+newPos.y/56].second == -1){
+                                    f[n].setPosition(newPos);
+                                }else{
+                                    switch(matrix[(newPos.x/56)+((newPos.y/56)*8)].second){
+                                        case 1:
+                                            caballo3.setAlive(false);
+                                            break;
+                                        case 2:
+                                            alfil3.setAlive(false);
+                                            break;
+                                        case 3:
+                                            rey2.setAlive(false);
+                                            break;
+                                        case 4:
+                                            dama2.setAlive(false);
+                                            break;
+                                        case 5:
+                                            alfil4.setAlive(false);
+                                            break;
+                                        case 6:
+                                            caballo4.setAlive(false);
+                                            break;
+                                        case 7:
+                                            torre4.setAlive(false);
+                                            break;
+                                        case 8:
+                                            peon9.setAlive(false);
+                                            break;
+                                        case 9:
+                                            peon10.setAlive(false);
+                                            break;
+                                        case 10:
+                                            peon11.setAlive(false);
+                                            break;
+                                        case 11:
+                                            peon12.setAlive(false);
+                                            break;
+                                        case 12:
+                                            peon13.setAlive(false);
+                                            break;
+                                        case 13:
+                                            peon14.setAlive(false);
+                                            break;
+                                        case 14:
+                                            peon15.setAlive(false);
+                                            break;
+                                        case 15:
+                                            peon16.setAlive(false);
+                                            break;
+                                        case 16:
+                                            peon1.setAlive(false);
+                                            break;
+                                        case 17:
+                                            peon2.setAlive(false);
+                                            break;
+                                        case 18:
+                                            peon3.setAlive(false);
+                                            break;
+                                        case 19:
+                                            peon4.setAlive(false);
+                                            break;
+                                        case 20:
+                                            peon5.setAlive(false);
+                                            break;
+                                        case 21:
+                                            peon6.setAlive(false);
+                                            break;
+                                        case 22:
+                                            peon7.setAlive(false);
+                                            break;
+                                        case 23:
+                                            peon8.setAlive(false);
+                                        case 24:
+                                            torre1.setAlive(false);
+                                            break;
+                                        case 25:
+                                            caballo1.setAlive(false);
+                                            break;
+                                        case 26:
+                                            alfil1.setAlive(false);
+                                            break;
+                                        case 27:
+                                            rey1.setAlive(false);
+                                            break;
+                                        case 28:
+                                            dama1.setAlive(false);
+                                            break;
+                                        case 29:
+                                            alfil2.setAlive(false);
+                                            break;
+                                        case 30:
+                                            caballo2.setAlive(false);
+                                            break;
+                                        case 31:
+                                            torre2.setAlive(false);
+                                            break;
+
+
+
+
+                                    }
+                                    f[n].setPosition(newPos);
+                                }
+
                             }else{
 
                                 f[n].setPosition(oldPos);
@@ -420,7 +536,109 @@ int main(){
                             caballo3.setYNPos(newPos.y);
                             if (caballo3.MovimientoPermitido(f[32])){
 
-                                f[n].setPosition(newPos);
+                                if (matrix[newPos.x+newPos.y/56].first == 0  and matrix[newPos.x+newPos.y/56].second == -1){
+                                    f[n].setPosition(newPos);
+                                }else{
+                                    switch(matrix[(newPos.x/56)+((newPos.y/56)*8)].second){
+                                        case 1:
+                                            caballo3.setAlive(false);
+                                            break;
+                                        case 2:
+                                            alfil3.setAlive(false);
+                                            break;
+                                        case 3:
+                                            rey2.setAlive(false);
+                                            break;
+                                        case 4:
+                                            dama2.setAlive(false);
+                                            break;
+                                        case 5:
+                                            alfil4.setAlive(false);
+                                            break;
+                                        case 6:
+                                            caballo4.setAlive(false);
+                                            break;
+                                        case 7:
+                                            torre4.setAlive(false);
+                                            break;
+                                        case 8:
+                                            peon9.setAlive(false);
+                                            break;
+                                        case 9:
+                                            peon10.setAlive(false);
+                                            break;
+                                        case 10:
+                                            peon11.setAlive(false);
+                                            break;
+                                        case 11:
+                                            peon12.setAlive(false);
+                                            break;
+                                        case 12:
+                                            peon13.setAlive(false);
+                                            break;
+                                        case 13:
+                                            peon14.setAlive(false);
+                                            break;
+                                        case 14:
+                                            peon15.setAlive(false);
+                                            break;
+                                        case 15:
+                                            peon16.setAlive(false);
+                                            break;
+                                        case 16:
+                                            peon1.setAlive(false);
+                                            break;
+                                        case 17:
+                                            peon2.setAlive(false);
+                                            break;
+                                        case 18:
+                                            peon3.setAlive(false);
+                                            break;
+                                        case 19:
+                                            peon4.setAlive(false);
+                                            break;
+                                        case 20:
+                                            peon5.setAlive(false);
+                                            break;
+                                        case 21:
+                                            peon6.setAlive(false);
+                                            break;
+                                        case 22:
+                                            peon7.setAlive(false);
+                                            break;
+                                        case 23:
+                                            peon8.setAlive(false);
+                                        case 24:
+                                            torre1.setAlive(false);
+                                            break;
+                                        case 25:
+                                            caballo1.setAlive(false);
+                                            break;
+                                        case 26:
+                                            alfil1.setAlive(false);
+                                            break;
+                                        case 27:
+                                            rey1.setAlive(false);
+                                            break;
+                                        case 28:
+                                            dama1.setAlive(false);
+                                            break;
+                                        case 29:
+                                            alfil2.setAlive(false);
+                                            break;
+                                        case 30:
+                                            caballo2.setAlive(false);
+                                            break;
+                                        case 31:
+                                            torre2.setAlive(false);
+                                            break;
+
+
+
+
+                                    }
+                                    f[n].setPosition(newPos);
+                                }
                             }else{
                                 f[n].setPosition(oldPos);
                             }
@@ -430,7 +648,109 @@ int main(){
                             alfil3.setYNPos(newPos.y);
                             if (alfil3.MovimientoPermitido(f[32])){
 
-                                f[n].setPosition(newPos);
+                                if (matrix[newPos.x+newPos.y/56].first == 0  and matrix[newPos.x+newPos.y/56].second == -1){
+                                    f[n].setPosition(newPos);
+                                }else{
+                                    switch(matrix[(newPos.x/56)+((newPos.y/56)*8)].second){
+                                        case 1:
+                                            caballo3.setAlive(false);
+                                            break;
+                                        case 2:
+                                            alfil3.setAlive(false);
+                                            break;
+                                        case 3:
+                                            rey2.setAlive(false);
+                                            break;
+                                        case 4:
+                                            dama2.setAlive(false);
+                                            break;
+                                        case 5:
+                                            alfil4.setAlive(false);
+                                            break;
+                                        case 6:
+                                            caballo4.setAlive(false);
+                                            break;
+                                        case 7:
+                                            torre4.setAlive(false);
+                                            break;
+                                        case 8:
+                                            peon9.setAlive(false);
+                                            break;
+                                        case 9:
+                                            peon10.setAlive(false);
+                                            break;
+                                        case 10:
+                                            peon11.setAlive(false);
+                                            break;
+                                        case 11:
+                                            peon12.setAlive(false);
+                                            break;
+                                        case 12:
+                                            peon13.setAlive(false);
+                                            break;
+                                        case 13:
+                                            peon14.setAlive(false);
+                                            break;
+                                        case 14:
+                                            peon15.setAlive(false);
+                                            break;
+                                        case 15:
+                                            peon16.setAlive(false);
+                                            break;
+                                        case 16:
+                                            peon1.setAlive(false);
+                                            break;
+                                        case 17:
+                                            peon2.setAlive(false);
+                                            break;
+                                        case 18:
+                                            peon3.setAlive(false);
+                                            break;
+                                        case 19:
+                                            peon4.setAlive(false);
+                                            break;
+                                        case 20:
+                                            peon5.setAlive(false);
+                                            break;
+                                        case 21:
+                                            peon6.setAlive(false);
+                                            break;
+                                        case 22:
+                                            peon7.setAlive(false);
+                                            break;
+                                        case 23:
+                                            peon8.setAlive(false);
+                                        case 24:
+                                            torre1.setAlive(false);
+                                            break;
+                                        case 25:
+                                            caballo1.setAlive(false);
+                                            break;
+                                        case 26:
+                                            alfil1.setAlive(false);
+                                            break;
+                                        case 27:
+                                            rey1.setAlive(false);
+                                            break;
+                                        case 28:
+                                            dama1.setAlive(false);
+                                            break;
+                                        case 29:
+                                            alfil2.setAlive(false);
+                                            break;
+                                        case 30:
+                                            caballo2.setAlive(false);
+                                            break;
+                                        case 31:
+                                            torre2.setAlive(false);
+                                            break;
+
+
+
+
+                                    }
+                                    f[n].setPosition(newPos);
+                                }
                             }else{
                                 f[n].setPosition(oldPos);
                             }
@@ -440,7 +760,109 @@ int main(){
                             rey2.setYNPos(newPos.y);
                             if (rey2.MovimientoPermitido(f[32])){
 
-                                f[n].setPosition(newPos);
+                                if (matrix[newPos.x+newPos.y/56].first == 0  and matrix[newPos.x+newPos.y/56].second == -1){
+                                    f[n].setPosition(newPos);
+                                }else{
+                                    switch(matrix[(newPos.x/56)+((newPos.y/56)*8)].second){
+                                        case 1:
+                                            caballo3.setAlive(false);
+                                            break;
+                                        case 2:
+                                            alfil3.setAlive(false);
+                                            break;
+                                        case 3:
+                                            rey2.setAlive(false);
+                                            break;
+                                        case 4:
+                                            dama2.setAlive(false);
+                                            break;
+                                        case 5:
+                                            alfil4.setAlive(false);
+                                            break;
+                                        case 6:
+                                            caballo4.setAlive(false);
+                                            break;
+                                        case 7:
+                                            torre4.setAlive(false);
+                                            break;
+                                        case 8:
+                                            peon9.setAlive(false);
+                                            break;
+                                        case 9:
+                                            peon10.setAlive(false);
+                                            break;
+                                        case 10:
+                                            peon11.setAlive(false);
+                                            break;
+                                        case 11:
+                                            peon12.setAlive(false);
+                                            break;
+                                        case 12:
+                                            peon13.setAlive(false);
+                                            break;
+                                        case 13:
+                                            peon14.setAlive(false);
+                                            break;
+                                        case 14:
+                                            peon15.setAlive(false);
+                                            break;
+                                        case 15:
+                                            peon16.setAlive(false);
+                                            break;
+                                        case 16:
+                                            peon1.setAlive(false);
+                                            break;
+                                        case 17:
+                                            peon2.setAlive(false);
+                                            break;
+                                        case 18:
+                                            peon3.setAlive(false);
+                                            break;
+                                        case 19:
+                                            peon4.setAlive(false);
+                                            break;
+                                        case 20:
+                                            peon5.setAlive(false);
+                                            break;
+                                        case 21:
+                                            peon6.setAlive(false);
+                                            break;
+                                        case 22:
+                                            peon7.setAlive(false);
+                                            break;
+                                        case 23:
+                                            peon8.setAlive(false);
+                                        case 24:
+                                            torre1.setAlive(false);
+                                            break;
+                                        case 25:
+                                            caballo1.setAlive(false);
+                                            break;
+                                        case 26:
+                                            alfil1.setAlive(false);
+                                            break;
+                                        case 27:
+                                            rey1.setAlive(false);
+                                            break;
+                                        case 28:
+                                            dama1.setAlive(false);
+                                            break;
+                                        case 29:
+                                            alfil2.setAlive(false);
+                                            break;
+                                        case 30:
+                                            caballo2.setAlive(false);
+                                            break;
+                                        case 31:
+                                            torre2.setAlive(false);
+                                            break;
+
+
+
+
+                                    }
+                                    f[n].setPosition(newPos);
+                                }
                             }else{
                                 f[n].setPosition(oldPos);
                             }
@@ -449,8 +871,117 @@ int main(){
                             dama2.setXNPos(newPos.x);
                             dama2.setYNPos(newPos.y);
                             if (dama2.MovimientoPermitido(f[32])){
+                                if (matrix[newPos.x+newPos.y/56].first == 0  and matrix[newPos.x+newPos.y/56].second == -1){
 
-                                f[n].setPosition(newPos);
+                                    f[n].setPosition(newPos);
+                                }else{
+                                    //cout<<(newPos.x/56)+((newPos.y/56)*8)<<endl;
+                                    switch(matrix[(newPos.x/56)+((newPos.y/56)*8)].second){
+
+                                        case 0:
+                                            torre3.setAlive(false);
+                                            break;
+                                        case 1:
+                                            caballo3.setAlive(false);
+                                            break;
+                                        case 2:
+                                            alfil3.setAlive(false);
+                                            break;
+                                        case 3:
+                                            rey2.setAlive(false);
+                                            break;
+                                        case 4:
+                                            dama2.setAlive(false);
+                                            break;
+                                        case 5:
+                                            alfil4.setAlive(false);
+                                            break;
+                                        case 6:
+                                            caballo4.setAlive(false);
+                                            break;
+                                        case 7:
+                                            torre4.setAlive(false);
+                                            break;
+                                        case 8:
+                                            peon9.setAlive(false);
+                                            break;
+                                        case 9:
+                                            peon10.setAlive(false);
+                                            break;
+                                        case 10:
+                                            peon11.setAlive(false);
+                                            break;
+                                        case 11:
+                                            peon12.setAlive(false);
+                                            break;
+                                        case 12:
+                                            peon13.setAlive(false);
+                                            break;
+                                        case 13:
+                                            peon14.setAlive(false);
+                                            break;
+                                        case 14:
+                                            peon15.setAlive(false);
+                                            break;
+                                        case 15:
+                                            peon16.setAlive(false);
+                                            break;
+                                        case 16:
+                                            peon1.setAlive(false);
+                                            break;
+                                        case 17:
+                                            peon2.setAlive(false);
+                                            break;
+                                        case 18:
+                                            peon3.setAlive(false);
+                                            break;
+                                        case 19:
+                                            peon4.setAlive(false);
+                                            break;
+                                        case 20:
+                                            peon5.setAlive(false);
+                                            break;
+                                        case 21:
+                                            peon6.setAlive(false);
+                                            break;
+                                        case 22:
+                                            peon7.setAlive(false);
+                                            break;
+                                        case 23:
+                                            peon8.setAlive(false);
+                                        case 24:
+                                            torre1.setAlive(false);
+                                            break;
+                                        case 25:
+                                            caballo1.setAlive(false);
+                                            break;
+                                        case 26:
+                                            alfil1.setAlive(false);
+                                            break;
+                                        case 27:
+                                            rey1.setAlive(false);
+                                            break;
+                                        case 28:
+                                            dama1.setAlive(false);
+                                            break;
+                                        case 29:
+                                            alfil2.setAlive(false);
+                                            break;
+                                        case 30:
+                                            caballo2.setAlive(false);
+                                            break;
+                                        case 31:
+                                            torre2.setAlive(false);
+                                            break;
+
+
+
+
+                                    }
+                                    f[n].setPosition(newPos);
+
+                                }
+
                             }else{
                                 f[n].setPosition(oldPos);
                             }
@@ -460,7 +991,109 @@ int main(){
                             alfil4.setYNPos(newPos.y);
                             if (alfil4.MovimientoPermitido(f[32])){
 
-                                f[n].setPosition(newPos);
+                                if (matrix[newPos.x+newPos.y/56].first == 0  and matrix[newPos.x+newPos.y/56].second == -1){
+                                    f[n].setPosition(newPos);
+                                }else{
+                                    switch(matrix[(newPos.x/56)+((newPos.y/56)*8)].second){
+                                        case 1:
+                                            caballo3.setAlive(false);
+                                            break;
+                                        case 2:
+                                            alfil3.setAlive(false);
+                                            break;
+                                        case 3:
+                                            rey2.setAlive(false);
+                                            break;
+                                        case 4:
+                                            dama2.setAlive(false);
+                                            break;
+                                        case 5:
+                                            alfil4.setAlive(false);
+                                            break;
+                                        case 6:
+                                            caballo4.setAlive(false);
+                                            break;
+                                        case 7:
+                                            torre4.setAlive(false);
+                                            break;
+                                        case 8:
+                                            peon9.setAlive(false);
+                                            break;
+                                        case 9:
+                                            peon10.setAlive(false);
+                                            break;
+                                        case 10:
+                                            peon11.setAlive(false);
+                                            break;
+                                        case 11:
+                                            peon12.setAlive(false);
+                                            break;
+                                        case 12:
+                                            peon13.setAlive(false);
+                                            break;
+                                        case 13:
+                                            peon14.setAlive(false);
+                                            break;
+                                        case 14:
+                                            peon15.setAlive(false);
+                                            break;
+                                        case 15:
+                                            peon16.setAlive(false);
+                                            break;
+                                        case 16:
+                                            peon1.setAlive(false);
+                                            break;
+                                        case 17:
+                                            peon2.setAlive(false);
+                                            break;
+                                        case 18:
+                                            peon3.setAlive(false);
+                                            break;
+                                        case 19:
+                                            peon4.setAlive(false);
+                                            break;
+                                        case 20:
+                                            peon5.setAlive(false);
+                                            break;
+                                        case 21:
+                                            peon6.setAlive(false);
+                                            break;
+                                        case 22:
+                                            peon7.setAlive(false);
+                                            break;
+                                        case 23:
+                                            peon8.setAlive(false);
+                                        case 24:
+                                            torre1.setAlive(false);
+                                            break;
+                                        case 25:
+                                            caballo1.setAlive(false);
+                                            break;
+                                        case 26:
+                                            alfil1.setAlive(false);
+                                            break;
+                                        case 27:
+                                            rey1.setAlive(false);
+                                            break;
+                                        case 28:
+                                            dama1.setAlive(false);
+                                            break;
+                                        case 29:
+                                            alfil2.setAlive(false);
+                                            break;
+                                        case 30:
+                                            caballo2.setAlive(false);
+                                            break;
+                                        case 31:
+                                            torre2.setAlive(false);
+                                            break;
+
+
+
+
+                                    }
+                                    f[n].setPosition(newPos);
+                                }
                             }else{
                                 f[n].setPosition(oldPos);
                             }
@@ -470,7 +1103,109 @@ int main(){
                             caballo4.setYNPos(newPos.y);
                             if (caballo4.MovimientoPermitido(f[32])){
 
-                                f[n].setPosition(newPos);
+                                if (matrix[newPos.x+newPos.y/56].first == 0  and matrix[newPos.x+newPos.y/56].second == -1){
+                                    f[n].setPosition(newPos);
+                                }else{
+                                    switch(matrix[(newPos.x/56)+((newPos.y/56)*8)].second){
+                                        case 1:
+                                            caballo3.setAlive(false);
+                                            break;
+                                        case 2:
+                                            alfil3.setAlive(false);
+                                            break;
+                                        case 3:
+                                            rey2.setAlive(false);
+                                            break;
+                                        case 4:
+                                            dama2.setAlive(false);
+                                            break;
+                                        case 5:
+                                            alfil4.setAlive(false);
+                                            break;
+                                        case 6:
+                                            caballo4.setAlive(false);
+                                            break;
+                                        case 7:
+                                            torre4.setAlive(false);
+                                            break;
+                                        case 8:
+                                            peon9.setAlive(false);
+                                            break;
+                                        case 9:
+                                            peon10.setAlive(false);
+                                            break;
+                                        case 10:
+                                            peon11.setAlive(false);
+                                            break;
+                                        case 11:
+                                            peon12.setAlive(false);
+                                            break;
+                                        case 12:
+                                            peon13.setAlive(false);
+                                            break;
+                                        case 13:
+                                            peon14.setAlive(false);
+                                            break;
+                                        case 14:
+                                            peon15.setAlive(false);
+                                            break;
+                                        case 15:
+                                            peon16.setAlive(false);
+                                            break;
+                                        case 16:
+                                            peon1.setAlive(false);
+                                            break;
+                                        case 17:
+                                            peon2.setAlive(false);
+                                            break;
+                                        case 18:
+                                            peon3.setAlive(false);
+                                            break;
+                                        case 19:
+                                            peon4.setAlive(false);
+                                            break;
+                                        case 20:
+                                            peon5.setAlive(false);
+                                            break;
+                                        case 21:
+                                            peon6.setAlive(false);
+                                            break;
+                                        case 22:
+                                            peon7.setAlive(false);
+                                            break;
+                                        case 23:
+                                            peon8.setAlive(false);
+                                        case 24:
+                                            torre1.setAlive(false);
+                                            break;
+                                        case 25:
+                                            caballo1.setAlive(false);
+                                            break;
+                                        case 26:
+                                            alfil1.setAlive(false);
+                                            break;
+                                        case 27:
+                                            rey1.setAlive(false);
+                                            break;
+                                        case 28:
+                                            dama1.setAlive(false);
+                                            break;
+                                        case 29:
+                                            alfil2.setAlive(false);
+                                            break;
+                                        case 30:
+                                            caballo2.setAlive(false);
+                                            break;
+                                        case 31:
+                                            torre2.setAlive(false);
+                                            break;
+
+
+
+
+                                    }
+                                    f[n].setPosition(newPos);
+                                }
                             }else{
                                 f[n].setPosition(oldPos);
                             }
@@ -480,7 +1215,109 @@ int main(){
                             torre4.setYNPos(newPos.y);
                             if (torre4.MovimientoPermitido(f[32])){
 
-                                f[n].setPosition(newPos);
+                                if (matrix[newPos.x+newPos.y/56].first == 0  and matrix[newPos.x+newPos.y/56].second == -1){
+                                    f[n].setPosition(newPos);
+                                }else{
+                                    switch(matrix[(newPos.x/56)+((newPos.y/56)*8)].second){
+                                        case 1:
+                                            caballo3.setAlive(false);
+                                            break;
+                                        case 2:
+                                            alfil3.setAlive(false);
+                                            break;
+                                        case 3:
+                                            rey2.setAlive(false);
+                                            break;
+                                        case 4:
+                                            dama2.setAlive(false);
+                                            break;
+                                        case 5:
+                                            alfil4.setAlive(false);
+                                            break;
+                                        case 6:
+                                            caballo4.setAlive(false);
+                                            break;
+                                        case 7:
+                                            torre4.setAlive(false);
+                                            break;
+                                        case 8:
+                                            peon9.setAlive(false);
+                                            break;
+                                        case 9:
+                                            peon10.setAlive(false);
+                                            break;
+                                        case 10:
+                                            peon11.setAlive(false);
+                                            break;
+                                        case 11:
+                                            peon12.setAlive(false);
+                                            break;
+                                        case 12:
+                                            peon13.setAlive(false);
+                                            break;
+                                        case 13:
+                                            peon14.setAlive(false);
+                                            break;
+                                        case 14:
+                                            peon15.setAlive(false);
+                                            break;
+                                        case 15:
+                                            peon16.setAlive(false);
+                                            break;
+                                        case 16:
+                                            peon1.setAlive(false);
+                                            break;
+                                        case 17:
+                                            peon2.setAlive(false);
+                                            break;
+                                        case 18:
+                                            peon3.setAlive(false);
+                                            break;
+                                        case 19:
+                                            peon4.setAlive(false);
+                                            break;
+                                        case 20:
+                                            peon5.setAlive(false);
+                                            break;
+                                        case 21:
+                                            peon6.setAlive(false);
+                                            break;
+                                        case 22:
+                                            peon7.setAlive(false);
+                                            break;
+                                        case 23:
+                                            peon8.setAlive(false);
+                                        case 24:
+                                            torre1.setAlive(false);
+                                            break;
+                                        case 25:
+                                            caballo1.setAlive(false);
+                                            break;
+                                        case 26:
+                                            alfil1.setAlive(false);
+                                            break;
+                                        case 27:
+                                            rey1.setAlive(false);
+                                            break;
+                                        case 28:
+                                            dama1.setAlive(false);
+                                            break;
+                                        case 29:
+                                            alfil2.setAlive(false);
+                                            break;
+                                        case 30:
+                                            caballo2.setAlive(false);
+                                            break;
+                                        case 31:
+                                            torre2.setAlive(false);
+                                            break;
+
+
+
+
+                                    }
+                                    f[n].setPosition(newPos);
+                                }
                             }else{
                                 f[n].setPosition(oldPos);
                             }
@@ -490,7 +1327,109 @@ int main(){
                             peon9.setYNPos(newPos.y);
                             if (peon9.MovimientoPermitido(f[32])){
 
-                                f[n].setPosition(newPos);
+                                if (matrix[newPos.x+newPos.y/56].first == 0  and matrix[newPos.x+newPos.y/56].second == -1){
+                                    f[n].setPosition(newPos);
+                                }else{
+                                    switch(matrix[(newPos.x/56)+((newPos.y/56)*8)].second){
+                                        case 1:
+                                            caballo3.setAlive(false);
+                                            break;
+                                        case 2:
+                                            alfil3.setAlive(false);
+                                            break;
+                                        case 3:
+                                            rey2.setAlive(false);
+                                            break;
+                                        case 4:
+                                            dama2.setAlive(false);
+                                            break;
+                                        case 5:
+                                            alfil4.setAlive(false);
+                                            break;
+                                        case 6:
+                                            caballo4.setAlive(false);
+                                            break;
+                                        case 7:
+                                            torre4.setAlive(false);
+                                            break;
+                                        case 8:
+                                            peon9.setAlive(false);
+                                            break;
+                                        case 9:
+                                            peon10.setAlive(false);
+                                            break;
+                                        case 10:
+                                            peon11.setAlive(false);
+                                            break;
+                                        case 11:
+                                            peon12.setAlive(false);
+                                            break;
+                                        case 12:
+                                            peon13.setAlive(false);
+                                            break;
+                                        case 13:
+                                            peon14.setAlive(false);
+                                            break;
+                                        case 14:
+                                            peon15.setAlive(false);
+                                            break;
+                                        case 15:
+                                            peon16.setAlive(false);
+                                            break;
+                                        case 16:
+                                            peon1.setAlive(false);
+                                            break;
+                                        case 17:
+                                            peon2.setAlive(false);
+                                            break;
+                                        case 18:
+                                            peon3.setAlive(false);
+                                            break;
+                                        case 19:
+                                            peon4.setAlive(false);
+                                            break;
+                                        case 20:
+                                            peon5.setAlive(false);
+                                            break;
+                                        case 21:
+                                            peon6.setAlive(false);
+                                            break;
+                                        case 22:
+                                            peon7.setAlive(false);
+                                            break;
+                                        case 23:
+                                            peon8.setAlive(false);
+                                        case 24:
+                                            torre1.setAlive(false);
+                                            break;
+                                        case 25:
+                                            caballo1.setAlive(false);
+                                            break;
+                                        case 26:
+                                            alfil1.setAlive(false);
+                                            break;
+                                        case 27:
+                                            rey1.setAlive(false);
+                                            break;
+                                        case 28:
+                                            dama1.setAlive(false);
+                                            break;
+                                        case 29:
+                                            alfil2.setAlive(false);
+                                            break;
+                                        case 30:
+                                            caballo2.setAlive(false);
+                                            break;
+                                        case 31:
+                                            torre2.setAlive(false);
+                                            break;
+
+
+
+
+                                    }
+                                    f[n].setPosition(newPos);
+                                }
                             }else{
                                 f[n].setPosition(oldPos);
                             }
@@ -500,7 +1439,109 @@ int main(){
                             peon10.setYNPos(newPos.y);
                             if (peon10.MovimientoPermitido(f[32])){
 
-                                f[n].setPosition(newPos);
+                                if (matrix[newPos.x+newPos.y/56].first == 0  and matrix[newPos.x+newPos.y/56].second == -1){
+                                    f[n].setPosition(newPos);
+                                }else{
+                                    switch(matrix[(newPos.x/56)+((newPos.y/56)*8)].second){
+                                        case 1:
+                                            caballo3.setAlive(false);
+                                            break;
+                                        case 2:
+                                            alfil3.setAlive(false);
+                                            break;
+                                        case 3:
+                                            rey2.setAlive(false);
+                                            break;
+                                        case 4:
+                                            dama2.setAlive(false);
+                                            break;
+                                        case 5:
+                                            alfil4.setAlive(false);
+                                            break;
+                                        case 6:
+                                            caballo4.setAlive(false);
+                                            break;
+                                        case 7:
+                                            torre4.setAlive(false);
+                                            break;
+                                        case 8:
+                                            peon9.setAlive(false);
+                                            break;
+                                        case 9:
+                                            peon10.setAlive(false);
+                                            break;
+                                        case 10:
+                                            peon11.setAlive(false);
+                                            break;
+                                        case 11:
+                                            peon12.setAlive(false);
+                                            break;
+                                        case 12:
+                                            peon13.setAlive(false);
+                                            break;
+                                        case 13:
+                                            peon14.setAlive(false);
+                                            break;
+                                        case 14:
+                                            peon15.setAlive(false);
+                                            break;
+                                        case 15:
+                                            peon16.setAlive(false);
+                                            break;
+                                        case 16:
+                                            peon1.setAlive(false);
+                                            break;
+                                        case 17:
+                                            peon2.setAlive(false);
+                                            break;
+                                        case 18:
+                                            peon3.setAlive(false);
+                                            break;
+                                        case 19:
+                                            peon4.setAlive(false);
+                                            break;
+                                        case 20:
+                                            peon5.setAlive(false);
+                                            break;
+                                        case 21:
+                                            peon6.setAlive(false);
+                                            break;
+                                        case 22:
+                                            peon7.setAlive(false);
+                                            break;
+                                        case 23:
+                                            peon8.setAlive(false);
+                                        case 24:
+                                            torre1.setAlive(false);
+                                            break;
+                                        case 25:
+                                            caballo1.setAlive(false);
+                                            break;
+                                        case 26:
+                                            alfil1.setAlive(false);
+                                            break;
+                                        case 27:
+                                            rey1.setAlive(false);
+                                            break;
+                                        case 28:
+                                            dama1.setAlive(false);
+                                            break;
+                                        case 29:
+                                            alfil2.setAlive(false);
+                                            break;
+                                        case 30:
+                                            caballo2.setAlive(false);
+                                            break;
+                                        case 31:
+                                            torre2.setAlive(false);
+                                            break;
+
+
+
+
+                                    }
+                                    f[n].setPosition(newPos);
+                                }
                             }else{
                                 f[n].setPosition(oldPos);
                             }
@@ -510,7 +1551,109 @@ int main(){
                             peon11.setYNPos(newPos.y);
                             if (peon11.MovimientoPermitido(f[32])){
 
-                                f[n].setPosition(newPos);
+                                if (matrix[newPos.x+newPos.y/56].first == 0  and matrix[newPos.x+newPos.y/56].second == -1){
+                                    f[n].setPosition(newPos);
+                                }else{
+                                    switch(matrix[(newPos.x/56)+((newPos.y/56)*8)].second){
+                                        case 1:
+                                            caballo3.setAlive(false);
+                                            break;
+                                        case 2:
+                                            alfil3.setAlive(false);
+                                            break;
+                                        case 3:
+                                            rey2.setAlive(false);
+                                            break;
+                                        case 4:
+                                            dama2.setAlive(false);
+                                            break;
+                                        case 5:
+                                            alfil4.setAlive(false);
+                                            break;
+                                        case 6:
+                                            caballo4.setAlive(false);
+                                            break;
+                                        case 7:
+                                            torre4.setAlive(false);
+                                            break;
+                                        case 8:
+                                            peon9.setAlive(false);
+                                            break;
+                                        case 9:
+                                            peon10.setAlive(false);
+                                            break;
+                                        case 10:
+                                            peon11.setAlive(false);
+                                            break;
+                                        case 11:
+                                            peon12.setAlive(false);
+                                            break;
+                                        case 12:
+                                            peon13.setAlive(false);
+                                            break;
+                                        case 13:
+                                            peon14.setAlive(false);
+                                            break;
+                                        case 14:
+                                            peon15.setAlive(false);
+                                            break;
+                                        case 15:
+                                            peon16.setAlive(false);
+                                            break;
+                                        case 16:
+                                            peon1.setAlive(false);
+                                            break;
+                                        case 17:
+                                            peon2.setAlive(false);
+                                            break;
+                                        case 18:
+                                            peon3.setAlive(false);
+                                            break;
+                                        case 19:
+                                            peon4.setAlive(false);
+                                            break;
+                                        case 20:
+                                            peon5.setAlive(false);
+                                            break;
+                                        case 21:
+                                            peon6.setAlive(false);
+                                            break;
+                                        case 22:
+                                            peon7.setAlive(false);
+                                            break;
+                                        case 23:
+                                            peon8.setAlive(false);
+                                        case 24:
+                                            torre1.setAlive(false);
+                                            break;
+                                        case 25:
+                                            caballo1.setAlive(false);
+                                            break;
+                                        case 26:
+                                            alfil1.setAlive(false);
+                                            break;
+                                        case 27:
+                                            rey1.setAlive(false);
+                                            break;
+                                        case 28:
+                                            dama1.setAlive(false);
+                                            break;
+                                        case 29:
+                                            alfil2.setAlive(false);
+                                            break;
+                                        case 30:
+                                            caballo2.setAlive(false);
+                                            break;
+                                        case 31:
+                                            torre2.setAlive(false);
+                                            break;
+
+
+
+
+                                    }
+                                    f[n].setPosition(newPos);
+                                }
                             }else{
                                 f[n].setPosition(oldPos);
                             }
@@ -520,7 +1663,109 @@ int main(){
                             peon12.setYNPos(newPos.y);
                             if (peon12.MovimientoPermitido(f[32])){
 
-                                f[n].setPosition(newPos);
+                                if (matrix[newPos.x+newPos.y/56].first == 0  and matrix[newPos.x+newPos.y/56].second == -1){
+                                    f[n].setPosition(newPos);
+                                }else{
+                                    switch(matrix[(newPos.x/56)+((newPos.y/56)*8)].second){
+                                        case 1:
+                                            caballo3.setAlive(false);
+                                            break;
+                                        case 2:
+                                            alfil3.setAlive(false);
+                                            break;
+                                        case 3:
+                                            rey2.setAlive(false);
+                                            break;
+                                        case 4:
+                                            dama2.setAlive(false);
+                                            break;
+                                        case 5:
+                                            alfil4.setAlive(false);
+                                            break;
+                                        case 6:
+                                            caballo4.setAlive(false);
+                                            break;
+                                        case 7:
+                                            torre4.setAlive(false);
+                                            break;
+                                        case 8:
+                                            peon9.setAlive(false);
+                                            break;
+                                        case 9:
+                                            peon10.setAlive(false);
+                                            break;
+                                        case 10:
+                                            peon11.setAlive(false);
+                                            break;
+                                        case 11:
+                                            peon12.setAlive(false);
+                                            break;
+                                        case 12:
+                                            peon13.setAlive(false);
+                                            break;
+                                        case 13:
+                                            peon14.setAlive(false);
+                                            break;
+                                        case 14:
+                                            peon15.setAlive(false);
+                                            break;
+                                        case 15:
+                                            peon16.setAlive(false);
+                                            break;
+                                        case 16:
+                                            peon1.setAlive(false);
+                                            break;
+                                        case 17:
+                                            peon2.setAlive(false);
+                                            break;
+                                        case 18:
+                                            peon3.setAlive(false);
+                                            break;
+                                        case 19:
+                                            peon4.setAlive(false);
+                                            break;
+                                        case 20:
+                                            peon5.setAlive(false);
+                                            break;
+                                        case 21:
+                                            peon6.setAlive(false);
+                                            break;
+                                        case 22:
+                                            peon7.setAlive(false);
+                                            break;
+                                        case 23:
+                                            peon8.setAlive(false);
+                                        case 24:
+                                            torre1.setAlive(false);
+                                            break;
+                                        case 25:
+                                            caballo1.setAlive(false);
+                                            break;
+                                        case 26:
+                                            alfil1.setAlive(false);
+                                            break;
+                                        case 27:
+                                            rey1.setAlive(false);
+                                            break;
+                                        case 28:
+                                            dama1.setAlive(false);
+                                            break;
+                                        case 29:
+                                            alfil2.setAlive(false);
+                                            break;
+                                        case 30:
+                                            caballo2.setAlive(false);
+                                            break;
+                                        case 31:
+                                            torre2.setAlive(false);
+                                            break;
+
+
+
+
+                                    }
+                                    f[n].setPosition(newPos);
+                                }
                             }else{
                                 f[n].setPosition(oldPos);
                             }
@@ -530,7 +1775,109 @@ int main(){
                             peon13.setYNPos(newPos.y);
                             if (peon13.MovimientoPermitido(f[32])){
 
-                                f[n].setPosition(newPos);
+                                if (matrix[newPos.x+newPos.y/56].first == 0  and matrix[newPos.x+newPos.y/56].second == -1){
+                                    f[n].setPosition(newPos);
+                                }else{
+                                    switch(matrix[(newPos.x/56)+((newPos.y/56)*8)].second){
+                                        case 1:
+                                            caballo3.setAlive(false);
+                                            break;
+                                        case 2:
+                                            alfil3.setAlive(false);
+                                            break;
+                                        case 3:
+                                            rey2.setAlive(false);
+                                            break;
+                                        case 4:
+                                            dama2.setAlive(false);
+                                            break;
+                                        case 5:
+                                            alfil4.setAlive(false);
+                                            break;
+                                        case 6:
+                                            caballo4.setAlive(false);
+                                            break;
+                                        case 7:
+                                            torre4.setAlive(false);
+                                            break;
+                                        case 8:
+                                            peon9.setAlive(false);
+                                            break;
+                                        case 9:
+                                            peon10.setAlive(false);
+                                            break;
+                                        case 10:
+                                            peon11.setAlive(false);
+                                            break;
+                                        case 11:
+                                            peon12.setAlive(false);
+                                            break;
+                                        case 12:
+                                            peon13.setAlive(false);
+                                            break;
+                                        case 13:
+                                            peon14.setAlive(false);
+                                            break;
+                                        case 14:
+                                            peon15.setAlive(false);
+                                            break;
+                                        case 15:
+                                            peon16.setAlive(false);
+                                            break;
+                                        case 16:
+                                            peon1.setAlive(false);
+                                            break;
+                                        case 17:
+                                            peon2.setAlive(false);
+                                            break;
+                                        case 18:
+                                            peon3.setAlive(false);
+                                            break;
+                                        case 19:
+                                            peon4.setAlive(false);
+                                            break;
+                                        case 20:
+                                            peon5.setAlive(false);
+                                            break;
+                                        case 21:
+                                            peon6.setAlive(false);
+                                            break;
+                                        case 22:
+                                            peon7.setAlive(false);
+                                            break;
+                                        case 23:
+                                            peon8.setAlive(false);
+                                        case 24:
+                                            torre1.setAlive(false);
+                                            break;
+                                        case 25:
+                                            caballo1.setAlive(false);
+                                            break;
+                                        case 26:
+                                            alfil1.setAlive(false);
+                                            break;
+                                        case 27:
+                                            rey1.setAlive(false);
+                                            break;
+                                        case 28:
+                                            dama1.setAlive(false);
+                                            break;
+                                        case 29:
+                                            alfil2.setAlive(false);
+                                            break;
+                                        case 30:
+                                            caballo2.setAlive(false);
+                                            break;
+                                        case 31:
+                                            torre2.setAlive(false);
+                                            break;
+
+
+
+
+                                    }
+                                    f[n].setPosition(newPos);
+                                }
                             }else{
                                 f[n].setPosition(oldPos);
                             }
@@ -539,7 +1886,109 @@ int main(){
                             peon14.setXNPos(newPos.x);
                             peon14.setYNPos(newPos.y);
                             if (peon14.MovimientoPermitido(f[32])){
-                                f[n].setPosition(newPos);
+                                if (matrix[newPos.x+newPos.y/56].first == 0  and matrix[newPos.x+newPos.y/56].second == -1){
+                                    f[n].setPosition(newPos);
+                                }else{
+                                    switch(matrix[(newPos.x/56)+((newPos.y/56)*8)].second){
+                                        case 1:
+                                            caballo3.setAlive(false);
+                                            break;
+                                        case 2:
+                                            alfil3.setAlive(false);
+                                            break;
+                                        case 3:
+                                            rey2.setAlive(false);
+                                            break;
+                                        case 4:
+                                            dama2.setAlive(false);
+                                            break;
+                                        case 5:
+                                            alfil4.setAlive(false);
+                                            break;
+                                        case 6:
+                                            caballo4.setAlive(false);
+                                            break;
+                                        case 7:
+                                            torre4.setAlive(false);
+                                            break;
+                                        case 8:
+                                            peon9.setAlive(false);
+                                            break;
+                                        case 9:
+                                            peon10.setAlive(false);
+                                            break;
+                                        case 10:
+                                            peon11.setAlive(false);
+                                            break;
+                                        case 11:
+                                            peon12.setAlive(false);
+                                            break;
+                                        case 12:
+                                            peon13.setAlive(false);
+                                            break;
+                                        case 13:
+                                            peon14.setAlive(false);
+                                            break;
+                                        case 14:
+                                            peon15.setAlive(false);
+                                            break;
+                                        case 15:
+                                            peon16.setAlive(false);
+                                            break;
+                                        case 16:
+                                            peon1.setAlive(false);
+                                            break;
+                                        case 17:
+                                            peon2.setAlive(false);
+                                            break;
+                                        case 18:
+                                            peon3.setAlive(false);
+                                            break;
+                                        case 19:
+                                            peon4.setAlive(false);
+                                            break;
+                                        case 20:
+                                            peon5.setAlive(false);
+                                            break;
+                                        case 21:
+                                            peon6.setAlive(false);
+                                            break;
+                                        case 22:
+                                            peon7.setAlive(false);
+                                            break;
+                                        case 23:
+                                            peon8.setAlive(false);
+                                        case 24:
+                                            torre1.setAlive(false);
+                                            break;
+                                        case 25:
+                                            caballo1.setAlive(false);
+                                            break;
+                                        case 26:
+                                            alfil1.setAlive(false);
+                                            break;
+                                        case 27:
+                                            rey1.setAlive(false);
+                                            break;
+                                        case 28:
+                                            dama1.setAlive(false);
+                                            break;
+                                        case 29:
+                                            alfil2.setAlive(false);
+                                            break;
+                                        case 30:
+                                            caballo2.setAlive(false);
+                                            break;
+                                        case 31:
+                                            torre2.setAlive(false);
+                                            break;
+
+
+
+
+                                    }
+                                    f[n].setPosition(newPos);
+                                }
                             }else{
                                 f[n].setPosition(oldPos);
                             }
@@ -549,7 +1998,109 @@ int main(){
                             peon15.setYNPos(newPos.y);
                             if (peon15.MovimientoPermitido(f[32])){
 
-                                f[n].setPosition(newPos);
+                                if (matrix[newPos.x+newPos.y/56].first == 0  and matrix[newPos.x+newPos.y/56].second == -1){
+                                    f[n].setPosition(newPos);
+                                }else{
+                                    switch(matrix[(newPos.x/56)+((newPos.y/56)*8)].second){
+                                        case 1:
+                                            caballo3.setAlive(false);
+                                            break;
+                                        case 2:
+                                            alfil3.setAlive(false);
+                                            break;
+                                        case 3:
+                                            rey2.setAlive(false);
+                                            break;
+                                        case 4:
+                                            dama2.setAlive(false);
+                                            break;
+                                        case 5:
+                                            alfil4.setAlive(false);
+                                            break;
+                                        case 6:
+                                            caballo4.setAlive(false);
+                                            break;
+                                        case 7:
+                                            torre4.setAlive(false);
+                                            break;
+                                        case 8:
+                                            peon9.setAlive(false);
+                                            break;
+                                        case 9:
+                                            peon10.setAlive(false);
+                                            break;
+                                        case 10:
+                                            peon11.setAlive(false);
+                                            break;
+                                        case 11:
+                                            peon12.setAlive(false);
+                                            break;
+                                        case 12:
+                                            peon13.setAlive(false);
+                                            break;
+                                        case 13:
+                                            peon14.setAlive(false);
+                                            break;
+                                        case 14:
+                                            peon15.setAlive(false);
+                                            break;
+                                        case 15:
+                                            peon16.setAlive(false);
+                                            break;
+                                        case 16:
+                                            peon1.setAlive(false);
+                                            break;
+                                        case 17:
+                                            peon2.setAlive(false);
+                                            break;
+                                        case 18:
+                                            peon3.setAlive(false);
+                                            break;
+                                        case 19:
+                                            peon4.setAlive(false);
+                                            break;
+                                        case 20:
+                                            peon5.setAlive(false);
+                                            break;
+                                        case 21:
+                                            peon6.setAlive(false);
+                                            break;
+                                        case 22:
+                                            peon7.setAlive(false);
+                                            break;
+                                        case 23:
+                                            peon8.setAlive(false);
+                                        case 24:
+                                            torre1.setAlive(false);
+                                            break;
+                                        case 25:
+                                            caballo1.setAlive(false);
+                                            break;
+                                        case 26:
+                                            alfil1.setAlive(false);
+                                            break;
+                                        case 27:
+                                            rey1.setAlive(false);
+                                            break;
+                                        case 28:
+                                            dama1.setAlive(false);
+                                            break;
+                                        case 29:
+                                            alfil2.setAlive(false);
+                                            break;
+                                        case 30:
+                                            caballo2.setAlive(false);
+                                            break;
+                                        case 31:
+                                            torre2.setAlive(false);
+                                            break;
+
+
+
+
+                                    }
+                                    f[n].setPosition(newPos);
+                                }
                             }else{
                                 f[n].setPosition(oldPos);
                             }
@@ -559,7 +2110,109 @@ int main(){
                             peon16.setYNPos(newPos.y);
                             if (torre2.MovimientoPermitido(f[32])){
 
-                                f[n].setPosition(newPos);
+                                if (matrix[newPos.x+newPos.y/56].first == 0  and matrix[newPos.x+newPos.y/56].second == -1){
+                                    f[n].setPosition(newPos);
+                                }else{
+                                    switch(matrix[(newPos.x/56)+((newPos.y/56)*8)].second){
+                                        case 1:
+                                            caballo3.setAlive(false);
+                                            break;
+                                        case 2:
+                                            alfil3.setAlive(false);
+                                            break;
+                                        case 3:
+                                            rey2.setAlive(false);
+                                            break;
+                                        case 4:
+                                            dama2.setAlive(false);
+                                            break;
+                                        case 5:
+                                            alfil4.setAlive(false);
+                                            break;
+                                        case 6:
+                                            caballo4.setAlive(false);
+                                            break;
+                                        case 7:
+                                            torre4.setAlive(false);
+                                            break;
+                                        case 8:
+                                            peon9.setAlive(false);
+                                            break;
+                                        case 9:
+                                            peon10.setAlive(false);
+                                            break;
+                                        case 10:
+                                            peon11.setAlive(false);
+                                            break;
+                                        case 11:
+                                            peon12.setAlive(false);
+                                            break;
+                                        case 12:
+                                            peon13.setAlive(false);
+                                            break;
+                                        case 13:
+                                            peon14.setAlive(false);
+                                            break;
+                                        case 14:
+                                            peon15.setAlive(false);
+                                            break;
+                                        case 15:
+                                            peon16.setAlive(false);
+                                            break;
+                                        case 16:
+                                            peon1.setAlive(false);
+                                            break;
+                                        case 17:
+                                            peon2.setAlive(false);
+                                            break;
+                                        case 18:
+                                            peon3.setAlive(false);
+                                            break;
+                                        case 19:
+                                            peon4.setAlive(false);
+                                            break;
+                                        case 20:
+                                            peon5.setAlive(false);
+                                            break;
+                                        case 21:
+                                            peon6.setAlive(false);
+                                            break;
+                                        case 22:
+                                            peon7.setAlive(false);
+                                            break;
+                                        case 23:
+                                            peon8.setAlive(false);
+                                        case 24:
+                                            torre1.setAlive(false);
+                                            break;
+                                        case 25:
+                                            caballo1.setAlive(false);
+                                            break;
+                                        case 26:
+                                            alfil1.setAlive(false);
+                                            break;
+                                        case 27:
+                                            rey1.setAlive(false);
+                                            break;
+                                        case 28:
+                                            dama1.setAlive(false);
+                                            break;
+                                        case 29:
+                                            alfil2.setAlive(false);
+                                            break;
+                                        case 30:
+                                            caballo2.setAlive(false);
+                                            break;
+                                        case 31:
+                                            torre2.setAlive(false);
+                                            break;
+
+
+
+
+                                    }
+                                    f[n].setPosition(newPos);
+                                }
                             }else{
                                 f[n].setPosition(oldPos);
                             }
@@ -570,8 +2223,110 @@ int main(){
                             peon1.setXNPos(newPos.x);
                             peon1.setYNPos(newPos.y);
                             if (peon1.MovimientoPermitido(f[32])){
+                                if (matrix[newPos.x+newPos.y/56].first == 0  and matrix[newPos.x+newPos.y/56].second == -1){
+                                    f[n].setPosition(newPos);
+                                }else{
+                                    switch(matrix[(newPos.x/56)+((newPos.y/56)*8)].second){
+                                        case 1:
+                                            caballo3.setAlive(false);
+                                            break;
+                                        case 2:
+                                            alfil3.setAlive(false);
+                                            break;
+                                        case 3:
+                                            rey2.setAlive(false);
+                                            break;
+                                        case 4:
+                                            dama2.setAlive(false);
+                                            break;
+                                        case 5:
+                                            alfil4.setAlive(false);
+                                            break;
+                                        case 6:
+                                            caballo4.setAlive(false);
+                                            break;
+                                        case 7:
+                                            torre4.setAlive(false);
+                                            break;
+                                        case 8:
+                                            peon9.setAlive(false);
+                                            break;
+                                        case 9:
+                                            peon10.setAlive(false);
+                                            break;
+                                        case 10:
+                                            peon11.setAlive(false);
+                                            break;
+                                        case 11:
+                                            peon12.setAlive(false);
+                                            break;
+                                        case 12:
+                                            peon13.setAlive(false);
+                                            break;
+                                        case 13:
+                                            peon14.setAlive(false);
+                                            break;
+                                        case 14:
+                                            peon15.setAlive(false);
+                                            break;
+                                        case 15:
+                                            peon16.setAlive(false);
+                                            break;
+                                        case 16:
+                                            peon1.setAlive(false);
+                                            break;
+                                        case 17:
+                                            peon2.setAlive(false);
+                                            break;
+                                        case 18:
+                                            peon3.setAlive(false);
+                                            break;
+                                        case 19:
+                                            peon4.setAlive(false);
+                                            break;
+                                        case 20:
+                                            peon5.setAlive(false);
+                                            break;
+                                        case 21:
+                                            peon6.setAlive(false);
+                                            break;
+                                        case 22:
+                                            peon7.setAlive(false);
+                                            break;
+                                        case 23:
+                                            peon8.setAlive(false);
+                                        case 24:
+                                            torre1.setAlive(false);
+                                            break;
+                                        case 25:
+                                            caballo1.setAlive(false);
+                                            break;
+                                        case 26:
+                                            alfil1.setAlive(false);
+                                            break;
+                                        case 27:
+                                            rey1.setAlive(false);
+                                            break;
+                                        case 28:
+                                            dama1.setAlive(false);
+                                            break;
+                                        case 29:
+                                            alfil2.setAlive(false);
+                                            break;
+                                        case 30:
+                                            caballo2.setAlive(false);
+                                            break;
+                                        case 31:
+                                            torre2.setAlive(false);
+                                            break;
 
-                                f[n].setPosition(newPos);
+
+
+
+                                    }
+                                    f[n].setPosition(newPos);
+                                }
+
                             }else{
 
                                 f[n].setPosition(oldPos);
@@ -582,7 +2337,109 @@ int main(){
                             peon2.setYNPos(newPos.y);
                             if (peon2.MovimientoPermitido(f[32])){
 
-                                f[n].setPosition(newPos);
+                                if (matrix[newPos.x+newPos.y/56].first == 0  and matrix[newPos.x+newPos.y/56].second == -1){
+                                    f[n].setPosition(newPos);
+                                }else{
+                                    switch(matrix[(newPos.x/56)+((newPos.y/56)*8)].second){
+                                        case 1:
+                                            caballo3.setAlive(false);
+                                            break;
+                                        case 2:
+                                            alfil3.setAlive(false);
+                                            break;
+                                        case 3:
+                                            rey2.setAlive(false);
+                                            break;
+                                        case 4:
+                                            dama2.setAlive(false);
+                                            break;
+                                        case 5:
+                                            alfil4.setAlive(false);
+                                            break;
+                                        case 6:
+                                            caballo4.setAlive(false);
+                                            break;
+                                        case 7:
+                                            torre4.setAlive(false);
+                                            break;
+                                        case 8:
+                                            peon9.setAlive(false);
+                                            break;
+                                        case 9:
+                                            peon10.setAlive(false);
+                                            break;
+                                        case 10:
+                                            peon11.setAlive(false);
+                                            break;
+                                        case 11:
+                                            peon12.setAlive(false);
+                                            break;
+                                        case 12:
+                                            peon13.setAlive(false);
+                                            break;
+                                        case 13:
+                                            peon14.setAlive(false);
+                                            break;
+                                        case 14:
+                                            peon15.setAlive(false);
+                                            break;
+                                        case 15:
+                                            peon16.setAlive(false);
+                                            break;
+                                        case 16:
+                                            peon1.setAlive(false);
+                                            break;
+                                        case 17:
+                                            peon2.setAlive(false);
+                                            break;
+                                        case 18:
+                                            peon3.setAlive(false);
+                                            break;
+                                        case 19:
+                                            peon4.setAlive(false);
+                                            break;
+                                        case 20:
+                                            peon5.setAlive(false);
+                                            break;
+                                        case 21:
+                                            peon6.setAlive(false);
+                                            break;
+                                        case 22:
+                                            peon7.setAlive(false);
+                                            break;
+                                        case 23:
+                                            peon8.setAlive(false);
+                                        case 24:
+                                            torre1.setAlive(false);
+                                            break;
+                                        case 25:
+                                            caballo1.setAlive(false);
+                                            break;
+                                        case 26:
+                                            alfil1.setAlive(false);
+                                            break;
+                                        case 27:
+                                            rey1.setAlive(false);
+                                            break;
+                                        case 28:
+                                            dama1.setAlive(false);
+                                            break;
+                                        case 29:
+                                            alfil2.setAlive(false);
+                                            break;
+                                        case 30:
+                                            caballo2.setAlive(false);
+                                            break;
+                                        case 31:
+                                            torre2.setAlive(false);
+                                            break;
+
+
+
+
+                                    }
+                                    f[n].setPosition(newPos);
+                                }
                             }else{
                                 f[n].setPosition(oldPos);
                             }
@@ -592,7 +2449,109 @@ int main(){
                             peon3.setYNPos(newPos.y);
                             if (peon3.MovimientoPermitido(f[32])){
 
-                                f[n].setPosition(newPos);
+                                if (matrix[newPos.x+newPos.y/56].first == 0  and matrix[newPos.x+newPos.y/56].second == -1){
+                                    f[n].setPosition(newPos);
+                                }else{
+                                    switch(matrix[(newPos.x/56)+((newPos.y/56)*8)].second){
+                                        case 1:
+                                            caballo3.setAlive(false);
+                                            break;
+                                        case 2:
+                                            alfil3.setAlive(false);
+                                            break;
+                                        case 3:
+                                            rey2.setAlive(false);
+                                            break;
+                                        case 4:
+                                            dama2.setAlive(false);
+                                            break;
+                                        case 5:
+                                            alfil4.setAlive(false);
+                                            break;
+                                        case 6:
+                                            caballo4.setAlive(false);
+                                            break;
+                                        case 7:
+                                            torre4.setAlive(false);
+                                            break;
+                                        case 8:
+                                            peon9.setAlive(false);
+                                            break;
+                                        case 9:
+                                            peon10.setAlive(false);
+                                            break;
+                                        case 10:
+                                            peon11.setAlive(false);
+                                            break;
+                                        case 11:
+                                            peon12.setAlive(false);
+                                            break;
+                                        case 12:
+                                            peon13.setAlive(false);
+                                            break;
+                                        case 13:
+                                            peon14.setAlive(false);
+                                            break;
+                                        case 14:
+                                            peon15.setAlive(false);
+                                            break;
+                                        case 15:
+                                            peon16.setAlive(false);
+                                            break;
+                                        case 16:
+                                            peon1.setAlive(false);
+                                            break;
+                                        case 17:
+                                            peon2.setAlive(false);
+                                            break;
+                                        case 18:
+                                            peon3.setAlive(false);
+                                            break;
+                                        case 19:
+                                            peon4.setAlive(false);
+                                            break;
+                                        case 20:
+                                            peon5.setAlive(false);
+                                            break;
+                                        case 21:
+                                            peon6.setAlive(false);
+                                            break;
+                                        case 22:
+                                            peon7.setAlive(false);
+                                            break;
+                                        case 23:
+                                            peon8.setAlive(false);
+                                        case 24:
+                                            torre1.setAlive(false);
+                                            break;
+                                        case 25:
+                                            caballo1.setAlive(false);
+                                            break;
+                                        case 26:
+                                            alfil1.setAlive(false);
+                                            break;
+                                        case 27:
+                                            rey1.setAlive(false);
+                                            break;
+                                        case 28:
+                                            dama1.setAlive(false);
+                                            break;
+                                        case 29:
+                                            alfil2.setAlive(false);
+                                            break;
+                                        case 30:
+                                            caballo2.setAlive(false);
+                                            break;
+                                        case 31:
+                                            torre2.setAlive(false);
+                                            break;
+
+
+
+
+                                    }
+                                    f[n].setPosition(newPos);
+                                }
                             }else{
                                 f[n].setPosition(oldPos);
                             }
@@ -602,7 +2561,109 @@ int main(){
                             peon4.setYNPos(newPos.y);
                             if (peon4.MovimientoPermitido(f[32])){
 
-                                f[n].setPosition(newPos);
+                                if (matrix[newPos.x+newPos.y/56].first == 0  and matrix[newPos.x+newPos.y/56].second == -1){
+                                    f[n].setPosition(newPos);
+                                }else{
+                                    switch(matrix[(newPos.x/56)+((newPos.y/56)*8)].second){
+                                        case 1:
+                                            caballo3.setAlive(false);
+                                            break;
+                                        case 2:
+                                            alfil3.setAlive(false);
+                                            break;
+                                        case 3:
+                                            rey2.setAlive(false);
+                                            break;
+                                        case 4:
+                                            dama2.setAlive(false);
+                                            break;
+                                        case 5:
+                                            alfil4.setAlive(false);
+                                            break;
+                                        case 6:
+                                            caballo4.setAlive(false);
+                                            break;
+                                        case 7:
+                                            torre4.setAlive(false);
+                                            break;
+                                        case 8:
+                                            peon9.setAlive(false);
+                                            break;
+                                        case 9:
+                                            peon10.setAlive(false);
+                                            break;
+                                        case 10:
+                                            peon11.setAlive(false);
+                                            break;
+                                        case 11:
+                                            peon12.setAlive(false);
+                                            break;
+                                        case 12:
+                                            peon13.setAlive(false);
+                                            break;
+                                        case 13:
+                                            peon14.setAlive(false);
+                                            break;
+                                        case 14:
+                                            peon15.setAlive(false);
+                                            break;
+                                        case 15:
+                                            peon16.setAlive(false);
+                                            break;
+                                        case 16:
+                                            peon1.setAlive(false);
+                                            break;
+                                        case 17:
+                                            peon2.setAlive(false);
+                                            break;
+                                        case 18:
+                                            peon3.setAlive(false);
+                                            break;
+                                        case 19:
+                                            peon4.setAlive(false);
+                                            break;
+                                        case 20:
+                                            peon5.setAlive(false);
+                                            break;
+                                        case 21:
+                                            peon6.setAlive(false);
+                                            break;
+                                        case 22:
+                                            peon7.setAlive(false);
+                                            break;
+                                        case 23:
+                                            peon8.setAlive(false);
+                                        case 24:
+                                            torre1.setAlive(false);
+                                            break;
+                                        case 25:
+                                            caballo1.setAlive(false);
+                                            break;
+                                        case 26:
+                                            alfil1.setAlive(false);
+                                            break;
+                                        case 27:
+                                            rey1.setAlive(false);
+                                            break;
+                                        case 28:
+                                            dama1.setAlive(false);
+                                            break;
+                                        case 29:
+                                            alfil2.setAlive(false);
+                                            break;
+                                        case 30:
+                                            caballo2.setAlive(false);
+                                            break;
+                                        case 31:
+                                            torre2.setAlive(false);
+                                            break;
+
+
+
+
+                                    }
+                                    f[n].setPosition(newPos);
+                                }
                             }else{
                                 f[n].setPosition(oldPos);
                             }
@@ -612,7 +2673,109 @@ int main(){
                             peon5.setYNPos(newPos.y);
                             if (peon5.MovimientoPermitido(f[32])){
 
-                                f[n].setPosition(newPos);
+                                if (matrix[newPos.x+newPos.y/56].first == 0  and matrix[newPos.x+newPos.y/56].second == -1){
+                                    f[n].setPosition(newPos);
+                                }else{
+                                    switch(matrix[(newPos.x/56)+((newPos.y/56)*8)].second){
+                                        case 1:
+                                            caballo3.setAlive(false);
+                                            break;
+                                        case 2:
+                                            alfil3.setAlive(false);
+                                            break;
+                                        case 3:
+                                            rey2.setAlive(false);
+                                            break;
+                                        case 4:
+                                            dama2.setAlive(false);
+                                            break;
+                                        case 5:
+                                            alfil4.setAlive(false);
+                                            break;
+                                        case 6:
+                                            caballo4.setAlive(false);
+                                            break;
+                                        case 7:
+                                            torre4.setAlive(false);
+                                            break;
+                                        case 8:
+                                            peon9.setAlive(false);
+                                            break;
+                                        case 9:
+                                            peon10.setAlive(false);
+                                            break;
+                                        case 10:
+                                            peon11.setAlive(false);
+                                            break;
+                                        case 11:
+                                            peon12.setAlive(false);
+                                            break;
+                                        case 12:
+                                            peon13.setAlive(false);
+                                            break;
+                                        case 13:
+                                            peon14.setAlive(false);
+                                            break;
+                                        case 14:
+                                            peon15.setAlive(false);
+                                            break;
+                                        case 15:
+                                            peon16.setAlive(false);
+                                            break;
+                                        case 16:
+                                            peon1.setAlive(false);
+                                            break;
+                                        case 17:
+                                            peon2.setAlive(false);
+                                            break;
+                                        case 18:
+                                            peon3.setAlive(false);
+                                            break;
+                                        case 19:
+                                            peon4.setAlive(false);
+                                            break;
+                                        case 20:
+                                            peon5.setAlive(false);
+                                            break;
+                                        case 21:
+                                            peon6.setAlive(false);
+                                            break;
+                                        case 22:
+                                            peon7.setAlive(false);
+                                            break;
+                                        case 23:
+                                            peon8.setAlive(false);
+                                        case 24:
+                                            torre1.setAlive(false);
+                                            break;
+                                        case 25:
+                                            caballo1.setAlive(false);
+                                            break;
+                                        case 26:
+                                            alfil1.setAlive(false);
+                                            break;
+                                        case 27:
+                                            rey1.setAlive(false);
+                                            break;
+                                        case 28:
+                                            dama1.setAlive(false);
+                                            break;
+                                        case 29:
+                                            alfil2.setAlive(false);
+                                            break;
+                                        case 30:
+                                            caballo2.setAlive(false);
+                                            break;
+                                        case 31:
+                                            torre2.setAlive(false);
+                                            break;
+
+
+
+
+                                    }
+                                    f[n].setPosition(newPos);
+                                }
                             }else{
                                 f[n].setPosition(oldPos);
                             }
@@ -622,7 +2785,109 @@ int main(){
                             peon6.setYNPos(newPos.y);
                             if (peon6.MovimientoPermitido(f[32])){
 
-                                f[n].setPosition(newPos);
+                                if (matrix[newPos.x+newPos.y/56].first == 0  and matrix[newPos.x+newPos.y/56].second == -1){
+                                    f[n].setPosition(newPos);
+                                }else{
+                                    switch(matrix[(newPos.x/56)+((newPos.y/56)*8)].second){
+                                        case 1:
+                                            caballo3.setAlive(false);
+                                            break;
+                                        case 2:
+                                            alfil3.setAlive(false);
+                                            break;
+                                        case 3:
+                                            rey2.setAlive(false);
+                                            break;
+                                        case 4:
+                                            dama2.setAlive(false);
+                                            break;
+                                        case 5:
+                                            alfil4.setAlive(false);
+                                            break;
+                                        case 6:
+                                            caballo4.setAlive(false);
+                                            break;
+                                        case 7:
+                                            torre4.setAlive(false);
+                                            break;
+                                        case 8:
+                                            peon9.setAlive(false);
+                                            break;
+                                        case 9:
+                                            peon10.setAlive(false);
+                                            break;
+                                        case 10:
+                                            peon11.setAlive(false);
+                                            break;
+                                        case 11:
+                                            peon12.setAlive(false);
+                                            break;
+                                        case 12:
+                                            peon13.setAlive(false);
+                                            break;
+                                        case 13:
+                                            peon14.setAlive(false);
+                                            break;
+                                        case 14:
+                                            peon15.setAlive(false);
+                                            break;
+                                        case 15:
+                                            peon16.setAlive(false);
+                                            break;
+                                        case 16:
+                                            peon1.setAlive(false);
+                                            break;
+                                        case 17:
+                                            peon2.setAlive(false);
+                                            break;
+                                        case 18:
+                                            peon3.setAlive(false);
+                                            break;
+                                        case 19:
+                                            peon4.setAlive(false);
+                                            break;
+                                        case 20:
+                                            peon5.setAlive(false);
+                                            break;
+                                        case 21:
+                                            peon6.setAlive(false);
+                                            break;
+                                        case 22:
+                                            peon7.setAlive(false);
+                                            break;
+                                        case 23:
+                                            peon8.setAlive(false);
+                                        case 24:
+                                            torre1.setAlive(false);
+                                            break;
+                                        case 25:
+                                            caballo1.setAlive(false);
+                                            break;
+                                        case 26:
+                                            alfil1.setAlive(false);
+                                            break;
+                                        case 27:
+                                            rey1.setAlive(false);
+                                            break;
+                                        case 28:
+                                            dama1.setAlive(false);
+                                            break;
+                                        case 29:
+                                            alfil2.setAlive(false);
+                                            break;
+                                        case 30:
+                                            caballo2.setAlive(false);
+                                            break;
+                                        case 31:
+                                            torre2.setAlive(false);
+                                            break;
+
+
+
+
+                                    }
+                                    f[n].setPosition(newPos);
+                                }
                             }else{
                                 f[n].setPosition(oldPos);
                             }
@@ -632,7 +2897,109 @@ int main(){
                             peon7.setYNPos(newPos.y);
                             if (peon7.MovimientoPermitido(f[32])){
 
-                                f[n].setPosition(newPos);
+                                if (matrix[newPos.x+newPos.y/56].first == 0  and matrix[newPos.x+newPos.y/56].second == -1){
+                                    f[n].setPosition(newPos);
+                                }else{
+                                    switch(matrix[(newPos.x/56)+((newPos.y/56)*8)].second){
+                                        case 1:
+                                            caballo3.setAlive(false);
+                                            break;
+                                        case 2:
+                                            alfil3.setAlive(false);
+                                            break;
+                                        case 3:
+                                            rey2.setAlive(false);
+                                            break;
+                                        case 4:
+                                            dama2.setAlive(false);
+                                            break;
+                                        case 5:
+                                            alfil4.setAlive(false);
+                                            break;
+                                        case 6:
+                                            caballo4.setAlive(false);
+                                            break;
+                                        case 7:
+                                            torre4.setAlive(false);
+                                            break;
+                                        case 8:
+                                            peon9.setAlive(false);
+                                            break;
+                                        case 9:
+                                            peon10.setAlive(false);
+                                            break;
+                                        case 10:
+                                            peon11.setAlive(false);
+                                            break;
+                                        case 11:
+                                            peon12.setAlive(false);
+                                            break;
+                                        case 12:
+                                            peon13.setAlive(false);
+                                            break;
+                                        case 13:
+                                            peon14.setAlive(false);
+                                            break;
+                                        case 14:
+                                            peon15.setAlive(false);
+                                            break;
+                                        case 15:
+                                            peon16.setAlive(false);
+                                            break;
+                                        case 16:
+                                            peon1.setAlive(false);
+                                            break;
+                                        case 17:
+                                            peon2.setAlive(false);
+                                            break;
+                                        case 18:
+                                            peon3.setAlive(false);
+                                            break;
+                                        case 19:
+                                            peon4.setAlive(false);
+                                            break;
+                                        case 20:
+                                            peon5.setAlive(false);
+                                            break;
+                                        case 21:
+                                            peon6.setAlive(false);
+                                            break;
+                                        case 22:
+                                            peon7.setAlive(false);
+                                            break;
+                                        case 23:
+                                            peon8.setAlive(false);
+                                        case 24:
+                                            torre1.setAlive(false);
+                                            break;
+                                        case 25:
+                                            caballo1.setAlive(false);
+                                            break;
+                                        case 26:
+                                            alfil1.setAlive(false);
+                                            break;
+                                        case 27:
+                                            rey1.setAlive(false);
+                                            break;
+                                        case 28:
+                                            dama1.setAlive(false);
+                                            break;
+                                        case 29:
+                                            alfil2.setAlive(false);
+                                            break;
+                                        case 30:
+                                            caballo2.setAlive(false);
+                                            break;
+                                        case 31:
+                                            torre2.setAlive(false);
+                                            break;
+
+
+
+
+                                    }
+                                    f[n].setPosition(newPos);
+                                }
                             }else{
                                 f[n].setPosition(oldPos);
                             }
@@ -642,7 +3009,109 @@ int main(){
                             peon8.setYNPos(newPos.y);
                             if (peon8.MovimientoPermitido(f[32])){
 
-                                f[n].setPosition(newPos);
+                                if (matrix[newPos.x+newPos.y/56].first == 0  and matrix[newPos.x+newPos.y/56].second == -1){
+                                    f[n].setPosition(newPos);
+                                }else{
+                                    switch(matrix[(newPos.x/56)+((newPos.y/56)*8)].second){
+                                        case 1:
+                                            caballo3.setAlive(false);
+                                            break;
+                                        case 2:
+                                            alfil3.setAlive(false);
+                                            break;
+                                        case 3:
+                                            rey2.setAlive(false);
+                                            break;
+                                        case 4:
+                                            dama2.setAlive(false);
+                                            break;
+                                        case 5:
+                                            alfil4.setAlive(false);
+                                            break;
+                                        case 6:
+                                            caballo4.setAlive(false);
+                                            break;
+                                        case 7:
+                                            torre4.setAlive(false);
+                                            break;
+                                        case 8:
+                                            peon9.setAlive(false);
+                                            break;
+                                        case 9:
+                                            peon10.setAlive(false);
+                                            break;
+                                        case 10:
+                                            peon11.setAlive(false);
+                                            break;
+                                        case 11:
+                                            peon12.setAlive(false);
+                                            break;
+                                        case 12:
+                                            peon13.setAlive(false);
+                                            break;
+                                        case 13:
+                                            peon14.setAlive(false);
+                                            break;
+                                        case 14:
+                                            peon15.setAlive(false);
+                                            break;
+                                        case 15:
+                                            peon16.setAlive(false);
+                                            break;
+                                        case 16:
+                                            peon1.setAlive(false);
+                                            break;
+                                        case 17:
+                                            peon2.setAlive(false);
+                                            break;
+                                        case 18:
+                                            peon3.setAlive(false);
+                                            break;
+                                        case 19:
+                                            peon4.setAlive(false);
+                                            break;
+                                        case 20:
+                                            peon5.setAlive(false);
+                                            break;
+                                        case 21:
+                                            peon6.setAlive(false);
+                                            break;
+                                        case 22:
+                                            peon7.setAlive(false);
+                                            break;
+                                        case 23:
+                                            peon8.setAlive(false);
+                                        case 24:
+                                            torre1.setAlive(false);
+                                            break;
+                                        case 25:
+                                            caballo1.setAlive(false);
+                                            break;
+                                        case 26:
+                                            alfil1.setAlive(false);
+                                            break;
+                                        case 27:
+                                            rey1.setAlive(false);
+                                            break;
+                                        case 28:
+                                            dama1.setAlive(false);
+                                            break;
+                                        case 29:
+                                            alfil2.setAlive(false);
+                                            break;
+                                        case 30:
+                                            caballo2.setAlive(false);
+                                            break;
+                                        case 31:
+                                            torre2.setAlive(false);
+                                            break;
+
+
+
+
+                                    }
+                                    f[n].setPosition(newPos);
+                                }
                             }else{
                                 f[n].setPosition(oldPos);
                             }
@@ -652,7 +3121,109 @@ int main(){
                             torre1.setYNPos(newPos.y);
                             if (torre1.MovimientoPermitido(f[32])){
 
-                                f[n].setPosition(newPos);
+                                if (matrix[newPos.x+newPos.y/56].first == 0  and matrix[newPos.x+newPos.y/56].second == -1){
+                                    f[n].setPosition(newPos);
+                                }else{
+                                    switch(matrix[(newPos.x/56)+((newPos.y/56)*8)].second){
+                                        case 1:
+                                            caballo3.setAlive(false);
+                                            break;
+                                        case 2:
+                                            alfil3.setAlive(false);
+                                            break;
+                                        case 3:
+                                            rey2.setAlive(false);
+                                            break;
+                                        case 4:
+                                            dama2.setAlive(false);
+                                            break;
+                                        case 5:
+                                            alfil4.setAlive(false);
+                                            break;
+                                        case 6:
+                                            caballo4.setAlive(false);
+                                            break;
+                                        case 7:
+                                            torre4.setAlive(false);
+                                            break;
+                                        case 8:
+                                            peon9.setAlive(false);
+                                            break;
+                                        case 9:
+                                            peon10.setAlive(false);
+                                            break;
+                                        case 10:
+                                            peon11.setAlive(false);
+                                            break;
+                                        case 11:
+                                            peon12.setAlive(false);
+                                            break;
+                                        case 12:
+                                            peon13.setAlive(false);
+                                            break;
+                                        case 13:
+                                            peon14.setAlive(false);
+                                            break;
+                                        case 14:
+                                            peon15.setAlive(false);
+                                            break;
+                                        case 15:
+                                            peon16.setAlive(false);
+                                            break;
+                                        case 16:
+                                            peon1.setAlive(false);
+                                            break;
+                                        case 17:
+                                            peon2.setAlive(false);
+                                            break;
+                                        case 18:
+                                            peon3.setAlive(false);
+                                            break;
+                                        case 19:
+                                            peon4.setAlive(false);
+                                            break;
+                                        case 20:
+                                            peon5.setAlive(false);
+                                            break;
+                                        case 21:
+                                            peon6.setAlive(false);
+                                            break;
+                                        case 22:
+                                            peon7.setAlive(false);
+                                            break;
+                                        case 23:
+                                            peon8.setAlive(false);
+                                        case 24:
+                                            torre1.setAlive(false);
+                                            break;
+                                        case 25:
+                                            caballo1.setAlive(false);
+                                            break;
+                                        case 26:
+                                            alfil1.setAlive(false);
+                                            break;
+                                        case 27:
+                                            rey1.setAlive(false);
+                                            break;
+                                        case 28:
+                                            dama1.setAlive(false);
+                                            break;
+                                        case 29:
+                                            alfil2.setAlive(false);
+                                            break;
+                                        case 30:
+                                            caballo2.setAlive(false);
+                                            break;
+                                        case 31:
+                                            torre2.setAlive(false);
+                                            break;
+
+
+
+
+                                    }
+                                    f[n].setPosition(newPos);
+                                }
                             }else{
                                 f[n].setPosition(oldPos);
                             }
@@ -662,7 +3233,109 @@ int main(){
                             caballo1.setYNPos(newPos.y);
                             if (caballo1.MovimientoPermitido(f[32])){
 
-                                f[n].setPosition(newPos);
+                                if (matrix[newPos.x+newPos.y/56].first == 0  and matrix[newPos.x+newPos.y/56].second == -1){
+                                    f[n].setPosition(newPos);
+                                }else{
+                                    switch(matrix[(newPos.x/56)+((newPos.y/56)*8)].second){
+                                        case 1:
+                                            caballo3.setAlive(false);
+                                            break;
+                                        case 2:
+                                            alfil3.setAlive(false);
+                                            break;
+                                        case 3:
+                                            rey2.setAlive(false);
+                                            break;
+                                        case 4:
+                                            dama2.setAlive(false);
+                                            break;
+                                        case 5:
+                                            alfil4.setAlive(false);
+                                            break;
+                                        case 6:
+                                            caballo4.setAlive(false);
+                                            break;
+                                        case 7:
+                                            torre4.setAlive(false);
+                                            break;
+                                        case 8:
+                                            peon9.setAlive(false);
+                                            break;
+                                        case 9:
+                                            peon10.setAlive(false);
+                                            break;
+                                        case 10:
+                                            peon11.setAlive(false);
+                                            break;
+                                        case 11:
+                                            peon12.setAlive(false);
+                                            break;
+                                        case 12:
+                                            peon13.setAlive(false);
+                                            break;
+                                        case 13:
+                                            peon14.setAlive(false);
+                                            break;
+                                        case 14:
+                                            peon15.setAlive(false);
+                                            break;
+                                        case 15:
+                                            peon16.setAlive(false);
+                                            break;
+                                        case 16:
+                                            peon1.setAlive(false);
+                                            break;
+                                        case 17:
+                                            peon2.setAlive(false);
+                                            break;
+                                        case 18:
+                                            peon3.setAlive(false);
+                                            break;
+                                        case 19:
+                                            peon4.setAlive(false);
+                                            break;
+                                        case 20:
+                                            peon5.setAlive(false);
+                                            break;
+                                        case 21:
+                                            peon6.setAlive(false);
+                                            break;
+                                        case 22:
+                                            peon7.setAlive(false);
+                                            break;
+                                        case 23:
+                                            peon8.setAlive(false);
+                                        case 24:
+                                            torre1.setAlive(false);
+                                            break;
+                                        case 25:
+                                            caballo1.setAlive(false);
+                                            break;
+                                        case 26:
+                                            alfil1.setAlive(false);
+                                            break;
+                                        case 27:
+                                            rey1.setAlive(false);
+                                            break;
+                                        case 28:
+                                            dama1.setAlive(false);
+                                            break;
+                                        case 29:
+                                            alfil2.setAlive(false);
+                                            break;
+                                        case 30:
+                                            caballo2.setAlive(false);
+                                            break;
+                                        case 31:
+                                            torre2.setAlive(false);
+                                            break;
+
+
+
+
+                                    }
+                                    f[n].setPosition(newPos);
+                                }
                             }else{
                                 f[n].setPosition(oldPos);
                             }
@@ -672,7 +3345,109 @@ int main(){
                             alfil1.setYNPos(newPos.y);
                             if (alfil1.MovimientoPermitido(f[32])){
 
-                                f[n].setPosition(newPos);
+                                if (matrix[newPos.x+newPos.y/56].first == 0  and matrix[newPos.x+newPos.y/56].second == -1){
+                                    f[n].setPosition(newPos);
+                                }else{
+                                    switch(matrix[(newPos.x/56)+((newPos.y/56)*8)].second){
+                                        case 1:
+                                            caballo3.setAlive(false);
+                                            break;
+                                        case 2:
+                                            alfil3.setAlive(false);
+                                            break;
+                                        case 3:
+                                            rey2.setAlive(false);
+                                            break;
+                                        case 4:
+                                            dama2.setAlive(false);
+                                            break;
+                                        case 5:
+                                            alfil4.setAlive(false);
+                                            break;
+                                        case 6:
+                                            caballo4.setAlive(false);
+                                            break;
+                                        case 7:
+                                            torre4.setAlive(false);
+                                            break;
+                                        case 8:
+                                            peon9.setAlive(false);
+                                            break;
+                                        case 9:
+                                            peon10.setAlive(false);
+                                            break;
+                                        case 10:
+                                            peon11.setAlive(false);
+                                            break;
+                                        case 11:
+                                            peon12.setAlive(false);
+                                            break;
+                                        case 12:
+                                            peon13.setAlive(false);
+                                            break;
+                                        case 13:
+                                            peon14.setAlive(false);
+                                            break;
+                                        case 14:
+                                            peon15.setAlive(false);
+                                            break;
+                                        case 15:
+                                            peon16.setAlive(false);
+                                            break;
+                                        case 16:
+                                            peon1.setAlive(false);
+                                            break;
+                                        case 17:
+                                            peon2.setAlive(false);
+                                            break;
+                                        case 18:
+                                            peon3.setAlive(false);
+                                            break;
+                                        case 19:
+                                            peon4.setAlive(false);
+                                            break;
+                                        case 20:
+                                            peon5.setAlive(false);
+                                            break;
+                                        case 21:
+                                            peon6.setAlive(false);
+                                            break;
+                                        case 22:
+                                            peon7.setAlive(false);
+                                            break;
+                                        case 23:
+                                            peon8.setAlive(false);
+                                        case 24:
+                                            torre1.setAlive(false);
+                                            break;
+                                        case 25:
+                                            caballo1.setAlive(false);
+                                            break;
+                                        case 26:
+                                            alfil1.setAlive(false);
+                                            break;
+                                        case 27:
+                                            rey1.setAlive(false);
+                                            break;
+                                        case 28:
+                                            dama1.setAlive(false);
+                                            break;
+                                        case 29:
+                                            alfil2.setAlive(false);
+                                            break;
+                                        case 30:
+                                            caballo2.setAlive(false);
+                                            break;
+                                        case 31:
+                                            torre2.setAlive(false);
+                                            break;
+
+
+
+
+                                    }
+                                    f[n].setPosition(newPos);
+                                }
                             }else{
                                 f[n].setPosition(oldPos);
                             }
@@ -682,7 +3457,109 @@ int main(){
                             rey1.setYNPos(newPos.y);
                             if (rey1.MovimientoPermitido(f[32])){
 
-                                f[n].setPosition(newPos);
+                                if (matrix[newPos.x+newPos.y/56].first == 0  and matrix[newPos.x+newPos.y/56].second == -1){
+                                    f[n].setPosition(newPos);
+                                }else{
+                                    switch(matrix[(newPos.x/56)+((newPos.y/56)*8)].second){
+                                        case 1:
+                                            caballo3.setAlive(false);
+                                            break;
+                                        case 2:
+                                            alfil3.setAlive(false);
+                                            break;
+                                        case 3:
+                                            rey2.setAlive(false);
+                                            break;
+                                        case 4:
+                                            dama2.setAlive(false);
+                                            break;
+                                        case 5:
+                                            alfil4.setAlive(false);
+                                            break;
+                                        case 6:
+                                            caballo4.setAlive(false);
+                                            break;
+                                        case 7:
+                                            torre4.setAlive(false);
+                                            break;
+                                        case 8:
+                                            peon9.setAlive(false);
+                                            break;
+                                        case 9:
+                                            peon10.setAlive(false);
+                                            break;
+                                        case 10:
+                                            peon11.setAlive(false);
+                                            break;
+                                        case 11:
+                                            peon12.setAlive(false);
+                                            break;
+                                        case 12:
+                                            peon13.setAlive(false);
+                                            break;
+                                        case 13:
+                                            peon14.setAlive(false);
+                                            break;
+                                        case 14:
+                                            peon15.setAlive(false);
+                                            break;
+                                        case 15:
+                                            peon16.setAlive(false);
+                                            break;
+                                        case 16:
+                                            peon1.setAlive(false);
+                                            break;
+                                        case 17:
+                                            peon2.setAlive(false);
+                                            break;
+                                        case 18:
+                                            peon3.setAlive(false);
+                                            break;
+                                        case 19:
+                                            peon4.setAlive(false);
+                                            break;
+                                        case 20:
+                                            peon5.setAlive(false);
+                                            break;
+                                        case 21:
+                                            peon6.setAlive(false);
+                                            break;
+                                        case 22:
+                                            peon7.setAlive(false);
+                                            break;
+                                        case 23:
+                                            peon8.setAlive(false);
+                                        case 24:
+                                            torre1.setAlive(false);
+                                            break;
+                                        case 25:
+                                            caballo1.setAlive(false);
+                                            break;
+                                        case 26:
+                                            alfil1.setAlive(false);
+                                            break;
+                                        case 27:
+                                            rey1.setAlive(false);
+                                            break;
+                                        case 28:
+                                            dama1.setAlive(false);
+                                            break;
+                                        case 29:
+                                            alfil2.setAlive(false);
+                                            break;
+                                        case 30:
+                                            caballo2.setAlive(false);
+                                            break;
+                                        case 31:
+                                            torre2.setAlive(false);
+                                            break;
+
+
+
+
+                                    }
+                                    f[n].setPosition(newPos);
+                                }
                             }else{
                                 f[n].setPosition(oldPos);
                             }
@@ -692,7 +3569,109 @@ int main(){
                             dama1.setYNPos(newPos.y);
                             if (dama1.MovimientoPermitido(f[32])){
 
-                                f[n].setPosition(newPos);
+                                if (matrix[newPos.x+newPos.y/56].first == 0  and matrix[newPos.x+newPos.y/56].second == -1){
+                                    f[n].setPosition(newPos);
+                                }else{
+                                    switch(matrix[(newPos.x/56)+((newPos.y/56)*8)].second){
+                                        case 1:
+                                            caballo3.setAlive(false);
+                                            break;
+                                        case 2:
+                                            alfil3.setAlive(false);
+                                            break;
+                                        case 3:
+                                            rey2.setAlive(false);
+                                            break;
+                                        case 4:
+                                            dama2.setAlive(false);
+                                            break;
+                                        case 5:
+                                            alfil4.setAlive(false);
+                                            break;
+                                        case 6:
+                                            caballo4.setAlive(false);
+                                            break;
+                                        case 7:
+                                            torre4.setAlive(false);
+                                            break;
+                                        case 8:
+                                            peon9.setAlive(false);
+                                            break;
+                                        case 9:
+                                            peon10.setAlive(false);
+                                            break;
+                                        case 10:
+                                            peon11.setAlive(false);
+                                            break;
+                                        case 11:
+                                            peon12.setAlive(false);
+                                            break;
+                                        case 12:
+                                            peon13.setAlive(false);
+                                            break;
+                                        case 13:
+                                            peon14.setAlive(false);
+                                            break;
+                                        case 14:
+                                            peon15.setAlive(false);
+                                            break;
+                                        case 15:
+                                            peon16.setAlive(false);
+                                            break;
+                                        case 16:
+                                            peon1.setAlive(false);
+                                            break;
+                                        case 17:
+                                            peon2.setAlive(false);
+                                            break;
+                                        case 18:
+                                            peon3.setAlive(false);
+                                            break;
+                                        case 19:
+                                            peon4.setAlive(false);
+                                            break;
+                                        case 20:
+                                            peon5.setAlive(false);
+                                            break;
+                                        case 21:
+                                            peon6.setAlive(false);
+                                            break;
+                                        case 22:
+                                            peon7.setAlive(false);
+                                            break;
+                                        case 23:
+                                            peon8.setAlive(false);
+                                        case 24:
+                                            torre1.setAlive(false);
+                                            break;
+                                        case 25:
+                                            caballo1.setAlive(false);
+                                            break;
+                                        case 26:
+                                            alfil1.setAlive(false);
+                                            break;
+                                        case 27:
+                                            rey1.setAlive(false);
+                                            break;
+                                        case 28:
+                                            dama1.setAlive(false);
+                                            break;
+                                        case 29:
+                                            alfil2.setAlive(false);
+                                            break;
+                                        case 30:
+                                            caballo2.setAlive(false);
+                                            break;
+                                        case 31:
+                                            torre2.setAlive(false);
+                                            break;
+
+
+
+
+                                    }
+                                    f[n].setPosition(newPos);
+                                }
                             }else{
                                 f[n].setPosition(oldPos);
                             }
@@ -702,7 +3681,109 @@ int main(){
                             alfil2.setYNPos(newPos.y);
                             if (alfil2.MovimientoPermitido(f[32])){
 
-                                f[n].setPosition(newPos);
+                                if (matrix[newPos.x+newPos.y/56].first == 0  and matrix[newPos.x+newPos.y/56].second == -1){
+                                    f[n].setPosition(newPos);
+                                }else{
+                                    switch(matrix[(newPos.x/56)+((newPos.y/56)*8)].second){
+                                        case 1:
+                                            caballo3.setAlive(false);
+                                            break;
+                                        case 2:
+                                            alfil3.setAlive(false);
+                                            break;
+                                        case 3:
+                                            rey2.setAlive(false);
+                                            break;
+                                        case 4:
+                                            dama2.setAlive(false);
+                                            break;
+                                        case 5:
+                                            alfil4.setAlive(false);
+                                            break;
+                                        case 6:
+                                            caballo4.setAlive(false);
+                                            break;
+                                        case 7:
+                                            torre4.setAlive(false);
+                                            break;
+                                        case 8:
+                                            peon9.setAlive(false);
+                                            break;
+                                        case 9:
+                                            peon10.setAlive(false);
+                                            break;
+                                        case 10:
+                                            peon11.setAlive(false);
+                                            break;
+                                        case 11:
+                                            peon12.setAlive(false);
+                                            break;
+                                        case 12:
+                                            peon13.setAlive(false);
+                                            break;
+                                        case 13:
+                                            peon14.setAlive(false);
+                                            break;
+                                        case 14:
+                                            peon15.setAlive(false);
+                                            break;
+                                        case 15:
+                                            peon16.setAlive(false);
+                                            break;
+                                        case 16:
+                                            peon1.setAlive(false);
+                                            break;
+                                        case 17:
+                                            peon2.setAlive(false);
+                                            break;
+                                        case 18:
+                                            peon3.setAlive(false);
+                                            break;
+                                        case 19:
+                                            peon4.setAlive(false);
+                                            break;
+                                        case 20:
+                                            peon5.setAlive(false);
+                                            break;
+                                        case 21:
+                                            peon6.setAlive(false);
+                                            break;
+                                        case 22:
+                                            peon7.setAlive(false);
+                                            break;
+                                        case 23:
+                                            peon8.setAlive(false);
+                                        case 24:
+                                            torre1.setAlive(false);
+                                            break;
+                                        case 25:
+                                            caballo1.setAlive(false);
+                                            break;
+                                        case 26:
+                                            alfil1.setAlive(false);
+                                            break;
+                                        case 27:
+                                            rey1.setAlive(false);
+                                            break;
+                                        case 28:
+                                            dama1.setAlive(false);
+                                            break;
+                                        case 29:
+                                            alfil2.setAlive(false);
+                                            break;
+                                        case 30:
+                                            caballo2.setAlive(false);
+                                            break;
+                                        case 31:
+                                            torre2.setAlive(false);
+                                            break;
+
+
+
+
+                                    }
+                                    f[n].setPosition(newPos);
+                                }
                             }else{
                                 f[n].setPosition(oldPos);
                             }
@@ -712,7 +3793,109 @@ int main(){
                             caballo2.setYNPos(newPos.y);
                             if (caballo2.MovimientoPermitido(f[32])){
 
-                                f[n].setPosition(newPos);
+                                if (matrix[newPos.x+newPos.y/56].first == 0  and matrix[newPos.x+newPos.y/56].second == -1){
+                                    f[n].setPosition(newPos);
+                                }else{
+                                    switch(matrix[(newPos.x/56)+((newPos.y/56)*8)].second){
+                                        case 1:
+                                            caballo3.setAlive(false);
+                                            break;
+                                        case 2:
+                                            alfil3.setAlive(false);
+                                            break;
+                                        case 3:
+                                            rey2.setAlive(false);
+                                            break;
+                                        case 4:
+                                            dama2.setAlive(false);
+                                            break;
+                                        case 5:
+                                            alfil4.setAlive(false);
+                                            break;
+                                        case 6:
+                                            caballo4.setAlive(false);
+                                            break;
+                                        case 7:
+                                            torre4.setAlive(false);
+                                            break;
+                                        case 8:
+                                            peon9.setAlive(false);
+                                            break;
+                                        case 9:
+                                            peon10.setAlive(false);
+                                            break;
+                                        case 10:
+                                            peon11.setAlive(false);
+                                            break;
+                                        case 11:
+                                            peon12.setAlive(false);
+                                            break;
+                                        case 12:
+                                            peon13.setAlive(false);
+                                            break;
+                                        case 13:
+                                            peon14.setAlive(false);
+                                            break;
+                                        case 14:
+                                            peon15.setAlive(false);
+                                            break;
+                                        case 15:
+                                            peon16.setAlive(false);
+                                            break;
+                                        case 16:
+                                            peon1.setAlive(false);
+                                            break;
+                                        case 17:
+                                            peon2.setAlive(false);
+                                            break;
+                                        case 18:
+                                            peon3.setAlive(false);
+                                            break;
+                                        case 19:
+                                            peon4.setAlive(false);
+                                            break;
+                                        case 20:
+                                            peon5.setAlive(false);
+                                            break;
+                                        case 21:
+                                            peon6.setAlive(false);
+                                            break;
+                                        case 22:
+                                            peon7.setAlive(false);
+                                            break;
+                                        case 23:
+                                            peon8.setAlive(false);
+                                        case 24:
+                                            torre1.setAlive(false);
+                                            break;
+                                        case 25:
+                                            caballo1.setAlive(false);
+                                            break;
+                                        case 26:
+                                            alfil1.setAlive(false);
+                                            break;
+                                        case 27:
+                                            rey1.setAlive(false);
+                                            break;
+                                        case 28:
+                                            dama1.setAlive(false);
+                                            break;
+                                        case 29:
+                                            alfil2.setAlive(false);
+                                            break;
+                                        case 30:
+                                            caballo2.setAlive(false);
+                                            break;
+                                        case 31:
+                                            torre2.setAlive(false);
+                                            break;
+
+
+
+
+                                    }
+                                    f[n].setPosition(newPos);
+                                }
                             }else{
                                 f[n].setPosition(oldPos);
                             }
@@ -722,7 +3905,109 @@ int main(){
                             torre2.setYNPos(newPos.y);
                             if (torre2.MovimientoPermitido(f[32])){
 
-                                f[n].setPosition(newPos);
+                                if (matrix[newPos.x+newPos.y/56].first == 0  and matrix[newPos.x+newPos.y/56].second == -1){
+                                    f[n].setPosition(newPos);
+                                }else{
+                                    switch(matrix[(newPos.x/56)+((newPos.y/56)*8)].second){
+                                        case 1:
+                                            caballo3.setAlive(false);
+                                            break;
+                                        case 2:
+                                            alfil3.setAlive(false);
+                                            break;
+                                        case 3:
+                                            rey2.setAlive(false);
+                                            break;
+                                        case 4:
+                                            dama2.setAlive(false);
+                                            break;
+                                        case 5:
+                                            alfil4.setAlive(false);
+                                            break;
+                                        case 6:
+                                            caballo4.setAlive(false);
+                                            break;
+                                        case 7:
+                                            torre4.setAlive(false);
+                                            break;
+                                        case 8:
+                                            peon9.setAlive(false);
+                                            break;
+                                        case 9:
+                                            peon10.setAlive(false);
+                                            break;
+                                        case 10:
+                                            peon11.setAlive(false);
+                                            break;
+                                        case 11:
+                                            peon12.setAlive(false);
+                                            break;
+                                        case 12:
+                                            peon13.setAlive(false);
+                                            break;
+                                        case 13:
+                                            peon14.setAlive(false);
+                                            break;
+                                        case 14:
+                                            peon15.setAlive(false);
+                                            break;
+                                        case 15:
+                                            peon16.setAlive(false);
+                                            break;
+                                        case 16:
+                                            peon1.setAlive(false);
+                                            break;
+                                        case 17:
+                                            peon2.setAlive(false);
+                                            break;
+                                        case 18:
+                                            peon3.setAlive(false);
+                                            break;
+                                        case 19:
+                                            peon4.setAlive(false);
+                                            break;
+                                        case 20:
+                                            peon5.setAlive(false);
+                                            break;
+                                        case 21:
+                                            peon6.setAlive(false);
+                                            break;
+                                        case 22:
+                                            peon7.setAlive(false);
+                                            break;
+                                        case 23:
+                                            peon8.setAlive(false);
+                                        case 24:
+                                            torre1.setAlive(false);
+                                            break;
+                                        case 25:
+                                            caballo1.setAlive(false);
+                                            break;
+                                        case 26:
+                                            alfil1.setAlive(false);
+                                            break;
+                                        case 27:
+                                            rey1.setAlive(false);
+                                            break;
+                                        case 28:
+                                            dama1.setAlive(false);
+                                            break;
+                                        case 29:
+                                            alfil2.setAlive(false);
+                                            break;
+                                        case 30:
+                                            caballo2.setAlive(false);
+                                            break;
+                                        case 31:
+                                            torre2.setAlive(false);
+                                            break;
+
+
+
+
+                                    }
+                                    f[n].setPosition(newPos);
+                                }
                             }else{
                                 f[n].setPosition(oldPos);
                             }
@@ -759,7 +4044,6 @@ int main(){
                 matrix.push_back({0, -1});
             }
         }
-        cout<<"tamanio: "<<matrix.size()<<endl;
 
         //comp move
         if (Keyboard::isKeyPressed(Keyboard::Space)){
@@ -771,8 +4055,7 @@ int main(){
             for(int i=0;i<32;i++) if (f[i].getPosition()==oldPos) n=i;
 
             //      Animacion
-            for(int k=0;k<50;k++)
-            {
+            for(int k=0;k<50;k++){
                 Vector2f p = newPos - oldPos;
                 f[n].move(p.x/50, p.y/50);
                 window.draw(sBoard);
@@ -785,6 +4068,15 @@ int main(){
             move(str);  position+=str+" ";
             f[n].setPosition(newPos);
         }
+        //cout<<">> "<<rey1.getAlive()<<endl;
+        if(verificarRey1(rey1)){
+            cout<<"Gano NEGRAS"<<endl;
+            window.close();
+        }else if (verificarRey2(rey2)){
+            cout<<"Gano BLANCAS"<<endl;
+            window.close();
+        }
+
 
         //      Animacion de arastrar
         if (isMove){
@@ -820,4 +4112,3 @@ int main(){
 
     return 0;
 }
-

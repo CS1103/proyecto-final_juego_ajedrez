@@ -59,6 +59,9 @@ public:
     bool getAlive(){
         return alive;
     }
+    bool getColor(){
+        return pieceColor;
+    }
 
     virtual bool MovimientoPermitido(Sprite todasPiezas) = 0;
 
@@ -184,8 +187,8 @@ public:
         int column_d =  next_position.first/56;
         int fill_d = 7-(next_position.second/56);
 
-        cout<<"OColumn: "<<(position.first/56)<< "  :  "<<"OFill: "<<7-(position.second/56)<<endl;
-        cout<<"DColumn: "<<(next_position.first/56)<< "  :  "<<"DFill: "<<7-(next_position.second/56)<<endl;
+        //cout<<"OColumn: "<<(position.first/56)<< "  :  "<<"OFill: "<<7-(position.second/56)<<endl;
+        //cout<<"DColumn: "<<(next_position.first/56)<< "  :  "<<"DFill: "<<7-(next_position.second/56)<<endl;
 
         if (column_o + 2 == column_d and (fill_o + 1 == fill_d or fill_o == fill_d - 1)){
             position.first = next_position.first;
@@ -253,8 +256,8 @@ public:
         int column_d =  next_position.first/56;
         int fill_d = 7-(next_position.second/56);
 
-        cout<<"OColumn: "<<(position.first/56)<< "  :  "<<"OFill: "<<7-(position.second/56)<<endl;
-        cout<<"DColumn: "<<(next_position.first/56)<< "  :  "<<"DFill: "<<7-(next_position.second/56)<<endl;
+        //cout<<"OColumn: "<<(position.first/56)<< "  :  "<<"OFill: "<<7-(position.second/56)<<endl;
+        //cout<<"DColumn: "<<(next_position.first/56)<< "  :  "<<"DFill: "<<7-(next_position.second/56)<<endl;
 
         if(abs(column_d-column_o)==abs(fill_d-fill_o)){
             position.first = next_position.first;
@@ -294,8 +297,8 @@ public:
         int column_d =  next_position.first/56;
         int fill_d = 7-(next_position.second/56);
 
-        cout<<"OColumn: "<<(position.first/56)<< "  :  "<<"OFill: "<<7-(position.second/56)<<endl;
-        cout<<"DColumn: "<<(next_position.first/56)<< "  :  "<<"DFill: "<<7-(next_position.second/56)<<endl;
+        //cout<<"OColumn: "<<(position.first/56)<< "  :  "<<"OFill: "<<7-(position.second/56)<<endl;
+        //cout<<"DColumn: "<<(next_position.first/56)<< "  :  "<<"DFill: "<<7-(next_position.second/56)<<endl;
         if (column_o == column_d or fill_d == fill_o){
             position.first = next_position.first;
             position.second = next_position.second;
@@ -334,9 +337,9 @@ public:
         int column_d = next_position.first / 56;
         int fill_d = 7 - (next_position.second / 56);
 
-        cout << "OColumn: " << (position.first / 56) << "  :  " << "OFill: " << 7 - (position.second / 56) << endl;
-        cout << "DColumn: " << (next_position.first / 56) << "  :  " << "DFill: " << 7 - (next_position.second / 56)
-             << endl;
+        //cout << "OColumn: " << (position.first / 56) << "  :  " << "OFill: " << 7 - (position.second / 56) << endl;
+        //cout << "DColumn: " << (next_position.first / 56) << "  :  " << "DFill: " << 7 - (next_position.second / 56)
+
         if (abs(column_d - column_o) == abs(fill_d - fill_o)) {
             position.first = next_position.first;
             position.second = next_position.second;
@@ -389,8 +392,8 @@ public:
         int column_d =  next_position.first/56;
         int fill_d = 7-(next_position.second/56);
 
-        cout<<"OColumn: "<<(position.first/56)<< "  :  "<<"OFill: "<<7-(position.second/56)<<endl;
-        cout<<"DColumn: "<<(next_position.first/56)<< "  :  "<<"DFill: "<<7-(next_position.second/56)<<endl;
+        //cout<<"OColumn: "<<(position.first/56)<< "  :  "<<"OFill: "<<7-(position.second/56)<<endl;
+        //cout<<"DColumn: "<<(next_position.first/56)<< "  :  "<<"DFill: "<<7-(next_position.second/56)<<endl;
         if((column_o==column_d or column_d + 1 == column_o or column_o+1==column_d)and(fill_o ==fill_d or fill_d+1==fill_o or fill_o+1==fill_d)){
             position.first = next_position.first;
             position.second = next_position.second;
@@ -414,7 +417,6 @@ public:
         }
     }
 }; // Completo
-
 
 
 #endif //CHESS_AJEDREZ_H

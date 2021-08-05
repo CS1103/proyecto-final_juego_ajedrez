@@ -45,7 +45,6 @@ public:
             for (int j = 0; j < 8; ++j) {
                 int x = i * 56;
                 int y = j * 56;
-
                 if (_torreA.casillaValida(x,y)){
                     where.push_back({x,y});
                 }
